@@ -1,117 +1,170 @@
-# 🎨 VonVault Frontend - React + TypeScript
+# 🚀 VonVault Frontend Modernization
 
-> **Professional DeFi Telegram Mini App Frontend with Multi-Wallet Support**
+> **Professional DeFi Telegram Mini App Frontend - React + TypeScript + Tailwind**
 
-This is the frontend for VonVault, a complete DeFi investment platform built as a Telegram Mini App. The frontend is built with React, TypeScript, and Tailwind CSS, featuring 18 screens and comprehensive multi-wallet functionality.
+This is the modernized frontend for VonVault, a comprehensive DeFi investment platform built as a Telegram Mini App. Built with React 18, TypeScript, and Tailwind CSS, featuring 23+ screens and multi-wallet functionality.
 
 ---
 
-## 🚀 **Quick Start**
+## 🎯 **Quick Start**
 
-### **Development Setup**
+### **Prerequisites**
+- Node.js 18+ and yarn package manager
+- Git for version control
+
+### **Installation**
 
 ```bash
+# Clone the repository
+git clone https://github.com/VonArtis/vonvault-frontend-modernization.git
+cd vonvault-frontend-modernization
+
 # Install dependencies (use yarn, not npm)
 yarn install
 
 # Set up environment variables
-echo "REACT_APP_BACKEND_URL=https://vonvault-backend.onrender.com" > .env
-
-# Start development server
-yarn start
+cp .env.example .env
+# Edit .env with your backend URL
 ```
 
-The app will open at [http://localhost:3000](http://localhost:3000) in development mode.
-
-### **Production Build**
+### **Development**
 
 ```bash
+# Start development server
+yarn start
+
 # Build for production
 yarn build
 
-# The build folder will contain optimized production files
-# Ready for deployment to Vercel or other hosting platforms
+# Run tests
+yarn test
+
+# Run linting
+yarn lint
 ```
+
+The app will be available at [http://localhost:3000](http://localhost:3000)
 
 ---
 
-## 🎨 **Frontend Architecture**
+## 🏗️ **Project Structure**
 
-### **🏗️ Project Structure**
-
-```typescript
+```
 src/
 ├── components/              # Reusable UI components
-│   ├── screens/            # 23 screen components
-│   │   ├── DashboardScreen.tsx         # Main dashboard
-│   │   ├── WalletManagerScreen.tsx     # Multi-wallet management
-│   │   ├── CryptoWalletScreen.tsx      # Crypto portfolio view
-│   │   ├── MakeNewInvestmentScreen.tsx # Investment creation
-│   │   ├── EmailVerificationScreen.tsx # Email verification
-│   │   ├── SMSVerificationScreen.tsx   # SMS verification
-│   │   ├── TwoFactorSetupScreen.tsx    # 2FA setup
-│   │   └── ...                         # Other 16 screens
+│   ├── screens/            # 23+ screen components
+│   │   ├── DashboardScreen.tsx
+│   │   ├── WalletManagerScreen.tsx
+│   │   ├── CryptoWalletScreen.tsx
+│   │   ├── MakeNewInvestmentScreen.tsx
+│   │   └── ... (20+ more screens)
 │   ├── common/             # Shared UI components
-│   │   ├── Button.tsx      # Professional button component
-│   │   ├── Card.tsx        # Card layout component
-│   │   ├── Input.tsx       # Form input component
+│   │   ├── Button.tsx
+│   │   ├── Card.tsx
+│   │   ├── Input.tsx
 │   │   └── LoadingSpinner.tsx
 │   └── layout/             # Layout components
 │       └── ScreenHeader.tsx
 ├── hooks/                  # Custom React hooks
-│   ├── useAuth.ts         # Authentication management
-│   ├── usePortfolio.ts    # Portfolio data handling
-│   ├── useMultiWallet.ts  # Multi-wallet state management
-│   └── useMembership.ts   # Membership system
+│   ├── useAuth.ts
+│   ├── useMultiWallet.ts
+│   ├── usePortfolio.ts
+│   ├── useMembership.ts
+│   └── ... (15+ custom hooks)
 ├── services/              # External service integrations
-│   └── api.ts            # Backend API client
+│   ├── api.ts
+│   ├── web3Service.js
+│   ├── CryptoWalletService.ts
+│   └── ... (10+ services)
 ├── context/              # React Context providers
-│   ├── AppContext.tsx    # Global app state
-│   └── TelegramContext.tsx # Telegram Mini App integration
+│   ├── AppContext.tsx
+│   └── TelegramContext.tsx
 ├── types/               # TypeScript definitions
-│   └── index.ts        # All type definitions
+│   └── index.ts
+├── locales/            # Internationalization
+│   ├── en/
+│   ├── es/
+│   └── ...
 └── utils/              # Utility functions
-    └── constants.ts    # App constants
+    └── constants.ts
 ```
 
-### **🎯 Key Features**
+---
 
-- **📱 23 Screen Components** - Complete user journey from onboarding with verification to advanced portfolio management
-- **💼 Multi-Wallet Support** - Up to 5 wallets with MetaMask, Trust Wallet, WalletConnect, Coinbase
-- **🎨 Professional UI Library** - Consistent design system with dark theme
-- **⚡ TypeScript** - Full type coverage for enhanced developer experience
-- **📊 Real-time Data** - Live crypto prices and portfolio updates
-- **🏆 Membership System** - 5-tier system (Basic → Club → Premium → VIP → Elite) with dynamic investment plans
-- **🔐 Complete Authentication** - Email, SMS verification, and 2FA setup
+## 🎨 **Key Features**
+
+### **💼 Multi-Wallet Support**
+- **5 Wallet Types**: MetaMask, Trust Wallet, WalletConnect, Coinbase Wallet, and more
+- **Multi-Network**: Ethereum, Polygon, BSC support
+- **Primary Wallet**: Designate and switch between wallets seamlessly
+- **Portfolio Aggregation**: Combined balance across all wallets
+
+### **📱 Complete User Journey**
+- **23+ Screen Components**: From onboarding to advanced portfolio management
+- **Authentication Flow**: Email & SMS verification, 2FA setup
+- **Investment System**: Create, manage, and track investments
+- **Membership Tiers**: 5-tier system (Basic → Club → Premium → VIP → Elite)
+
+### **🎯 Telegram Mini App Integration**
+- **Native Telegram WebApp API** integration
+- **Theme Adaptation**: Follows Telegram's theme settings
+- **Hardware Back Button**: Native navigation support
+- **User Profile**: Access to Telegram user data
+
+### **⚡ Technical Excellence**
+- **React 18** with latest features
+- **TypeScript** with strict type checking
+- **Tailwind CSS** with custom VonVault design system
+- **Responsive Design**: Perfect on all screen sizes
+- **Performance Optimized**: <100ms interaction response
 
 ---
 
-## 💼 **Multi-Wallet Frontend Features**
+## 🛠️ **Technology Stack**
 
-### **🪙 Wallet Management**
-- **WalletManagerScreen** - Complete wallet management interface
-- **Primary wallet designation** - Visual indicators and easy switching
-- **Wallet type icons** - 🦊 MetaMask, 🛡️ Trust Wallet, 🔗 WalletConnect, 🔵 Coinbase
-- **Network badges** - Clear Ethereum, Polygon, BSC indicators
+### **Core Technologies**
+- **React 18.2.0** - Modern React with hooks and context
+- **TypeScript 5.8.3** - Type-safe JavaScript
+- **Tailwind CSS 3.3.6** - Utility-first CSS framework
+- **React Router 6.26.1** - Client-side routing
 
-### **📊 Enhanced Dashboard**
-- **Multi-wallet indicators** - Wallet count badges and status
-- **Primary wallet display** - Shows active wallet with type icon
-- **Balance aggregation** - Total value across all wallets and networks
+### **Web3 & Blockchain**
+- **Ethers.js 6.14.4** - Ethereum library
+- **@reown/appkit** - Multi-wallet connection
+- **QR Code Generation** - Wallet connection via QR codes
 
-### **💰 Investment Integration**
-- **Wallet selection** - Choose specific wallet for each investment
-- **Primary wallet auto-selection** - Smart defaults for transactions
-- **Investment summary** - Shows selected wallet in confirmation
+### **Developer Experience**
+- **ESLint & Prettier** - Code linting and formatting
+- **Jest & React Testing Library** - Unit testing
+- **Yarn** - Package management
+- **React Scripts** - Development tooling
 
 ---
 
-## 🎨 **UI Components**
+## 🎨 **Design System**
 
-### **Professional Component Library**
+### **VonVault Brand Colors**
+```css
+/* Primary Colors */
+--primary-purple: #9333ea;
+--primary-dark: #7c3aed;
 
+/* Background Colors */
+--dark-bg: #000000;
+--card-bg: #1f2937;
+--gray-850: #1f2937;
+--gray-950: #0f1419;
+
+/* Tier Colors */
+--club-color: #d97706;      /* Amber/Bronze */
+--premium-color: #9ca3af;   /* Silver/Gray */
+--vip-color: #eab308;       /* Gold/Yellow */
+--elite-color: #9333ea;     /* Purple/Pink */
+```
+
+### **Component Library**
 ```typescript
-// Button Component - 3 variants, 3 sizes, full accessibility
+// Professional Button Component
 <Button 
   variant="primary" 
   size="lg" 
@@ -121,7 +174,7 @@ src/
   Connect Wallet
 </Button>
 
-// Input Component - Validation, prefixes, error handling
+// Validated Input Component
 <Input
   label="Investment Amount"
   type="number"
@@ -130,7 +183,7 @@ src/
   error={errors.amount}
 />
 
-// Card Component - Hover effects, clickable variants
+// Interactive Card Component
 <Card 
   className="wallet-card"
   onClick={selectWallet}
@@ -140,105 +193,79 @@ src/
 </Card>
 ```
 
-### **🌙 Design System**
-
-```css
-/* VonVault Color Palette */
---primary-purple: #9333ea;
---dark-bg: #000000;
---card-bg: #1f2937;
---text-primary: #ffffff;
---success-green: #10b981;
-
-/* Tier-specific colors */
---club-color: #d97706;      /* Amber/Bronze */
---premium-color: #9ca3af;   /* Silver/Gray */
---vip-color: #eab308;       /* Gold/Yellow */
---elite-color: #9333ea;     /* Purple/Pink */
-```
-
----
-
-## 📱 **Telegram Mini App Integration**
-
-### **🔗 Telegram WebApp Features**
-- **Native integration** - Telegram WebApp API
-- **User data access** - Telegram profile integration
-- **Theme adaptation** - Follows Telegram theme settings
-- **Hardware back button** - Native navigation support
-
-### **🎯 Mobile Optimization**
-- **Touch-friendly** - 44px minimum tap targets
-- **Gesture support** - Swipe navigation
-- **Performance** - <100ms interaction response
-- **Responsive** - Perfect on all screen sizes
-
----
-
-## ⚙️ **Development Guidelines**
-
-### **🔧 Available Scripts**
-
-```bash
-# Development
-yarn start          # Start development server
-yarn build         # Build for production
-yarn test          # Run test suite
-yarn lint          # Run ESLint
-yarn type-check    # TypeScript type checking
-
-# Deployment
-yarn deploy        # Deploy to production (Vercel)
-```
-
-### **🎨 Code Style**
-
-- **TypeScript** - Strict mode enabled, full type coverage
-- **ESLint + Prettier** - Consistent code formatting
-- **Component naming** - PascalCase for components, camelCase for functions
-- **File organization** - Feature-based folder structure
-
-### **📊 Performance Guidelines**
-
-- **Lazy loading** - Route-based code splitting
-- **Image optimization** - WebP format with fallbacks
-- **Bundle size** - <1MB for optimal loading
-- **Caching** - Service worker for offline functionality
-
 ---
 
 ## 🌐 **Environment Configuration**
 
-### **Environment Variables**
+### **Required Environment Variables**
+
+Create a `.env` file in the root directory:
 
 ```bash
-# Required
-REACT_APP_BACKEND_URL=https://vonvault-backend.onrender.com
+# Backend API URL
+REACT_APP_BACKEND_URL=https://your-backend-url.com
 
-# Optional (for development)
+# Optional Development Settings
 REACT_APP_DEBUG=true
 REACT_APP_ENVIRONMENT=development
+
+# Telegram Bot Configuration (if needed)
+REACT_APP_TELEGRAM_BOT_TOKEN=your_bot_token_here
 ```
 
-### **🚀 Deployment**
+### **Environment Files**
+- `.env` - Default environment variables
+- `.env.local` - Local overrides (gitignored)
+- `.env.development` - Development-specific variables
+- `.env.production` - Production-specific variables
 
+---
+
+## 📦 **Build & Deployment**
+
+### **Production Build**
 ```bash
-# Production deployment to Render
+# Create optimized production build
 yarn build
 
-# Or use GitHub integration for automatic deployments
-git push origin main  # Auto-deploys to https://www.vonartis.app
+# The build folder contains optimized files ready for deployment
+```
+
+### **Deployment Options**
+
+#### **Vercel (Recommended)**
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy to Vercel
+vercel --prod
+```
+
+#### **Netlify**
+```bash
+# Build command: yarn build
+# Publish directory: build
+```
+
+#### **GitHub Pages**
+```bash
+# Install gh-pages
+yarn add --dev gh-pages
+
+# Add to package.json scripts:
+# "predeploy": "yarn build",
+# "deploy": "gh-pages -d build"
+
+# Deploy
+yarn deploy
 ```
 
 ---
 
 ## 🧪 **Testing**
 
-### **Testing Strategy**
-- **Unit tests** - Component functionality testing
-- **Integration tests** - Multi-wallet flow testing
-- **E2E tests** - Complete user journey validation
-
+### **Available Test Commands**
 ```bash
 # Run all tests
 yarn test
@@ -246,42 +273,129 @@ yarn test
 # Run tests in watch mode
 yarn test --watch
 
-# Generate coverage report
+# Run tests with coverage
 yarn test --coverage
+
+# Run tests silently
+yarn test --silent
 ```
 
+### **Testing Structure**
+- **Unit Tests**: Component functionality testing
+- **Integration Tests**: Multi-wallet flow testing
+- **E2E Tests**: Complete user journey validation
+
 ---
 
-## 📚 **Key Dependencies**
+## 🔧 **Development Guidelines**
 
-```json
-{
-  "react": "^18.2.0",
-  "typescript": "^5.2.2",
-  "tailwindcss": "^3.3.0",
-  "@types/react": "^18.2.0",
-  "axios": "^1.4.0",
-  "react-qr-code": "^2.0.11",
-  "ethers": "^6.6.0"
-}
+### **Code Style**
+- **TypeScript**: Strict mode enabled, full type coverage
+- **ESLint + Prettier**: Consistent code formatting
+- **Naming Conventions**: PascalCase for components, camelCase for functions
+- **File Organization**: Feature-based folder structure
+
+### **Performance Guidelines**
+- **Bundle Size**: Target <1MB for optimal loading
+- **Lazy Loading**: Route-based code splitting
+- **Image Optimization**: WebP format with fallbacks
+- **Caching**: Service worker for offline functionality
+
+### **Accessibility**
+- **WCAG 2.1 AA**: Compliance with accessibility standards
+- **Keyboard Navigation**: Full keyboard support
+- **Screen Reader**: Proper ARIA labels and roles
+- **Color Contrast**: Minimum 4.5:1 contrast ratio
+
+---
+
+## 🚀 **Features Deep Dive**
+
+### **Multi-Wallet Management**
+- **Wallet Connection**: Support for 5+ wallet types
+- **Network Switching**: Seamless network transitions
+- **Balance Aggregation**: Combined portfolio view
+- **Transaction History**: Complete transaction tracking
+
+### **Investment System**
+- **Investment Creation**: Step-by-step investment wizard
+- **Portfolio Management**: Real-time portfolio tracking
+- **Risk Assessment**: Automated risk analysis
+- **Profit/Loss Tracking**: Detailed P&L calculations
+
+### **Membership System**
+- **5-Tier Structure**: Progressive membership benefits
+- **Tier Progression**: Automatic tier upgrades
+- **Exclusive Features**: Tier-specific functionality
+- **Rewards System**: Points and achievement tracking
+
+---
+
+## 📚 **Documentation**
+
+### **API Documentation**
+- **Backend API**: Complete API reference
+- **Web3 Integration**: Blockchain interaction guides
+- **Telegram API**: Mini App integration docs
+
+### **Component Documentation**
+- **Storybook**: Interactive component library
+- **TypeScript Types**: Complete type definitions
+- **Usage Examples**: Real-world implementation examples
+
+---
+
+## 🤝 **Contributing**
+
+### **Development Setup**
+```bash
+# Fork the repository
+git clone https://github.com/your-username/vonvault-frontend-modernization.git
+
+# Create feature branch
+git checkout -b feature/amazing-feature
+
+# Make changes and commit
+git commit -m "Add amazing feature"
+
+# Push to branch
+git push origin feature/amazing-feature
+
+# Create Pull Request
 ```
 
----
-
-## 🎯 **Learn More**
-
-### **🔗 Useful Links**
-- **Live App**: [https://www.vonartis.app](https://www.vonartis.app)
-- **Backend API**: [https://vonvault-backend.onrender.com](https://vonvault-backend.onrender.com)
-- **Main Repository**: [VonVault GitHub](https://github.com/HarryVonBot/TG-Mini-App)
-- **Documentation**: [Project Docs](../docs/)
-
-### **📖 Additional Resources**
-- [React Documentation](https://reactjs.org/)
-- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
-- [Tailwind CSS](https://tailwindcss.com/docs)
-- [Telegram Mini Apps](https://core.telegram.org/bots/webapps)
+### **Code Standards**
+- Write tests for new features
+- Follow existing code patterns
+- Update documentation
+- Ensure TypeScript compliance
 
 ---
 
-*Built with ❤️ for the future of decentralized finance*
+## 📄 **License**
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🔗 **Links**
+
+- **Live Demo**: [VonVault App](https://www.vonartis.app)
+- **Backend Repository**: [VonVault Backend](https://github.com/VonArtis/vonvault-backend)
+- **Documentation**: [Full Documentation](https://docs.vonartis.app)
+- **Support**: [Discord Community](https://discord.gg/vonvault)
+
+---
+
+## 👥 **Team**
+
+Built with ❤️ by the VonVault Team for the future of decentralized finance.
+
+- **Frontend**: React + TypeScript + Tailwind CSS
+- **Backend**: Node.js + Express + MongoDB
+- **Blockchain**: Ethereum + Polygon + BSC
+- **Deployment**: Vercel + Render + GitHub Actions
+
+---
+
+*Ready to revolutionize DeFi? Let's build the future together! 🚀*
