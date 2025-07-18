@@ -136,8 +136,8 @@ export const StakingDashboardScreen: React.FC<StakingDashboardScreenProps> = ({
     setError(null);
 
     try {
-      // NOTE: These API endpoints need to be implemented in your backend
-      const response = await apiService.makeRequest('GET', '/staking/portfolio', undefined, user.token);
+      // Use the new staking API endpoint
+      const response = await apiService.getStakingPortfolio(user.token);
       
       if (response?.data) {
         setStakingPortfolio(response.data);

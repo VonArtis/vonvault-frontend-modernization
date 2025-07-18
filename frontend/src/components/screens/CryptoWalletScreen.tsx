@@ -6,6 +6,9 @@ import { useApp } from '../../context/AppContext';
 import { useLanguage } from '../../hooks/useLanguage';
 import { useLoadingState, LOADING_KEYS } from '../../hooks/useLoadingState';
 import { cryptoWalletService } from '../../services/CryptoWalletService';
+import { VIP_TIERS, getVIPTierByAmount } from '../../config/features';
+import { stakingService } from '../../services/StakingService';
+import { LockClosedIcon, CurrencyDollarIcon, BanknotesIcon } from '@heroicons/react/24/outline';
 
 interface CryptoData {
   totalETH: number;
@@ -117,34 +120,167 @@ export const CryptoWalletScreen: React.FC<ScreenProps> = ({ onBack, onNavigate }
         </p>
       </div>
 
-      {/* Wallet Balance */}
-      <div className="bg-purple-900/20 border border-purple-500/30 rounded-lg p-6 text-center">
+      {/* Enhanced Balance Display with Staking APY */}
+      <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700 mb-6">
         {cryptoData.hasWallets ? (
           <>
-            <div className="text-3xl font-bold text-purple-300 mb-2">
-              {formatUSDT(cryptoData.totalUSDT)}
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-xl font-semibold text-white">
+                {t('crypto.portfolio', 'Crypto Portfolio')}
+              </h2>
+              <span className="text-sm text-gray-400">
+                {cryptoData.connectedWallets.length} {t('crypto.wallets', 'wallets')}
+              </span>
             </div>
-            <div className="text-gray-400 text-sm mb-4">
-              {formatCrypto(cryptoData.totalETH)}
+            
+            <div className="grid grid-cols-2 gap-4 mb-6">
+              <div className="bg-gray-900/50 rounded-lg p-4">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-sm text-gray-400">Total Balance</span>
+                  <BanknotesIcon className="w-4 h-4 text-green-400" />
+                </div>
+                <div className="text-2xl font-bold text-white mb-1">
+                  {formatUSDT(cryptoData.totalUSDT)}
+                </div>
+                <div className="text-xs text-gray-400">
+                  Available for staking
+                </div>
+              </div>
+              
+              <div className="bg-gray-900/50 rounded-lg p-4">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-sm text-gray-400">Potential APY</span>
+                  <CurrencyDollarIcon className="w-4 h-4 text-purple-400" />
+                </div>
+                <div className="text-2xl font-bold text-green-400 mb-1">
+                  {getVIPTierByAmount(cryptoData.totalUSDT).apy}%
+                </div>
+                <div className="text-xs text-gray-400">
+                  {getVIPTierByAmount(cryptoData.totalUSDT).name} tier
+                </div>
+              </div>
             </div>
-            <div className="text-xs text-gray-500">
-              {cryptoData.connectedWallets.length} wallet{cryptoData.connectedWallets.length !== 1 ? 's' : ''} connected
-            </div>
+
+            {/* Enhanced Stake Now Button */}
+            {cryptoData.totalUSDT >= 1000 && (
+              <Button
+                onClick={() => onNavigate?.('create-staking')}
+                fullWidth
+                className="h-12 bg-gradient-to-r from-green-600 to-cyan-600 hover:from-green-700 hover:to-cyan-700 text-white font-semibold flex items-center justify-center gap-2 mb-4"
+              >
+                <LockClosedIcon className="w-5 h-5" />
+                Stake {formatUSDT(cryptoData.totalUSDT)} for {getVIPTierByAmount(cryptoData.totalUSDT).apy}% APY
+              </Button>
+            )}
           </>
         ) : (
           <>
-            <div className="text-3xl font-bold text-gray-500 mb-2">
-              $0.00 USDT
-            </div>
-            <div className="text-gray-400 text-sm mb-4">
-              0.0000 ETH
-            </div>
-            <div className="text-xs text-gray-500">
-              No wallets connected
+            <div className="text-center">
+              <div className="text-3xl font-bold text-gray-500 mb-2">
+                $0.00 USDT
+              </div>
+              <div className="text-gray-400 text-sm mb-4">
+                0.0000 ETH
+              </div>
+              <div className="text-xs text-gray-500">
+                No wallets connected
+              </div>
             </div>
           </>
         )}
       </div>
+
+      {/* Staking Opportunity Section */}
+      {cryptoData.hasWallets && cryptoData.totalUSDT > 0 && (
+        <div className="bg-gradient-to-r from-cyan-900/20 to-purple-900/20 border border-cyan-500/30 rounded-lg p-6">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h3 className="text-lg font-semibold text-cyan-300">
+                🏦 Treasury Staking Available
+              </h3>
+              <p className="text-sm text-gray-400">
+                Earn rewards with your crypto assets
+              </p>
+            </div>
+            <div className="text-right">
+              <div className="text-sm text-gray-400">Available to stake</div>
+              <div className="text-lg font-bold text-cyan-300">
+                {formatUSDT(cryptoData.totalUSDT)}
+              </div>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-2 gap-4 mb-4">
+            {/* Current Tier */}
+            <div className="bg-gray-800/50 rounded-lg p-3">
+              <div className="text-xs text-gray-400">Current Tier</div>
+              <div className="text-lg font-semibold text-purple-300">
+                {getVIPTierByAmount(cryptoData.totalUSDT).name}
+              </div>
+            </div>
+            
+            {/* Potential APY */}
+            <div className="bg-gray-800/50 rounded-lg p-3">
+              <div className="text-xs text-gray-400">Your APY</div>
+              <div className="text-lg font-semibold text-green-300">
+                {getVIPTierByAmount(cryptoData.totalUSDT).apy}%
+              </div>
+            </div>
+          </div>
+          
+          {/* Progress to Next Tier - Using existing implementation */}
+          {(() => {
+            const currentTier = getVIPTierByAmount(cryptoData.totalUSDT);
+            const nextTier = Object.values(VIP_TIERS).find(tier => tier.min > cryptoData.totalUSDT);
+            
+            if (nextTier && cryptoData.totalUSDT < nextTier.min) {
+              const amountToNext = nextTier.min - cryptoData.totalUSDT;
+              const progress = Math.min(
+                ((cryptoData.totalUSDT - currentTier.min) / (nextTier.min - currentTier.min)) * 100,
+                100
+              );
+              
+              return (
+                <div className="bg-white bg-opacity-20 rounded-lg p-3 mb-4">
+                  <div className="flex justify-between text-sm mb-2">
+                    <span>Progress to Next Tier</span>
+                    <span>${amountToNext.toLocaleString()} to go</span>
+                  </div>
+                  <div className="w-full bg-white bg-opacity-30 rounded-full h-2">
+                    <div 
+                      className="bg-white h-2 rounded-full transition-all duration-300"
+                      style={{ width: `${progress}%` }}
+                    ></div>
+                  </div>
+                </div>
+              );
+            }
+            return null;
+          })()}
+          
+          <div className="bg-gray-800/30 rounded-lg p-4 mb-4">
+            <div className="flex items-center gap-2 mb-2">
+              <LockClosedIcon className="w-4 h-4 text-cyan-300" />
+              <span className="text-sm font-medium text-cyan-300">Treasury Transfer Notice</span>
+            </div>
+            <div className="text-xs text-gray-400 space-y-1">
+              <div>• Funds transferred to VonVault Treasury wallet</div>
+              <div>• Locked for 12 months with guaranteed {getVIPTierByAmount(cryptoData.totalUSDT).apy}% APY</div>
+              <div>• Monthly interest accrual (non-compounded)</div>
+              <div>• Estimated monthly income: {formatUSDT((cryptoData.totalUSDT * getVIPTierByAmount(cryptoData.totalUSDT).apy) / (12 * 100))}</div>
+            </div>
+          </div>
+          
+          <Button
+            onClick={() => onNavigate?.('create-staking')}
+            fullWidth
+            className="h-12 bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-700 hover:to-purple-700 text-white font-semibold flex items-center justify-center gap-2"
+          >
+            <CurrencyDollarIcon className="w-5 h-5" />
+            Stake for {getVIPTierByAmount(cryptoData.totalUSDT).apy}% APY
+          </Button>
+        </div>
+      )}
 
       {/* Quick Actions */}
       <div className="space-y-3">
@@ -162,12 +298,12 @@ export const CryptoWalletScreen: React.FC<ScreenProps> = ({ onBack, onNavigate }
           </Button>
           
           <Button
-            onClick={() => onNavigate?.('withdrawal')}
+            onClick={() => onNavigate?.('staking-dashboard')}
             variant="outline"
-            className="h-16 border-orange-500 text-orange-400 hover:bg-orange-500/10 flex flex-col items-center justify-center"
+            className="h-16 border-cyan-500 text-cyan-400 hover:bg-cyan-500/10 flex flex-col items-center justify-center"
           >
-            <span className="text-2xl mb-1">📤</span>
-            <span className="text-sm">{t('crypto.withdraw', 'Withdraw')}</span>
+            <span className="text-2xl mb-1">🏦</span>
+            <span className="text-sm">{t('crypto.stake', 'Stake')}</span>
           </Button>
         </div>
 

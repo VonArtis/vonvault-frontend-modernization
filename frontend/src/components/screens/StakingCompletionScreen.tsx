@@ -254,7 +254,7 @@ export const StakingCompletionScreen: React.FC<StakingCompletionScreenProps> = (
         {/* Next Steps */}
         <div className="bg-blue-900 bg-opacity-30 border border-blue-700 rounded-lg p-4">
           <h4 className="font-semibold text-blue-400 mb-3">
-            {t('staking:completion.nextSteps.title', '📈 What happens next?')}
+            {t('staking:completion.nextSteps.title', 'What happens next?')}
           </h4>
           <div className="text-sm text-blue-300 space-y-2">
             <p>• {t('staking:completion.nextSteps.treasury', 'Your funds are securely transferred to our treasury wallet')}</p>

@@ -14,8 +14,7 @@ import { useDeepLinking } from './hooks/useDeepLinking';
 import { WelcomeScreen } from './components/screens/WelcomeScreen';
 import { LoginScreen } from './components/screens/LoginScreen';
 import { SignUpScreen } from './components/screens/SignUpScreen';
-import { DashboardScreen } from './components/screens/DashboardScreen';
-import { ConnectBankScreen } from './components/screens/ConnectBankScreen';
+
 import { ConnectCryptoScreen } from './components/screens/ConnectCryptoScreen';
 import { CryptoWalletScreen } from './components/screens/CryptoWalletScreen';
 import { CryptoDepositScreen } from './components/screens/CryptoDepositScreen';
@@ -27,8 +26,6 @@ import { AuthenticatorSetupScreen } from './components/screens/AuthenticatorSetu
 import { Enhanced2FASetupScreen } from './components/screens/Enhanced2FASetupScreen';
 import { SMSTwoFactorSetupScreen } from './components/screens/SMSTwoFactorSetupScreen';
 import { VerificationSuccessScreen } from './components/screens/VerificationSuccessScreen';
-import { AvailableFundsScreen } from './components/screens/AvailableFundsScreen';
-import { AdminPlansScreen } from './components/screens/AdminPlansScreen';
 import { AdminDashboardScreen } from './components/screens/AdminDashboardScreen';
 import { AdminUsersScreen } from './components/screens/AdminUsersScreen';
 import { AdminUserDetailsScreen } from './components/screens/AdminUserDetailsScreen';
@@ -37,18 +34,21 @@ import { AdminCryptoScreen } from './components/screens/AdminCryptoScreen';
 import { PrivacyPolicyScreen } from './components/screens/PrivacyPolicyScreen';
 import { TermsOfServiceScreen } from './components/screens/TermsOfServiceScreen';
 import { EditProfileScreen } from './components/screens/EditProfileScreen';
-import { InvestmentsScreen } from './components/screens/InvestmentsScreen';
-import { MakeNewInvestmentScreen } from './components/screens/MakeNewInvestmentScreen';
-import { InvestmentCompletionScreen } from './components/screens/InvestmentCompletionScreen';
+
+
+
 import { InvestmentAnalyticsScreen } from './components/screens/InvestmentAnalyticsScreen';
-import { AchievementsScreen } from './components/screens/AchievementsScreen';
-import { AutoInvestmentScreen } from './components/screens/AutoInvestmentScreen';
-import { TransferFundsScreen } from './components/screens/TransferFundsScreen';
-import { WithdrawalScreen } from './components/screens/WithdrawalScreen';
+import { StakingAnalyticsScreen } from './components/screens/StakingAnalyticsScreen';
+import { StakingDashboardScreen } from './components/screens/StakingDashboardScreen';
+import { CreateStakingScreen } from './components/screens/CreateStakingScreen';
+import { StakingCompletionScreen } from './components/screens/StakingCompletionScreen';
+import { StakingTiersScreen } from './components/screens/StakingTiersScreen';
+import { StakingHistoryScreen } from './components/screens/StakingHistoryScreen';
+
 import { ProfileScreen } from './components/screens/ProfileScreen';
 import { ThemeIndicator } from './components/common/ThemeIndicator';
 import { UiCatalogScreen } from './components/screens/UiCatalogScreen';
-import { MembershipStatusScreen } from './components/screens/MembershipStatusScreen';
+
 import { CreateTicketScreen } from './components/screens/CreateTicketScreen';
 import { MyTicketsScreen } from './components/screens/MyTicketsScreen';
 import { SmartContractInvestmentScreen } from './components/screens/SmartContractInvestmentScreen';
@@ -85,23 +85,19 @@ const AppRouter: React.FC = () => {
       } else {
         // FIXED: Extended back screen mappings for all current screens
         const backScreens: Record<string, ScreenType> = {
-          // Investment-related screens
-          'new-investment': 'investments',
-          'make-investment': 'investments', 
-          'investment-completion': 'investments',
-          'investment-details': 'investments',
+          // Staking-related screens
+          'staking-dashboard': 'dashboard',
+          'create-staking': 'staking-dashboard',
+          'staking-completion': 'staking-dashboard',
+          'staking-tiers': 'staking-dashboard',
+          'staking-history': 'staking-dashboard',
+          'staking-analytics': 'staking-dashboard',
           
-          // Crypto/wallet-related screens
+          // Crypto/wallet-related screens (ENHANCED for staking)
           'crypto-deposit': 'crypto',
           'wallet-manager': 'crypto',
           'connect-crypto': 'crypto',
           'test-wallet-connections': 'crypto',
-          
-          // Banking-related screens
-          'connect-bank': 'dashboard',
-          'funds': 'dashboard',
-          'transfer': 'dashboard',
-          'withdraw': 'dashboard',
           
           // Verification-related screens  
           'verification': 'dashboard',
@@ -112,12 +108,10 @@ const AppRouter: React.FC = () => {
           // Analytics and admin screens
           'analytics': 'dashboard',
           'admin-dashboard': 'dashboard',
-          'admin-plans': 'admin-dashboard',
           'admin-users': 'admin-dashboard',
           'admin-user-details': 'admin-users',
           
           // Main navigation screens
-          'investments': 'dashboard',
           'crypto': 'dashboard', 
           'profile': 'dashboard',
           
@@ -171,15 +165,17 @@ const AppRouter: React.FC = () => {
       'verification-success': 'Verification Complete - VonVault',
       'dashboard': 'Dashboard - VonVault',
       'profile': 'Profile - VonVault',
-      'connect-bank': 'Connect Bank - VonVault',
       'connect-crypto': 'Connect Wallet - VonVault',
       'investments': 'Investments - VonVault',
-      'crypto-wallet': 'Crypto Wallet - VonVault',
+      'staking-dashboard': 'Staking Dashboard - VonVault',
+      'create-staking': 'Create Staking - VonVault',
+      'staking-completion': 'Staking Complete - VonVault',
+      'staking-tiers': 'VIP Tiers - VonVault',
+      'staking-history': 'Staking History - VonVault',
+      'staking-analytics': 'Staking Analytics - VonVault',
+      'crypto': 'Crypto Wallet - VonVault',
       'crypto-deposit': 'Crypto Deposit - VonVault',
       'wallet-manager': 'Wallet Manager - VonVault',
-      'available-funds': 'Available Funds - VonVault',
-      'membership-status': 'Membership - VonVault',
-      'admin-plans': 'Investment Plans - VonVault',
       'admin-dashboard': 'Admin Dashboard - VonVault',
       'admin-users': 'User Management - VonVault',
       'admin-user-details': 'User Details - VonVault',
@@ -465,13 +461,6 @@ const AppRouter: React.FC = () => {
             }}
           />
         );
-      case 'connect-bank':
-        return (
-          <ConnectBankScreen 
-            onBack={() => setScreen('dashboard')} // Skip goes to dashboard
-            onConnect={handleBankConnect} 
-          />
-        );
       case 'connect-crypto':
         return (
           <ConnectCryptoScreen 
@@ -481,7 +470,7 @@ const AppRouter: React.FC = () => {
         );
       case 'dashboard':
         return (
-          <DashboardScreen 
+          <StakingDashboardScreen 
             onNavigate={(screen) => setScreen(screen as ScreenType)} 
           />
         );
@@ -495,43 +484,23 @@ const AppRouter: React.FC = () => {
         );
       case 'analytics':
         return (
-          <InvestmentAnalyticsScreen 
-            onBack={() => setScreen('dashboard')}
-            onNavigate={(screen) => setScreen(screen as ScreenType)} 
-          />
-        );
-      case 'achievements':
-        return (
-          <AchievementsScreen 
-            onBack={() => setScreen('dashboard')}
-            onNavigate={(screen) => setScreen(screen as ScreenType)} 
-          />
-        );
-      case 'auto-investment':
-        return (
-          <AutoInvestmentScreen 
-            onBack={() => setScreen('dashboard')}
-            onNavigate={(screen) => setScreen(screen as ScreenType)} 
-          />
-        );
-      case 'investments':
-        return (
-          <InvestmentsScreen 
+          <StakingAnalyticsScreen 
             onBack={() => setScreen('dashboard')} 
             onNavigate={(screen) => setScreen(screen as ScreenType)}
           />
         );
-      case 'new-investment':
+
+      case 'create-staking':
         return (
-          <MakeNewInvestmentScreen 
-            onBack={() => setScreen('investments')}
+          <CreateStakingScreen 
+            onBack={() => setScreen('staking-dashboard')} 
             onNavigate={(screen) => setScreen(screen as ScreenType)}
           />
         );
-      case 'investment-completion':
+      case 'staking-completion':
         return (
-          <InvestmentCompletionScreen 
-            onBack={() => setScreen('new-investment')}
+          <StakingCompletionScreen 
+            onBack={() => setScreen('create-staking')}
             onNavigate={(screen) => setScreen(screen as ScreenType)}
           />
         );
@@ -568,25 +537,6 @@ const AppRouter: React.FC = () => {
             onNavigate={(screen) => setScreen(screen as ScreenType)}
           />
         );
-      case 'funds':
-        return (
-          <AvailableFundsScreen 
-            onBack={() => setScreen('dashboard')}
-            onNavigate={(screen) => setScreen(screen as ScreenType)}
-          />
-        );
-      case 'transfer':
-        return (
-          <TransferFundsScreen 
-            onBack={() => setScreen('dashboard')} 
-          />
-        );
-      case 'withdraw':
-        return (
-          <WithdrawalScreen 
-            onBack={() => setScreen('dashboard')} 
-          />
-        );
       case 'profile':
         return (
           <ProfileScreen 
@@ -598,12 +548,6 @@ const AppRouter: React.FC = () => {
         return (
           <UiCatalogScreen 
             onBack={() => setScreen('dashboard')} 
-          />
-        );
-      case 'admin-plans':
-        return (
-          <AdminPlansScreen 
-            onBack={() => setScreen('admin-dashboard')} 
           />
         );
       case 'admin-dashboard':
@@ -645,13 +589,7 @@ const AppRouter: React.FC = () => {
             onBack={() => setScreen('admin-dashboard')}
           />
         );
-      case 'membership-status':
-        return (
-          <MembershipStatusScreen 
-            onBack={() => setScreen('dashboard')}
-            onNavigate={(screen) => setScreen(screen as ScreenType)}
-          />
-        );
+
       case 'privacy-policy':
         return (
           <PrivacyPolicyScreen onBack={() => setScreen('welcome')} />
@@ -676,6 +614,48 @@ const AppRouter: React.FC = () => {
         return (
           <SmartContractInvestmentScreen onBack={() => setScreen('new-investment')} onNavigate={handleNavigation} />
         );
+      case 'staking-dashboard':
+        return (
+          <StakingDashboardScreen 
+            onBack={() => setScreen('dashboard')}
+            onNavigate={(screen) => setScreen(screen as ScreenType)}
+          />
+        );
+      case 'create-staking':
+        return (
+          <CreateStakingScreen 
+            onBack={() => setScreen('staking-dashboard')}
+            onNavigate={(screen) => setScreen(screen as ScreenType)}
+          />
+        );
+      case 'staking-completion':
+        return (
+          <StakingCompletionScreen 
+            onBack={() => setScreen('create-staking')}
+            onNavigate={(screen) => setScreen(screen as ScreenType)}
+          />
+        );
+      case 'staking-tiers':
+        return (
+          <StakingTiersScreen 
+            onBack={() => setScreen('staking-dashboard')}
+            onNavigate={(screen) => setScreen(screen as ScreenType)}
+          />
+        );
+      case 'staking-history':
+        return (
+          <StakingHistoryScreen 
+            onBack={() => setScreen('staking-dashboard')}
+            onNavigate={(screen) => setScreen(screen as ScreenType)}
+          />
+        );
+      case 'staking-analytics':
+        return (
+          <StakingAnalyticsScreen 
+            onBack={() => setScreen('staking-dashboard')}
+            onNavigate={(screen) => setScreen(screen as ScreenType)}
+          />
+        );
       default:
         return (
           <WelcomeScreen 
@@ -689,11 +669,12 @@ const AppRouter: React.FC = () => {
 
   // Screens that should show bottom tabs (main app screens)
   const tabScreens = [
-    'dashboard', 'investments', 'crypto', 'profile', 
-    'analytics', 'achievements', 'auto-investment', 'new-investment', 'investment-completion',
-    'crypto-deposit', 'wallet-manager', 'funds', 'transfer', 'withdraw', 'membership-status', 'edit-profile',
-    'admin-dashboard', 'admin-users', 'admin-user-details', 'admin-investments', 'admin-crypto', 'admin-plans',
-    'create-ticket', 'my-tickets', 'smart-contract-investment',
+    'dashboard', 'crypto', 'profile', 
+    'analytics',
+    'staking-dashboard', 'create-staking', 'staking-completion', 'staking-tiers', 'staking-history', 'staking-analytics',
+    'crypto-deposit', 'wallet-manager', 'edit-profile',
+    'admin-dashboard', 'admin-users', 'admin-user-details', 'admin-investments', 'admin-crypto',
+    'create-ticket', 'my-tickets',
     'ui-catalog'
   ];
   const showTabs = tabScreens.includes(screen);
@@ -704,8 +685,8 @@ const AppRouter: React.FC = () => {
       case 'dashboard':
         setScreen('dashboard');
         break;
-      case 'investments':
-        setScreen('investments');
+      case 'staking':
+        setScreen('staking-dashboard');
         break;
       case 'crypto':
         setScreen('crypto');

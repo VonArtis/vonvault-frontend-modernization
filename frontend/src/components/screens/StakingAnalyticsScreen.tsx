@@ -133,14 +133,11 @@ export const StakingAnalyticsScreen: React.FC<StakingAnalyticsScreenProps> = ({
     setError(null);
 
     try {
-      // NOTE: Replace with actual API call
-      // const response = await apiService.makeRequest('GET', '/staking/analytics', undefined, user.token);
+      // Use the new staking API endpoint
+      const response = await apiService.getStakingAnalytics(user.token, selectedTimeframe);
       
-      // For now, use mock data
-      setTimeout(() => {
-        setAnalyticsData(mockAnalyticsData);
-        setLoading(false);
-      }, 1000);
+      setAnalyticsData(response);
+      setLoading(false);
     } catch (err: any) {
       console.error('Failed to fetch analytics data:', err);
       setError(err.message || 'Failed to load analytics data');

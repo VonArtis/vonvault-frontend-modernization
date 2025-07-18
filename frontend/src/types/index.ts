@@ -13,38 +13,31 @@ export type ScreenType =
   | 'enhanced-2fa-setup'
   | '2fa-sms-setup'
   | 'verification-success'
-  | 'connect-bank'
   | 'connect-crypto'
   | 'dashboard'
   | 'analytics'
-  | 'achievements'
-  | 'auto-investment'
-  | 'investments'
-  | 'new-investment'
-  | 'investment-completion'
   | 'crypto'
   | 'crypto-deposit'
   | 'wallet-manager'
-  | 'funds'
-  | 'transfer'
-  | 'transfer-funds'
-  | 'withdraw'
-  | 'withdrawal'
   | 'profile'
   | 'ui-catalog'
-  | 'admin-plans'
   | 'admin-dashboard'
   | 'admin-users'
   | 'admin-user-details'
   | 'admin-investments'
   | 'admin-crypto'
-  | 'membership-status'
   | 'privacy-policy'
   | 'terms-of-service'
   | 'edit-profile'
   | 'create-ticket'
   | 'my-tickets'
-  | 'test-wallet-connections';
+  | 'test-wallet-connections'
+  | 'staking-dashboard'
+  | 'create-staking'
+  | 'staking-completion'
+  | 'staking-tiers'
+  | 'staking-history'
+  | 'staking-analytics';
 
 // === PHASE 2: MULTI-WALLET TYPE DEFINITIONS (EXACT SPECIFICATION) ===
 
@@ -346,4 +339,83 @@ export interface StandardError {
 
 export interface ErrorResponse {
   error: StandardError;
+}
+
+// Staking Types
+export interface StakingInvestment {
+  id: string;
+  user_id: string;
+  amount: number;
+  token: string;
+  network: string;
+  wallet_address: string;
+  tier: string;
+  apy: number;
+  start_date: string;
+  end_date: string;
+  status: 'active' | 'matured' | 'claimed';
+  total_earned: number;
+  current_value: number;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface StakingPortfolio {
+  total_staked: number;
+  total_earned: number;
+  active_stakes: number;
+  matured_stakes: number;
+  current_tier: string;
+  next_tier: string | null;
+  tier_progress: number;
+  investments: StakingInvestment[];
+}
+
+export interface StakingAnalytics {
+  performance: {
+    total_staked: number;
+    total_earned: number;
+    active_value: number;
+    roi_percentage: number;
+    apy_average: number;
+  };
+  tier_analytics: {
+    current_tier: string;
+    tier_benefits: string[];
+    progress_to_next: number;
+    next_tier_requirements: number;
+  };
+  monthly_earnings: Array<{
+    month: string;
+    earnings: number;
+    stakes: number;
+  }>;
+  token_distribution: Array<{
+    token: string;
+    amount: number;
+    percentage: number;
+  }>;
+}
+
+export interface VIPTier {
+  id: string;
+  name: string;
+  min_amount: number;
+  max_amount: number;
+  apy: number;
+  emoji: string;
+  benefits: string[];
+  color: string;
+}
+
+export interface StakingHistoryItem {
+  id: string;
+  type: 'stake' | 'claim' | 'reward';
+  amount: number;
+  token: string;
+  status: 'completed' | 'pending' | 'failed';
+  date: string;
+  transaction_hash?: string;
+  tier: string;
+  apy: number;
 }

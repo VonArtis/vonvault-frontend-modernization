@@ -13,6 +13,8 @@ import {
 import { MobileLayoutWithTabs } from '../layout/MobileLayoutWithTabs';
 import { useApp } from '../../context/AppContext';
 import { apiService } from '../../services/api';
+import { stakingService } from '../../services/StakingService';
+import { SMART_CONTRACTS, STAKING_CONFIG } from '../../config/features';
 import type { ScreenProps } from '../../types';
 
 // VIP Tier Configuration (same as dashboard)
@@ -31,13 +33,46 @@ export const CreateStakingScreen: React.FC<CreateStakingScreenProps> = ({
   onNavigate
 }) => {
   const { t } = useTranslation(['common', 'staking']);
-  const { user, primary_wallet } = useApp();
+  const { user, primary_wallet, connectWallet } = useApp(); // Enhanced with wallet context
   const [amount, setAmount] = useState<string>('');
   const [token, setToken] = useState<'USDC' | 'USDT'>('USDC');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [currentTotalInvested, setCurrentTotalInvested] = useState(0);
+  const [walletBalances, setWalletBalances] = useState<{USDC: string, USDT: string}>({USDC: '0', USDT: '0'});
+
+  // Enhanced wallet balance fetching
+  useEffect(() => {
+    const fetchWalletBalances = async () => {
+      if (!primary_wallet?.address || !user?.token) return;
+      
+      try {
+        // Initialize staking service with provider
+        if (primary_wallet.provider) {
+          await stakingService.initialize(primary_wallet.provider);
+          
+          // Get real-time balances from blockchain
+          const usdcBalance = await stakingService.getUSDCBalance(primary_wallet.address);
+          const usdtBalance = await stakingService.getUSDTBalance(primary_wallet.address);
+          
+          setWalletBalances({
+            USDC: usdcBalance,
+            USDT: usdtBalance
+          });
+        }
+      } catch (error) {
+        console.error('Failed to fetch wallet balances:', error);
+        // Fallback to existing balance display
+        setWalletBalances({
+          USDC: primary_wallet.balance?.USDC || '0',
+          USDT: primary_wallet.balance?.USDT || '0'
+        });
+      }
+    };
+
+    fetchWalletBalances();
+  }, [primary_wallet, user?.token]);
 
   // Calculate what tier user will have after this investment
   const calculateTierAfterInvestment = (investmentAmount: number) => {
@@ -57,11 +92,13 @@ export const CreateStakingScreen: React.FC<CreateStakingScreenProps> = ({
       if (!user?.token) return;
       
       try {
-        // NOTE: This should fetch from your portfolio API
-        // For now using mock data - replace with real API call
-        setCurrentTotalInvested(25000); // Mock current investment
+        // Use the new staking API endpoint to get current portfolio
+        const response = await apiService.getStakingPortfolio(user.token);
+        setCurrentTotalInvested(response.total_staked || 0);
       } catch (error) {
         console.error('Failed to fetch current investment:', error);
+        // Fallback to 0 if API call fails
+        setCurrentTotalInvested(0);
       }
     };
 
@@ -105,14 +142,16 @@ export const CreateStakingScreen: React.FC<CreateStakingScreenProps> = ({
       const stakingData = {
         amount: numericAmount,
         token,
+        network: 'Ethereum', // Default network
+        wallet_address: primary_wallet?.address || '',
         apy: tierAfterInvestment.apy,
         tier: tierAfterInvestment.name
       };
 
-      // NOTE: This API endpoint needs to be implemented
-      const response = await apiService.makeRequest('POST', '/staking/create', stakingData, user?.token);
+      // Use the new staking API endpoint
+      const response = await apiService.createStakingInvestment(stakingData, user?.token || '');
 
-      if (response?.success) {
+      if (response?.investment) {
         // Step 2: Handle blockchain transaction through Reown AppKit
         // This would integrate with your existing crypto wallet service
         
@@ -120,7 +159,7 @@ export const CreateStakingScreen: React.FC<CreateStakingScreenProps> = ({
         setTimeout(() => {
           onNavigate?.('staking-completion', {
             investment: {
-              id: response.investment_id,
+              id: response.investment.id,
               amount: numericAmount,
               token,
               apy: tierAfterInvestment.apy,
@@ -358,7 +397,7 @@ export const CreateStakingScreen: React.FC<CreateStakingScreenProps> = ({
               <InformationCircleIcon className="w-5 h-5 text-yellow-400 mr-3 mt-0.5" />
               <div className="flex-1">
                 <h4 className="font-semibold text-yellow-400 mb-2">
-                  {t('staking:create.custody.title', '⚠️ Important: Custody Transfer')}
+                  {t('staking:create.custody.title', 'Important: Custody Transfer')}
                 </h4>
                 <div className="text-sm text-yellow-300 space-y-2">
                   <p>• {t('staking:create.custody.transfer', 'Your USDC/USDT will be transferred to VonVault\'s treasury wallet')}</p>

@@ -118,14 +118,16 @@ export const StakingHistoryScreen: React.FC<StakingHistoryScreenProps> = ({
     setError(null);
 
     try {
-      // NOTE: Replace with actual API call
-      // const response = await apiService.makeRequest('GET', '/staking/history', undefined, user.token);
+      // Use the new staking API endpoint
+      const response = await apiService.getStakingHistory(user.token, {
+        status: selectedFilter === 'all' ? undefined : selectedFilter,
+        sort: sortOrder,
+        page: 1,
+        limit: 50
+      });
       
-      // For now, use mock data
-      setTimeout(() => {
-        setTransactions(mockTransactions);
-        setLoading(false);
-      }, 1000);
+      setTransactions(response.history || []);
+      setLoading(false);
     } catch (err: any) {
       console.error('Failed to fetch staking history:', err);
       setError(err.message || 'Failed to load staking history');

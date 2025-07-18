@@ -7,6 +7,7 @@ import { useLanguage } from '../../hooks/useLanguage';
 import { useApp } from '../../context/AppContext';
 import { apiService } from '../../services/api';
 import { useLoadingState, LOADING_KEYS } from '../../hooks/useLoadingState';
+import { ExclamationTriangleIcon, ArrowDownIcon, BuildingLibraryIcon } from '@heroicons/react/24/outline';
 
 interface VonVaultWallet {
   network: string;
@@ -23,7 +24,7 @@ export const CryptoDepositScreen: React.FC<ScreenProps> = ({ onBack, onNavigate 
   const [selectedNetwork, setSelectedNetwork] = useState<string>('polygon');
   const [selectedToken, setSelectedToken] = useState<string>('usdc');
   const [depositAmount, setDepositAmount] = useState('');
-  const [purpose, setPurpose] = useState<'investment' | 'general'>('general');
+  const [purpose, setPurpose] = useState<'staking' | 'general'>('general');
   const { t } = useLanguage();
   const { user } = useApp();
   
@@ -88,8 +89,8 @@ export const CryptoDepositScreen: React.FC<ScreenProps> = ({ onBack, onNavigate 
   };
 
   const handleDepositComplete = () => {
-    if (purpose === 'investment') {
-      onNavigate?.('new-investment');
+    if (purpose === 'staking') {
+      onNavigate?.('create-staking');
     } else {
       onNavigate?.('crypto');
     }
@@ -133,7 +134,9 @@ export const CryptoDepositScreen: React.FC<ScreenProps> = ({ onBack, onNavigate 
       </div>
       
       <div className="mb-6">
-        <div className="text-6xl mb-4 text-center">📥</div>
+        <div className="flex items-center justify-center w-16 h-16 bg-green-600 bg-opacity-20 rounded-full mx-auto mb-4">
+          <ArrowDownIcon className="w-8 h-8 text-green-400" />
+        </div>
         <h1 className="text-2xl font-bold text-center mb-2">
           {t('deposit.title', 'Crypto Deposit')}
         </h1>
@@ -148,18 +151,20 @@ export const CryptoDepositScreen: React.FC<ScreenProps> = ({ onBack, onNavigate 
           <h3 className="font-semibold text-gray-300">Deposit Purpose</h3>
           <div className="grid grid-cols-1 gap-2">
             <Card
-              onClick={() => setPurpose('investment')}
+              onClick={() => setPurpose('staking')}
               className={`cursor-pointer transition-all ${
-                purpose === 'investment'
-                  ? 'border-purple-500 bg-purple-900/20'
+                purpose === 'staking'
+                  ? 'border-cyan-500 bg-cyan-900/20'
                   : 'border-gray-600 hover:border-gray-500'
               }`}
             >
               <div className="flex items-center gap-3">
-                <span className="text-2xl">💰</span>
+                <div className="bg-cyan-600 bg-opacity-20 rounded-full p-2">
+                  <BuildingLibraryIcon className="w-6 h-6 text-cyan-400" />
+                </div>
                 <div>
-                  <div className="font-medium text-white">For Investment</div>
-                  <div className="text-sm text-gray-400">Add to investment portfolio</div>
+                  <div className="font-medium text-white">For Staking</div>
+                  <div className="text-sm text-gray-400">Earn up to 18% APY with treasury staking</div>
                 </div>
               </div>
             </Card>
@@ -285,9 +290,15 @@ export const CryptoDepositScreen: React.FC<ScreenProps> = ({ onBack, onNavigate 
               </div>
             </div>
 
-            <div className="text-xs text-gray-400 mb-4">
-              ⚠️ <strong>Important:</strong> Only send {selectedToken.toUpperCase()} tokens on {getNetworkDisplayName(selectedNetwork)} network to this address. 
-              A 2.75% conversion fee will be deducted for FIAT integration.
+            <div className="bg-yellow-900/30 rounded-lg p-3 border border-yellow-600/30 mb-4">
+              <div className="flex items-center gap-2 mb-2">
+                <ExclamationTriangleIcon className="w-5 h-5 text-yellow-400" />
+                <span className="text-yellow-400 font-medium">Important:</span>
+              </div>
+              <div className="text-sm text-gray-300">
+                Only send {selectedToken.toUpperCase()} tokens on {getNetworkDisplayName(selectedNetwork)} network to this address.
+                A 2.75% conversion fee will be deducted for FIAT integration.
+              </div>
             </div>
 
             {/* Action Buttons */}
@@ -297,8 +308,8 @@ export const CryptoDepositScreen: React.FC<ScreenProps> = ({ onBack, onNavigate 
                 fullWidth
                 className="h-12 bg-green-600 hover:bg-green-700"
               >
-                {purpose === 'investment' 
-                  ? t('deposit.proceedToInvestment', 'I have sent the deposit - Create Investment')
+                {purpose === 'staking' 
+                  ? t('deposit.proceedToStaking', 'I have sent the deposit - Start Staking')
                   : t('deposit.complete', 'I have sent the deposit')
                 }
               </Button>

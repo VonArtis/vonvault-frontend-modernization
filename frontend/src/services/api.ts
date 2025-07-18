@@ -822,6 +822,80 @@ class ApiService {
     return response.data;
   }
 
+  // === STAKING API METHODS ===
+  
+  // Get user's staking portfolio
+  async getStakingPortfolio(token: string) {
+    const response = await axios.get(`${API_V1_BASE}/staking/portfolio`, {
+      headers: this.getAuthHeaders(token)
+    });
+    return response.data;
+  }
+
+  // Create new staking investment
+  async createStakingInvestment(stakingData: {
+    amount: number;
+    token: string;
+    network: string;
+    wallet_address: string;
+    tier: string;
+    apy: number;
+  }, token: string) {
+    const response = await axios.post(`${API_V1_BASE}/staking/create`, stakingData, {
+      headers: this.getAuthHeaders(token)
+    });
+    return response.data;
+  }
+
+  // Get staking transaction history
+  async getStakingHistory(token: string, params?: {
+    status?: 'all' | 'active' | 'matured' | 'claimed';
+    sort?: 'newest' | 'oldest' | 'amount';
+    page?: number;
+    limit?: number;
+  }) {
+    const queryParams = params ? `?${new URLSearchParams(params as any).toString()}` : '';
+    const response = await axios.get(`${API_V1_BASE}/staking/history${queryParams}`, {
+      headers: this.getAuthHeaders(token)
+    });
+    return response.data;
+  }
+
+  // Get staking analytics data
+  async getStakingAnalytics(token: string, timeframe?: '3m' | '6m' | '1y' | 'all') {
+    const params = timeframe ? `?timeframe=${timeframe}` : '';
+    const response = await axios.get(`${API_V1_BASE}/staking/analytics${params}`, {
+      headers: this.getAuthHeaders(token)
+    });
+    return response.data;
+  }
+
+  // Claim matured staking investment
+  async claimStakingInvestment(investmentId: string, token: string) {
+    const response = await axios.post(`${API_V1_BASE}/staking/claim/${investmentId}`, {}, {
+      headers: this.getAuthHeaders(token)
+    });
+    return response.data;
+  }
+
+  // Get VIP tiers and requirements
+  async getVIPTiers(token: string) {
+    const response = await axios.get(`${API_V1_BASE}/staking/tiers`, {
+      headers: this.getAuthHeaders(token)
+    });
+    return response.data;
+  }
+
+  // Export staking history to CSV
+  async exportStakingHistory(token: string, format: 'csv' | 'excel' = 'csv') {
+    const response = await axios.get(`${API_V1_BASE}/staking/export`, {
+      headers: this.getAuthHeaders(token),
+      params: { format },
+      responseType: 'blob'
+    });
+    return response.data;
+  }
+
   // === EMAIL VERIFICATION API METHODS ===
   
   async sendEmailVerification(email: string, token: string) {
