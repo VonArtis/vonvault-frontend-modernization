@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   HomeIcon,
-  BriefcaseIcon, 
+  LockClosedIcon,  // Changed from BriefcaseIcon 
   CreditCardIcon,
   UserIcon
 } from '@heroicons/react/24/outline';
@@ -20,10 +20,10 @@ export const BottomTabs: React.FC<BottomTabsProps> = ({ onNavigate, currentScree
       screen: 'dashboard'
     },
     {
-      id: 'portfolio',
-      icon: BriefcaseIcon,
-      label: 'Portfolio',
-      screen: 'investments'
+      id: 'staking',           // Changed from 'portfolio'
+      icon: LockClosedIcon,    // Changed from BriefcaseIcon
+      label: 'Staking',        // Changed from 'Portfolio'
+      screen: 'staking-dashboard'  // Changed from 'investments'
     },
     {
       id: 'wallets',
@@ -46,7 +46,6 @@ export const BottomTabs: React.FC<BottomTabsProps> = ({ onNavigate, currentScree
   };
 
   const isActiveTab = (tab: typeof tabs[0]) => {
-    // FIXED: Consistent screen identifier matching
     // Handle exact screen matches and related screen mappings
     if (currentScreen === tab.screen) {
       return true;
@@ -58,17 +57,47 @@ export const BottomTabs: React.FC<BottomTabsProps> = ({ onNavigate, currentScree
         // Dashboard tab active for home-related screens
         return ['dashboard', 'analytics', 'admin-dashboard'].includes(currentScreen || '');
       
-      case 'investments':
-        // Portfolio tab active for investment-related screens  
-        return ['investments', 'make-investment', 'investment-details', 'admin-plans'].includes(currentScreen || '');
+      case 'staking-dashboard':  // Updated for staking screens
+        // Staking tab active for all staking-related screens  
+        return [
+          'staking-dashboard', 
+          'create-staking', 
+          'staking-completion',
+          'staking-analytics',
+          'staking-tiers',
+          'staking-history',
+          // Legacy investment screens during transition
+          'investments', 
+          'make-investment', 
+          'investment-details', 
+          'new-investment',
+          'investment-completion',
+          'admin-plans'
+        ].includes(currentScreen || '');
       
       case 'crypto':
         // Wallets tab active for crypto-related screens
-        return ['crypto', 'connect-crypto', 'wallet-manager', 'test-wallet-connections'].includes(currentScreen || '');
+        return [
+          'crypto', 
+          'connect-crypto', 
+          'wallet-manager', 
+          'crypto-deposit',
+          'test-wallet-connections'
+        ].includes(currentScreen || '');
       
       case 'profile':
         // Profile tab active for user-related screens
-        return ['profile', 'verification', 'verification-success', '2fa-setup', '2fa-sms-setup'].includes(currentScreen || '');
+        return [
+          'profile', 
+          'edit-profile',
+          'membership-status',
+          'verification', 
+          'verification-success', 
+          '2fa-setup', 
+          '2fa-sms-setup',
+          'create-ticket',
+          'my-tickets'
+        ].includes(currentScreen || '');
       
       default:
         return false;
@@ -81,15 +110,17 @@ export const BottomTabs: React.FC<BottomTabsProps> = ({ onNavigate, currentScree
         {tabs.map((tab) => {
           const isActive = isActiveTab(tab);
           const IconComponent = tab.icon;
+          
           return (
             <button
               key={tab.id}
               onClick={() => handleTabPress(tab)}
               className={`flex flex-col items-center justify-center flex-1 h-full min-h-[44px] transition-all duration-200 ${
                 isActive
-                  ? 'text-purple-400'
+                  ? 'text-purple-400'  // Your purple branding
                   : 'text-gray-500 hover:text-gray-300'
               }`}
+              style={{ minHeight: '44px' }}  // Ensure proper touch targets
             >
               <div className={`mb-1 transition-all duration-200 ${
                 isActive ? 'scale-110' : 'scale-100'
