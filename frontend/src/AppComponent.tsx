@@ -29,7 +29,7 @@ import { VerificationSuccessScreen } from './components/screens/VerificationSucc
 import { AdminDashboardScreen } from './components/screens/AdminDashboardScreen';
 import { AdminUsersScreen } from './components/screens/AdminUsersScreen';
 import { AdminUserDetailsScreen } from './components/screens/AdminUserDetailsScreen';
-import { AdminInvestmentsScreen } from './components/screens/AdminInvestmentsScreen';
+import { AdminStakingScreen } from './components/screens/AdminStakingScreen';
 import { AdminCryptoScreen } from './components/screens/AdminCryptoScreen';
 import { PrivacyPolicyScreen } from './components/screens/PrivacyPolicyScreen';
 import { TermsOfServiceScreen } from './components/screens/TermsOfServiceScreen';
@@ -179,7 +179,7 @@ const AppRouter: React.FC = () => {
       'admin-dashboard': 'Admin Dashboard - VonVault',
       'admin-users': 'User Management - VonVault',
       'admin-user-details': 'User Details - VonVault',
-      'admin-investments': 'Investment Analytics - VonVault',
+      'admin-staking': 'Staking Analytics - VonVault',
       'admin-crypto': 'Crypto Analytics - VonVault',
       'privacy-policy': 'Privacy Policy - VonVault',
       'terms-of-service': 'Terms of Service - VonVault',
@@ -577,10 +577,11 @@ const AppRouter: React.FC = () => {
             userId={userDetailsParams?.userId}
           />
         );
-      case 'admin-investments':
+      case 'admin-staking':
         return (
-          <AdminInvestmentsScreen 
+          <AdminStakingScreen 
             onBack={() => setScreen('admin-dashboard')}
+            onNavigate={handleNavigation}
           />
         );
       case 'admin-crypto':
@@ -673,7 +674,7 @@ const AppRouter: React.FC = () => {
     'analytics',
     'staking-dashboard', 'create-staking', 'staking-completion', 'staking-tiers', 'staking-history', 'staking-analytics',
     'crypto-deposit', 'wallet-manager', 'edit-profile',
-    'admin-dashboard', 'admin-users', 'admin-user-details', 'admin-investments', 'admin-crypto',
+    'admin-dashboard', 'admin-users', 'admin-user-details', 'admin-staking', 'admin-crypto',
     'create-ticket', 'my-tickets',
     'ui-catalog'
   ];

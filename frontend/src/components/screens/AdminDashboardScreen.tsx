@@ -13,10 +13,10 @@ interface AdminOverview {
   users: {
     total: number;
     verified: number;
-    with_investments: number;
+    with_staking: number;
     recent_signups: number;
   };
-  investments: {
+  staking: {
     total_amount: number;
     total_count: number;
     recent_count: number;
@@ -136,11 +136,11 @@ export const AdminDashboardScreen: React.FC<ScreenProps> = ({ onBack, onNavigate
         <Card className="bg-gradient-to-br from-green-900/50 to-green-800/50 border-green-500/30">
           <div className="text-center">
             <div className="text-3xl font-bold text-green-400">
-              {formatCurrency(overview.investments.total_amount)}
+              {formatCurrency(overview.staking.total_amount)}
             </div>
-            <div className="text-sm text-green-300">Total Invested</div>
+            <div className="text-sm text-green-300">Total Staked</div>
             <div className="text-xs text-gray-400 mt-1">
-              {overview.investments.total_count} investments
+              {overview.staking.total_count} stakes
             </div>
           </div>
         </Card>
@@ -214,14 +214,14 @@ export const AdminDashboardScreen: React.FC<ScreenProps> = ({ onBack, onNavigate
         </Button>
 
         <Button
-          onClick={() => onNavigate?.('admin-investments')}
+          onClick={() => onNavigate?.('admin-staking')}
           className="min-h-[44px] h-16 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 flex items-center justify-between px-6"
         >
           <div className="flex items-center gap-3">
             <span className="text-2xl">📊</span>
             <div className="text-left">
-              <div className="font-semibold">Investment Analytics</div>
-              <div className="text-sm opacity-75">Track investments & performance</div>
+              <div className="font-semibold">Staking Analytics</div>
+              <div className="text-sm opacity-75">Track staking & performance</div>
             </div>
           </div>
           <span>→</span>
@@ -260,16 +260,16 @@ export const AdminDashboardScreen: React.FC<ScreenProps> = ({ onBack, onNavigate
       <div className="grid grid-cols-2 gap-4">
         <Card className="text-center bg-gradient-to-br from-yellow-900/50 to-yellow-800/50 border-yellow-500/30">
           <div className="text-2xl font-bold text-yellow-400">
-            {overview.users.with_investments}
+            {overview.users.with_staking}
           </div>
-          <div className="text-sm text-yellow-300">Active Investors</div>
+          <div className="text-sm text-yellow-300">Active Stakers</div>
         </Card>
         
         <Card className="text-center bg-gradient-to-br from-cyan-900/50 to-cyan-800/50 border-cyan-500/30">
           <div className="text-2xl font-bold text-cyan-400">
-            {overview.investments.recent_count}
+            {overview.staking.recent_count}
           </div>
-          <div className="text-sm text-cyan-300">Recent Investments</div>
+          <div className="text-sm text-cyan-300">Recent Stakes</div>
         </Card>
       </div>
     </MobileLayoutWithTabs>

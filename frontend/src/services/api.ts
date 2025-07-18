@@ -523,9 +523,9 @@ class ApiService {
     return response.data;
   }
 
-  // Admin Investments Analytics
-  async getAdminInvestments(token: string) {
-    const response = await axios.get(`${API_V1_BASE}/admin/investments`, {
+  // Admin Staking Analytics
+  async getAdminStaking(token: string) {
+    const response = await axios.get(`${API_V1_BASE}/admin/staking`, {
       headers: this.getAuthHeaders(token)
     });
     return response.data;
