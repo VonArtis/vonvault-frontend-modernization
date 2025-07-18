@@ -1,0 +1,168 @@
+{
+  "dashboard": {
+    "title": "Staking Panosu",
+    "createStake": "Stake Et",
+    "tier": "Seviye",
+    "apy": "Yıllık Getiri",
+    "totalInvested": "Toplam Yatırım",
+    "progressToNext": "Sonraki Seviyeye İlerleme",
+    "toGo": "kaldı",
+    "totalStaked": "Toplam Stake",
+    "interestEarned": "Kazanılan Faiz",
+    "monthlyIncome": "Aylık Gelir",
+    "activeStakes": "Aktif Stake'ler",
+    "quickActions": "Hızlı İşlemler",
+    "newStake": "Yeni Stake",
+    "viewTiers": "Seviyeleri Gör",
+    "daysRemaining": "Kalan Günler",
+    "days": "gün",
+    "progress": "İlerleme",
+    "claim": "Talep Et",
+    "startStaking": "Bugün Staking'e Başla",
+    "upgradeToStake": "Staking Başlatmak için Yükselt",
+    "earnUpTo": "12 aylık kilitli staking ile {apy}% yıllık getiri kazanın",
+    "investMinimum": "Staking özelliklerini açmak için en az $1,000 yatırım yapın",
+    "createFirstStake": "İlk Stake'i Oluştur",
+    "viewInvestments": "Yatırımları Gör"
+  },
+  "create": {
+    "title": "Staking Yatırımı Oluştur",
+    "noWallet": {
+      "title": "Cüzdan Gerekli",
+      "description": "Staking yatırımları oluşturmak için bir kripto cüzdan bağlayın"
+    },
+    "connectWallet": "Cüzdan Bağla",
+    "amount": {
+      "title": "Yatırım Tutarı",
+      "label": "Tutar (USD)",
+      "placeholder": "1,000 - 250,000",
+      "validation": {
+        "minimum": "Minimum yatırım $1,000'dır",
+        "maximum": "Maksimum yatırım $250,000'dır",
+        "valid": "Geçerli yatırım tutarı"
+      }
+    },
+    "token": {
+      "title": "Ödeme Tokeni"
+    },
+    "preview": {
+      "title": "Yatırım Önizlemesi",
+      "tierAfter": "Yatırım Sonrası Seviyeniz",
+      "monthlyInterest": "Aylık Faiz",
+      "lockPeriod": "Kilitleme Süresi",
+      "twelveMonths": "12 ay",
+      "totalReturn": "Toplam Getiri",
+      "totalAfter": "12 Ay Sonra Toplam"
+    },
+    "custody": {
+      "title": "⚠️ Önemli: Velaye Transferi",
+      "transfer": "USDC/USDT'niz VonVault'un hazine cüzdanına aktarılacak",
+      "duration": "Fonlarınızı 12 aylık staking süresi boyunca saklayacağız",
+      "conversion": "Kripto paranız yatırım stratejileri için FIAT'a dönüştürülecek",
+      "guarantee": "Piyasa koşullarından bağımsız olarak garantili yıllık getiri alacaksınız",
+      "return": "12 ay sonra ana para + faiz orijinal tokende iade edilecek"
+    },
+    "terms": {
+      "prefix": "Anlıyorum ve kabul ediyorum",
+      "custody": "velayet şartları",
+      "and": "ve",
+      "staking": "staking koşulları"
+    },
+    "button": {
+      "creating": "Yatırım Oluşturuluyor...",
+      "create": "Staking Yatırımı Oluştur"
+    },
+    "error": {
+      "failed": "Staking yatırımı oluşturma başarısız"
+    }
+  },
+  "completion": {
+    "title": "Staking Yatırımı Oluşturuldu!",
+    "subtitle": "Fonlarınız artık garantili getiri elde ediyor",
+    "tier": "Seviye",
+    "summary": {
+      "title": "Yatırım Özeti",
+      "principal": "Ana Para Miktarı",
+      "apy": "Yıllık Getiri",
+      "monthly": "Aylık Faiz",
+      "lockPeriod": "12 Ay",
+      "until": "Kadar",
+      "totalReturn": "12 Ay Sonra Toplam Getiri",
+      "profit": "kar"
+    },
+    "investmentId": "Yatırım ID'si",
+    "copied": "Panoya kopyalandı!",
+    "nextSteps": {
+      "title": "📈 Sırada ne var?",
+      "treasury": "Fonlarınız güvenli bir şekilde hazine cüzdanımıza aktarılır",
+      "conversion": "Kripto para yatırım stratejileri için FIAT'a dönüştürülür",
+      "interest": "Faiz aylık olarak tahakkuk eder ve panoınızda görünür",
+      "maturity": "12 ay sonra ana paranızı + faizinizi talep edin"
+    },
+    "viewDashboard": "Staking Panosunu Görüntüle",
+    "share": "Paylaş",
+    "createAnother": "Daha Fazla Stake Et",
+    "shareText": "Paylaşım metni panoya kopyalandı!"
+  },
+  "tiers": {
+    "title": "VIP Seviye Sistemi",
+    "subtitle": "Daha yüksek yatırımlar daha iyi yıllık getiri oranlarını açar",
+    "current": "Mevcut Seviye",
+    "requirements": "Gereksinimler",
+    "benefits": "Faydalar",
+    "upgrade": "Yükselt",
+    "locked": "Kilitli",
+    "unlocked": "Açık",
+    "investMore": "Açmak için ${amount} daha yatırım yapın",
+    "tierNames": {
+      "BASIC": "Temel",
+      "CLUB": "Kulüp",
+      "PREMIUM": "Premium",
+      "VIP": "VIP",
+      "ELITE": "Elit"
+    }
+  },
+  "history": {
+    "title": "Staking Geçmişi",
+    "subtitle": "Staking yatırımlarınızın tam kaydı",
+    "filter": {
+      "all": "Tümü",
+      "active": "Aktif",
+      "matured": "Vadeli",
+      "claimed": "Talep Edildi"
+    },
+    "sort": {
+      "newest": "En Yeni Önce",
+      "oldest": "En Eski Önce",
+      "amount": "En Yüksek Tutar"
+    },
+    "empty": {
+      "title": "Staking Geçmişi Yok",
+      "description": "Henüz herhangi bir staking yatırımı oluşturmadınız",
+      "action": "İlk Stake'inizi Oluşturun"
+    },
+    "details": {
+      "created": "Oluşturuldu",
+      "matures": "Vadeli",
+      "status": "Durum",
+      "earned": "Kazanılan",
+      "remaining": "Kalan"
+    },
+    "export": "Geçmişi Dışa Aktar"
+  },
+  "analytics": {
+    "title": "Staking Analitikleri",
+    "subtitle": "Detaylı performans metrikleri ve içgörüler",
+    "metrics": {
+      "totalValue": "Toplam Portföy Değeri",
+      "averageAPY": "Ortalama Yıllık Getiri",
+      "monthlyIncome": "Aylık Gelir",
+      "timeToMaturity": "Vadeye Ortalama Gün"
+    },
+    "charts": {
+      "portfolioGrowth": "Zaman İçinde Portföy Büyümesi",
+      "earningsBreakdown": "Seviyeye Göre Kazanç Dağılımı",
+      "monthlyIncome": "Aylık Gelir Projeksiyonu"
+    }
+  }
+}

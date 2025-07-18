@@ -1,0 +1,168 @@
+{
+  "dashboard": {
+    "title": "Staking Dashboard",
+    "createStake": "Stake",
+    "tier": "Niveau",
+    "apy": "Jaarlijks Rendement",
+    "totalInvested": "Totaal Geïnvesteerd",
+    "progressToNext": "Voortgang naar Volgend Niveau",
+    "toGo": "te gaan",
+    "totalStaked": "Totaal Gestaked",
+    "interestEarned": "Verdiende Rente",
+    "monthlyIncome": "Maandelijks Inkomen",
+    "activeStakes": "Actieve Stakes",
+    "quickActions": "Snelle Acties",
+    "newStake": "Nieuwe Stake",
+    "viewTiers": "Bekijk Niveaus",
+    "daysRemaining": "Resterende Dagen",
+    "days": "dagen",
+    "progress": "Voortgang",
+    "claim": "Opeisen",
+    "startStaking": "Begin Vandaag met Staken",
+    "upgradeToStake": "Upgrade om te Beginnen met Staken",
+    "earnUpTo": "Verdien {apy}% jaarlijks rendement met 12-maanden vergrendeld staken",
+    "investMinimum": "Investeer minstens $1,000 om staking functies te ontgrendelen",
+    "createFirstStake": "Creëer Eerste Stake",
+    "viewInvestments": "Bekijk Investeringen"
+  },
+  "create": {
+    "title": "Creëer Staking Investering",
+    "noWallet": {
+      "title": "Wallet Vereist",
+      "description": "Verbind een crypto wallet om staking investeringen te creëren"
+    },
+    "connectWallet": "Verbind Wallet",
+    "amount": {
+      "title": "Investeringsbedrag",
+      "label": "Bedrag (USD)",
+      "placeholder": "1,000 - 250,000",
+      "validation": {
+        "minimum": "Minimale investering is $1,000",
+        "maximum": "Maximale investering is $250,000",
+        "valid": "Geldig investeringsbedrag"
+      }
+    },
+    "token": {
+      "title": "Betalingstoken"
+    },
+    "preview": {
+      "title": "Investering Voorvertoning",
+      "tierAfter": "Uw Niveau Na Investering",
+      "monthlyInterest": "Maandelijkse Rente",
+      "lockPeriod": "Vergrendelingsperiode",
+      "twelveMonths": "12 maanden",
+      "totalReturn": "Totaal Rendement",
+      "totalAfter": "Totaal Na 12 Maanden"
+    },
+    "custody": {
+      "title": "⚠️ Belangrijk: Bewaarneming Overdracht",
+      "transfer": "Uw USDC/USDT wordt overgedragen naar VonVault's treasury wallet",
+      "duration": "Wij bewaren uw fondsen gedurende de 12-maanden staking periode",
+      "conversion": "Uw crypto wordt omgezet naar FIAT voor investeringsstrategieën",
+      "guarantee": "U ontvangt gegarandeerde APY rendementen ongeacht marktomstandigheden",
+      "return": "Hoofdsom + rente geretourneerd na 12 maanden in originele token"
+    },
+    "terms": {
+      "prefix": "Ik begrijp en accepteer de",
+      "custody": "bewaarneming voorwaarden",
+      "and": "en",
+      "staking": "staking condities"
+    },
+    "button": {
+      "creating": "Investering Creëren...",
+      "create": "Creëer Staking Investering"
+    },
+    "error": {
+      "failed": "Mislukt om staking investering te creëren"
+    }
+  },
+  "completion": {
+    "title": "Staking Investering Gecreëerd!",
+    "subtitle": "Uw fondsen verdienen nu gegarandeerde rendementen",
+    "tier": "Niveau",
+    "summary": {
+      "title": "Investering Samenvatting",
+      "principal": "Hoofdsombedrag",
+      "apy": "Jaarlijks Rendement",
+      "monthly": "Maandelijkse Rente",
+      "lockPeriod": "12 Maanden",
+      "until": "Tot",
+      "totalReturn": "Totaal Rendement Na 12 Maanden",
+      "profit": "winst"
+    },
+    "investmentId": "Investering ID",
+    "copied": "Gekopieerd naar klembord!",
+    "nextSteps": {
+      "title": "📈 Wat gebeurt er daarna?",
+      "treasury": "Uw fondsen worden veilig overgedragen naar onze treasury wallet",
+      "conversion": "Crypto wordt omgezet naar FIAT voor investeringsstrategieën",
+      "interest": "Rente loopt maandelijks op en is zichtbaar in uw dashboard",
+      "maturity": "Na 12 maanden, eis uw hoofdsom + rente op"
+    },
+    "viewDashboard": "Bekijk Staking Dashboard",
+    "share": "Deel",
+    "createAnother": "Stake Meer",
+    "shareText": "Deel tekst gekopieerd naar klembord!"
+  },
+  "tiers": {
+    "title": "VIP Niveau Systeem",
+    "subtitle": "Hogere investeringen ontgrendelen betere APY tarieven",
+    "current": "Huidige Niveau",
+    "requirements": "Vereisten",
+    "benefits": "Voordelen",
+    "upgrade": "Upgrade",
+    "locked": "Vergrendeld",
+    "unlocked": "Ontgrendeld",
+    "investMore": "Investeer ${amount} meer om te ontgrendelen",
+    "tierNames": {
+      "BASIC": "Basis",
+      "CLUB": "Club",
+      "PREMIUM": "Premium",
+      "VIP": "VIP",
+      "ELITE": "Elite"
+    }
+  },
+  "history": {
+    "title": "Staking Geschiedenis",
+    "subtitle": "Compleet overzicht van uw staking investeringen",
+    "filter": {
+      "all": "Alle",
+      "active": "Actief",
+      "matured": "Volwassen",
+      "claimed": "Opgeëist"
+    },
+    "sort": {
+      "newest": "Nieuwste Eerst",
+      "oldest": "Oudste Eerst",
+      "amount": "Hoogste Bedrag"
+    },
+    "empty": {
+      "title": "Geen Staking Geschiedenis",
+      "description": "U heeft nog geen staking investeringen gecreëerd",
+      "action": "Creëer Uw Eerste Stake"
+    },
+    "details": {
+      "created": "Gecreëerd",
+      "matures": "Verloopt",
+      "status": "Status",
+      "earned": "Verdiend",
+      "remaining": "Resterend"
+    },
+    "export": "Exporteer Geschiedenis"
+  },
+  "analytics": {
+    "title": "Staking Analytics",
+    "subtitle": "Gedetailleerde prestatie metrics en inzichten",
+    "metrics": {
+      "totalValue": "Totale Portfolio Waarde",
+      "averageAPY": "Gemiddelde Jaarlijks Rendement",
+      "monthlyIncome": "Maandelijks Inkomen",
+      "timeToMaturity": "Gem. Dagen tot Vervaldatum"
+    },
+    "charts": {
+      "portfolioGrowth": "Portfolio Groei Over Tijd",
+      "earningsBreakdown": "Verdiensten Uitsplitsing per Niveau",
+      "monthlyIncome": "Maandelijkse Inkomen Projectie"
+    }
+  }
+}
