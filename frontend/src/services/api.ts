@@ -568,37 +568,6 @@ class ApiService {
     return response.data;
   }
 
-  // === SMART CONTRACT API METHODS ===
-
-  async createSmartContractInvestment(investmentData: {
-    amount: number;
-    currency: string;
-    network: string;
-    investment_plan: string;
-    transaction_hash?: string;
-    contract_address?: string;
-  }) {
-    const response = await axios.post(`${API_BASE}/investments/smart-contract`, investmentData, {
-      headers: this.getAuthHeaders()
-    });
-    return response.data;
-  }
-
-  async getSmartContractFeeCalculation(amount: number, network: string) {
-    const response = await axios.get(`${API_BASE}/investments/smart-contract/fee-calculation`, {
-      params: { amount, network },
-      headers: this.getAuthHeaders()
-    });
-    return response.data;
-  }
-
-  async getSmartContractStatus(investmentId: string) {
-    const response = await axios.get(`${API_BASE}/investments/smart-contract/${investmentId}/status`, {
-      headers: this.getAuthHeaders()
-    });
-    return response.data;
-  }
-
   async getRevenueDashboard() {
     const response = await axios.get(`${API_BASE}/admin/revenue/analytics`, {
       headers: this.getAuthHeaders()
@@ -832,9 +801,11 @@ class ApiService {
     return response.data;
   }
 
-  // Create new staking investment
+  // Create new staking investment with fee calculation
   async createStakingInvestment(stakingData: {
     amount: number;
+    net_amount?: number;
+    service_fee?: number;
     token: string;
     network: string;
     wallet_address: string;
@@ -842,6 +813,14 @@ class ApiService {
     apy: number;
   }, token: string) {
     const response = await axios.post(`${API_V1_BASE}/staking/create`, stakingData, {
+      headers: this.getAuthHeaders(token)
+    });
+    return response.data;
+  }
+
+  // Calculate service fee for staking amount
+  async calculateStakingFee(amount: number, token: string) {
+    const response = await axios.get(`${API_V1_BASE}/staking/calculate-fee/${amount}`, {
       headers: this.getAuthHeaders(token)
     });
     return response.data;

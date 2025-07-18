@@ -38,13 +38,13 @@ export const TermsOfServiceScreen: React.FC<ScreenProps> = ({ onBack }) => {
 
         <section>
           <h2 className="text-lg font-semibold text-white mb-3">2. {t('legal.services', 'Description of Services')}</h2>
-          <p className="mb-2">VonVault is a decentralized finance (DeFi) investment platform that provides:</p>
+          <p className="mb-2">VonVault is a decentralized finance (DeFi) staking platform that provides:</p>
           <ul className="list-disc pl-6 space-y-1">
-            <li>Automated crypto-to-fiat investment processing</li>
+            <li>Automated crypto staking with tiered rewards</li>
             <li>Multi-tier membership programs (Basic, Club, Premium, VIP, Elite)</li>
             <li>Multi-wallet portfolio management and tracking</li>
-            <li>Smart contract-based investment automation</li>
-            <li>Real-time investment monitoring and analytics</li>
+            <li>Smart contract-based staking automation</li>
+            <li>Real-time staking monitoring and analytics</li>
             <li>Secure cryptocurrency wallet integration</li>
           </ul>
         </section>
@@ -82,9 +82,8 @@ export const TermsOfServiceScreen: React.FC<ScreenProps> = ({ onBack }) => {
           <div className="bg-gray-800/50 p-4 rounded border border-gray-600 mb-3">
             <p className="font-semibold text-green-400 mb-2">Automated Fee Structure:</p>
             <ul className="list-disc pl-6 space-y-1">
-              <li><strong>Smart Contract Fee:</strong> 0.75% (automatically deducted from crypto deposits)</li>
-              <li><strong>Conversion Fee:</strong> 2.75% (deducted during crypto-to-fiat conversion)</li>
-              <li><strong>Total Combined Fee:</strong> 3.5% on all investments</li>
+              <li><strong>Service Fee:</strong> 0.75% (automatically deducted from staking deposits)</li>
+              <li><strong>Operations Allocation:</strong> Fee supports platform operations and development</li>
             </ul>
           </div>
           <p className="mb-2">All fees are:</p>
@@ -121,13 +120,13 @@ export const TermsOfServiceScreen: React.FC<ScreenProps> = ({ onBack }) => {
             </ul>
           </div>
           
-          <p className="mb-2"><strong>Investment Process:</strong></p>
+          <p className="mb-2"><strong>Staking Process:</strong></p>
           <ul className="list-disc pl-6 space-y-1">
-            <li>Minimum investment amounts vary by membership tier</li>
-            <li>Investments are processed through smart contracts</li>
-            <li>Lock-up periods apply and vary by investment plan</li>
+            <li>Minimum staking amounts vary by membership tier</li>
+            <li>Staking is processed through smart contracts</li>
+            <li>Lock-up periods apply (typically 12 months)</li>
             <li>Early withdrawal may incur penalties</li>
-            <li>All investments are final once confirmed</li>
+            <li>All staking commitments are final once confirmed</li>
           </ul>
         </section>
 

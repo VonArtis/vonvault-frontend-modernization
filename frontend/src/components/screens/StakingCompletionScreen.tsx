@@ -258,7 +258,7 @@ export const StakingCompletionScreen: React.FC<StakingCompletionScreenProps> = (
           </h4>
           <div className="text-sm text-blue-300 space-y-2">
             <p>• {t('staking:completion.nextSteps.treasury', 'Your funds are securely transferred to our treasury wallet')}</p>
-            <p>• {t('staking:completion.nextSteps.conversion', 'Crypto is converted to FIAT for investment strategies')}</p>
+            <p>• {t('staking:completion.nextSteps.strategies', 'Crypto is used for institutional staking strategies')}</p>
             <p>• {t('staking:completion.nextSteps.interest', 'Interest accrues monthly and is visible in your dashboard')}</p>
             <p>• {t('staking:completion.nextSteps.maturity', 'After 12 months, claim your principal + interest')}</p>
           </div>

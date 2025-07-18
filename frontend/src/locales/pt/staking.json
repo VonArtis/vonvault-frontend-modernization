@@ -58,7 +58,7 @@
       "title": "⚠️ Importante: Transferência de Custódia",
       "transfer": "Seu USDC/USDT será transferido para a carteira do tesouro da VonVault",
       "duration": "Custodiaremos seus fundos pelo período de staking de 12 meses",
-      "conversion": "Sua crypto será convertida em FIAT para estratégias de investimento",
+      "strategies": "Sua crypto será usada para estratégias de staking institucionais",
       "guarantee": "Você receberá retornos APY garantidos independentemente das condições do mercado",
       "return": "Principal + juros retornados após 12 meses no token original"
     },

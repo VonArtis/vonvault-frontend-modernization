@@ -9,7 +9,7 @@ export const FEATURES = {
 // Smart Contract Configuration
 export const SMART_CONTRACTS = {
   STAKING_CONTRACT: "0x742d35Cc6634C0532925a3b8D65f4d2A", // Your staking contract
-  TREASURY_WALLET: "0x1234567890123456789012345678901234567890", // Your treasury wallet
+  TREASURY_WALLET: "0xC7cbFBEfd24A362E4738Bc5693e6D9CF853787f4", // Using operations wallet as treasury
   USDC_TOKEN: "0xA0b86a33E6441c0A12b5C3c7E8AD09B1E8A7A9C8", // USDC contract
   USDT_TOKEN: "0xdAC17F958D2ee523a2206206994597C13D831ec7"  // USDT contract
 };
@@ -23,13 +23,13 @@ export const STAKING_CONFIG = {
   DEFAULT_APY: 15.2
 };
 
-// VIP Tier configuration
+// VIP Tier configuration  
 export const VIP_TIERS = {
-  BASIC: { min: 0, max: 4999, apy: 8, icon: 'basic' },
-  CLUB: { min: 5000, max: 19999, apy: 10, icon: 'club' },
-  PREMIUM: { min: 20000, max: 49999, apy: 12, icon: 'premium' },
-  VIP: { min: 50000, max: 99999, apy: 15, icon: 'vip' },
-  ELITE: { min: 100000, max: Infinity, apy: 18, icon: 'elite' }
+  BASIC: { min: 0, max: 999, apy: 0, icon: 'basic', staking_enabled: false },
+  CLUB: { min: 1000, max: 9999, apy: 8, icon: 'club', staking_enabled: true },
+  PREMIUM: { min: 10000, max: 49999, apy: 12, icon: 'premium', staking_enabled: true },
+  VIP: { min: 50000, max: 199999, apy: 15, icon: 'vip', staking_enabled: true },
+  ELITE: { min: 200000, max: Infinity, apy: 20, icon: 'elite', staking_enabled: true }
 };
 
 // Export helper functions

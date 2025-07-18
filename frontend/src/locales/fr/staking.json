@@ -1,168 +1,200 @@
 {
   "dashboard": {
-    "title": "Tableau de Bord Staking",
-    "createStake": "Staker",
-    "tier": "Niveau",
-    "apy": "TAP",
-    "totalInvested": "Total Investi",
-    "progressToNext": "Progrès vers le Niveau Suivant",
-    "toGo": "à parcourir",
-    "totalStaked": "Total en Staking",
-    "interestEarned": "Intérêts Gagnés",
-    "monthlyIncome": "Revenus Mensuels",
-    "activeStakes": "Stakes Actifs",
-    "quickActions": "Actions Rapides",
-    "newStake": "Nouveau Stake",
-    "viewTiers": "Voir les Niveaux",
-    "daysRemaining": "Jours Restants",
-    "days": "jours",
-    "progress": "Progrès",
-    "claim": "Réclamer",
-    "startStaking": "Commencer le Staking Aujourd'hui",
-    "upgradeToStake": "Upgrader pour Commencer le Staking",
-    "earnUpTo": "Gagnez {apy}% TAP avec un staking verrouillé de 12 mois",
-    "investMinimum": "Investissez au moins $1,000 pour débloquer les fonctionnalités de staking",
-    "createFirstStake": "Créer le Premier Stake",
-    "viewInvestments": "Voir les Investissements"
+    "title": "Tableau de bord Staking",
+    "portfolio": "Portefeuille",
+    "totalStaked": "Total mis en jeu",
+    "totalEarned": "Total gagné",
+    "activeBonds": "Obligations actives",
+    "maturedBonds": "Obligations arrivées à échéance",
+    "currentTier": "Niveau actuel",
+    "nextTier": "Niveau suivant",
+    "progress": "Progression",
+    "viewAnalytics": "Voir les analyses",
+    "createStaking": "Créer un Staking",
+    "viewHistory": "Voir l'historique",
+    "noStakes": "Aucun staking actif",
+    "noStakesDescription": "Créez votre premier staking pour commencer à gagner des récompenses",
+    "getStarted": "Commencer"
   },
   "create": {
-    "title": "Créer un Investissement de Staking",
-    "noWallet": {
-      "title": "Portefeuille Requis",
-      "description": "Connectez un portefeuille crypto pour créer des investissements de staking"
-    },
-    "connectWallet": "Connecter le Portefeuille",
+    "title": "Créer un Staking",
+    "subtitle": "Commencez à gagner des récompenses APY garanties",
     "amount": {
-      "title": "Montant d'Investissement",
-      "label": "Montant (USD)",
-      "placeholder": "1,000 - 250,000",
+      "label": "Montant du staking",
+      "placeholder": "Entrez le montant...",
       "validation": {
-        "minimum": "L'investissement minimum est de $1,000",
-        "maximum": "L'investissement maximum est de $250,000",
-        "valid": "Montant d'investissement valide"
+        "required": "Le montant est requis",
+        "minimum": "Le montant minimum est de 1 000 $",
+        "maximum": "Le montant maximum est de 250 000 $",
+        "invalidNumber": "Veuillez entrer un nombre valide"
       }
     },
-    "token": {
-      "title": "Token de Paiement"
-    },
-    "preview": {
-      "title": "Aperçu de l'Investissement",
-      "tierAfter": "Votre Niveau Après l'Investissement",
-      "monthlyInterest": "Intérêt Mensuel",
-      "lockPeriod": "Période de Verrouillage",
-      "twelveMonths": "12 mois",
-      "totalReturn": "Retour Total",
-      "totalAfter": "Total Après 12 Mois"
-    },
+    "token": "Token",
+    "network": "Réseau",
+    "currentTier": "Niveau actuel",
+    "newTier": "Nouveau niveau",
+    "projectedEarnings": "Revenus projetés",
+    "monthlyReturn": "Retour mensuel",
+    "totalAfter": "Total après 12 mois",
     "custody": {
-      "title": "⚠️ Important: Transfert de Garde",
+      "title": "⚠️ Important: Transfert de garde",
       "transfer": "Votre USDC/USDT sera transféré vers le portefeuille de trésorerie de VonVault",
       "duration": "Nous garderons vos fonds pendant la période de staking de 12 mois",
-      "conversion": "Votre crypto sera converti en FIAT pour les stratégies d'investissement",
-      "guarantee": "Vous recevrez des retours TAP garantis indépendamment des conditions du marché",
+      "strategies": "Votre crypto sera utilisé pour des stratégies de staking institutionnelles",
+      "guarantee": "Vous recevrez des rendements APY garantis quelles que soient les conditions du marché",
       "return": "Principal + intérêts retournés après 12 mois dans le token original"
     },
     "terms": {
-      "prefix": "Je comprends et accepte les",
-      "custody": "termes de garde",
-      "and": "et",
-      "staking": "conditions de staking"
+      "accept": "J'accepte les conditions de service",
+      "required": "Vous devez accepter les conditions pour continuer"
     },
     "button": {
-      "creating": "Création de l'Investissement...",
-      "create": "Créer l'Investissement de Staking"
+      "create": "Créer le staking",
+      "creating": "Création en cours...",
+      "disabled": "Entrez le montant et acceptez les conditions"
+    },
+    "noWallet": {
+      "title": "Portefeuille requis",
+      "description": "Connectez votre portefeuille pour commencer le staking",
+      "connect": "Connecter le portefeuille"
     },
     "error": {
-      "failed": "Échec de la création de l'investissement de staking"
+      "failed": "Échec de la création du staking",
+      "network": "Erreur réseau",
+      "transaction": "Transaction échouée"
     }
   },
   "completion": {
-    "title": "Investissement de Staking Créé!",
-    "subtitle": "Vos fonds génèrent maintenant des retours garantis",
-    "tier": "Niveau",
-    "summary": {
-      "title": "Résumé de l'Investissement",
-      "principal": "Montant Principal",
-      "apy": "TAP Annuel",
-      "monthly": "Intérêt Mensuel",
-      "lockPeriod": "12 Mois",
-      "until": "Jusqu'au",
-      "totalReturn": "Retour Total Après 12 Mois",
-      "profit": "profit"
+    "title": "🎉 Staking créé avec succès!",
+    "subtitle": "Votre staking est maintenant actif et génère des rendements",
+    "details": {
+      "stakingId": "ID du staking",
+      "amount": "Montant",
+      "tier": "Niveau",
+      "apy": "APY",
+      "duration": "Durée",
+      "maturityDate": "Date d'échéance",
+      "monthlyReturn": "Retour mensuel",
+      "totalReturn": "Retour total"
     },
-    "investmentId": "ID d'Investissement",
-    "copied": "Copié dans le presse-papiers!",
     "nextSteps": {
       "title": "📈 Que se passe-t-il ensuite?",
-      "treasury": "Vos fonds sont transférés en sécurité vers notre portefeuille de trésorerie",
-      "conversion": "La crypto est convertie en FIAT pour les stratégies d'investissement",
+      "treasury": "Vos fonds sont transférés en toute sécurité vers notre portefeuille de trésorerie",
+      "strategies": "La crypto est utilisée pour des stratégies de staking institutionnelles",
       "interest": "Les intérêts s'accumulent mensuellement et sont visibles dans votre tableau de bord",
       "maturity": "Après 12 mois, réclamez votre principal + intérêts"
     },
-    "viewDashboard": "Voir le Tableau de Bord Staking",
+    "viewDashboard": "Voir le tableau de bord staking",
     "share": "Partager",
-    "createAnother": "Staker Plus",
+    "createAnother": "Créer un autre staking",
     "shareText": "Texte de partage copié dans le presse-papiers!"
   },
-  "tiers": {
-    "title": "Système de Niveaux VIP",
-    "subtitle": "Des investissements plus élevés débloquent de meilleurs taux TAP",
-    "current": "Niveau Actuel",
-    "requirements": "Exigences",
-    "benefits": "Avantages",
-    "upgrade": "Upgrader",
-    "locked": "Verrouillé",
-    "unlocked": "Déverrouillé",
-    "investMore": "Investissez ${amount} de plus pour débloquer",
-    "tierNames": {
-      "BASIC": "Basique",
-      "CLUB": "Club",
-      "PREMIUM": "Premium",
-      "VIP": "VIP",
-      "ELITE": "Elite"
-    }
-  },
   "history": {
-    "title": "Historique de Staking",
-    "subtitle": "Enregistrement complet de vos investissements de staking",
-    "filter": {
+    "title": "Historique du staking",
+    "subtitle": "Toutes vos transactions et activités de staking",
+    "filters": {
       "all": "Tous",
-      "active": "Actifs",
-      "matured": "Maturés",
-      "claimed": "Réclamés"
+      "active": "Actif",
+      "matured": "Arrivé à échéance",
+      "claimed": "Réclamé"
     },
     "sort": {
-      "newest": "Plus Récents d'Abord",
-      "oldest": "Plus Anciens d'Abord",
-      "amount": "Montant le Plus Élevé"
+      "newest": "Plus récent",
+      "oldest": "Plus ancien",
+      "amount": "Montant"
     },
-    "empty": {
-      "title": "Aucun Historique de Staking",
-      "description": "Vous n'avez encore créé aucun investissement de staking",
-      "action": "Créer Votre Premier Stake"
-    },
-    "details": {
-      "created": "Créé",
-      "matures": "Mature",
+    "export": "Exporter CSV",
+    "noHistory": "Aucun historique de staking",
+    "noHistoryDescription": "Vos transactions de staking apparaîtront ici",
+    "item": {
+      "created": "Créé le",
+      "amount": "Montant",
+      "tier": "Niveau",
+      "apy": "APY",
       "status": "Statut",
       "earned": "Gagné",
-      "remaining": "Restant"
-    },
-    "export": "Exporter l'Historique"
+      "maturity": "Échéance",
+      "claim": "Réclamer",
+      "view": "Voir"
+    }
   },
   "analytics": {
-    "title": "Analyse de Staking",
-    "subtitle": "Métriques de performance détaillées et perspectives",
-    "metrics": {
-      "totalValue": "Valeur Totale du Portfolio",
-      "averageAPY": "TAP Moyen",
-      "monthlyIncome": "Revenus Mensuels",
-      "timeToMaturity": "Jours Moyens jusqu'à l'Échéance"
+    "title": "Analyses du staking",
+    "subtitle": "Insights détaillés sur votre performance de staking",
+    "performance": {
+      "title": "Performance du portefeuille",
+      "totalStaked": "Total mis en jeu",
+      "totalEarned": "Total gagné",
+      "activeValue": "Valeur active",
+      "roiPercentage": "ROI",
+      "apyAverage": "APY moyen"
     },
-    "charts": {
-      "portfolioGrowth": "Croissance du Portfolio au Fil du Temps",
-      "earningsBreakdown": "Répartition des Gains par Niveau",
-      "monthlyIncome": "Projection des Revenus Mensuels"
+    "tierAnalytics": {
+      "title": "Analyses de niveau",
+      "currentTier": "Niveau actuel",
+      "benefits": "Avantages",
+      "nextTier": "Niveau suivant",
+      "progress": "Progression vers le niveau suivant",
+      "requirement": "Requis pour le niveau suivant"
+    },
+    "monthlyEarnings": {
+      "title": "Revenus mensuels",
+      "month": "Mois",
+      "earnings": "Revenus",
+      "stakes": "Stakes"
+    },
+    "tokenDistribution": {
+      "title": "Distribution des tokens",
+      "token": "Token",
+      "amount": "Montant",
+      "percentage": "Pourcentage"
+    },
+    "noData": "Aucune donnée disponible",
+    "noDataDescription": "Créez votre premier staking pour voir les analyses"
+  },
+  "tiers": {
+    "title": "Niveaux de staking",
+    "subtitle": "Débloquez des récompenses APY plus élevées avec plus de staking",
+    "current": "Actuel",
+    "locked": "Verrouillé",
+    "requirements": "Exigences",
+    "benefits": "Avantages",
+    "apy": "APY",
+    "minimum": "Minimum",
+    "maximum": "Maximum",
+    "upgrade": "Améliorer",
+    "tierDetails": {
+      "BASIC": {
+        "name": "Basique",
+        "description": "Niveau d'entrée pour nouveaux utilisateurs",
+        "benefits": ["Accès à la plateforme de base"]
+      },
+      "CLUB": {
+        "name": "Club",
+        "description": "Débloquez le staking avec des récompenses décentes",
+        "benefits": ["8% APY", "Support standard", "Analyses de base"]
+      },
+      "PREMIUM": {
+        "name": "Premium",
+        "description": "Récompenses améliorées et support prioritaire",
+        "benefits": ["12% APY", "Support prioritaire", "Analyses avancées", "Événements exclusifs"]
+      },
+      "VIP": {
+        "name": "VIP",
+        "description": "Récompenses élevées et avantages exclusifs",
+        "benefits": ["15% APY", "Support VIP", "Analyses premium", "Accès anticipé", "Gestionnaire de compte personnel"]
+      },
+      "ELITE": {
+        "name": "Elite",
+        "description": "Récompenses maximales et service blanc",
+        "benefits": ["20% APY", "Support élite", "Solutions personnalisées", "Opportunités exclusives", "Ligne directe"]
+      }
     }
+  },
+  "error": {
+    "title": "Erreur",
+    "description": "Quelque chose s'est mal passé",
+    "retry": "Réessayer",
+    "backToDashboard": "Retour au tableau de bord"
   }
 }

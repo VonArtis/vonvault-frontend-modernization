@@ -286,47 +286,6 @@ class VonVaultWeb3Service {
     }
   }
 
-  // Process smart contract investment
-  async processSmartContractInvestment(investmentData) {
-    if (!this.signer) {
-      throw new Error('Wallet not connected');
-    }
-
-    const { investmentId, amount, tokenType, network } = investmentData;
-    const config = NETWORK_CONFIG[network];
-
-    if (!config.contractAddress) {
-      throw new Error('Smart contract not deployed on this network');
-    }
-
-    try {
-      const contract = new ethers.Contract(
-        config.contractAddress,
-        VONVAULT_CONTRACT_ABI,
-        this.signer
-      );
-
-      const tokenAddress = config.tokens[tokenType];
-      const amountWei = ethers.parseUnits(amount, 6);
-
-      // Process investment through smart contract
-      const tx = await contract.processInvestment(
-        investmentId,
-        tokenAddress,
-        amountWei
-      );
-
-      return {
-        success: true,
-        transactionHash: tx.hash,
-        investmentId: investmentId,
-        message: 'Investment submitted to blockchain'
-      };
-    } catch (error) {
-      throw new Error(`Investment failed: ${error.message}`);
-    }
-  }
-
   // Monitor transaction status
   async getTransactionStatus(transactionHash) {
     if (!this.provider) {

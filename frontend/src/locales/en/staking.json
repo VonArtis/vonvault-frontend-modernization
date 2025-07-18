@@ -58,7 +58,7 @@
       "title": "⚠️ Important: Custody Transfer",
       "transfer": "Your USDC/USDT will be transferred to VonVault's treasury wallet",
       "duration": "We will custody your funds for the 12-month staking period",
-      "conversion": "Your crypto will be converted to FIAT for investment strategies",
+      "strategies": "Your crypto will be used for institutional staking strategies",
       "guarantee": "You'll receive guaranteed APY returns regardless of market conditions",
       "return": "Principal + interest returned after 12 months in original token"
     },
@@ -95,7 +95,7 @@
     "nextSteps": {
       "title": "📈 What happens next?",
       "treasury": "Your funds are securely transferred to our treasury wallet",
-      "conversion": "Crypto is converted to FIAT for investment strategies",
+      "strategies": "Crypto is used for institutional staking strategies",
       "interest": "Interest accrues monthly and is visible in your dashboard",
       "maturity": "After 12 months, claim your principal + interest"
     },

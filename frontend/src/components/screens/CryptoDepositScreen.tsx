@@ -78,16 +78,6 @@ export const CryptoDepositScreen: React.FC<ScreenProps> = ({ onBack, onNavigate 
     return vonvaultWallets[key] || null;
   };
 
-  const calculateConversionFee = (): number => {
-    const amount = parseFloat(depositAmount) || 0;
-    return amount * 0.0275; // 2.75% conversion fee
-  };
-
-  const calculateNetAmount = (): number => {
-    const amount = parseFloat(depositAmount) || 0;
-    return amount - calculateConversionFee();
-  };
-
   const handleDepositComplete = () => {
     if (purpose === 'staking') {
       onNavigate?.('create-staking');
@@ -255,13 +245,9 @@ export const CryptoDepositScreen: React.FC<ScreenProps> = ({ onBack, onNavigate 
                   <span className="text-gray-400">Deposit Amount:</span>
                   <span className="text-white">${parseFloat(depositAmount).toLocaleString()}</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Conversion Fee (2.75%):</span>
-                  <span className="text-red-400">-${calculateConversionFee().toLocaleString()}</span>
-                </div>
                 <div className="border-t border-gray-600 pt-1 flex justify-between font-semibold">
-                  <span className="text-blue-400">Net Amount:</span>
-                  <span className="text-blue-400">${calculateNetAmount().toLocaleString()}</span>
+                  <span className="text-blue-400">Available for Staking:</span>
+                  <span className="text-blue-400">${parseFloat(depositAmount).toLocaleString()}</span>
                 </div>
               </div>
             </Card>
@@ -297,7 +283,7 @@ export const CryptoDepositScreen: React.FC<ScreenProps> = ({ onBack, onNavigate 
               </div>
               <div className="text-sm text-gray-300">
                 Only send {selectedToken.toUpperCase()} tokens on {getNetworkDisplayName(selectedNetwork)} network to this address.
-                A 2.75% conversion fee will be deducted for FIAT integration.
+                Deposits are processed directly for staking opportunities.
               </div>
             </div>
 

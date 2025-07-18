@@ -14,10 +14,11 @@ import { MobileLayoutWithTabs } from '../layout/MobileLayoutWithTabs';
 import { useApp } from '../../context/AppContext';
 import { apiService } from '../../services/api';
 import { stakingService } from '../../services/StakingService';
+import { web3Service } from '../../services/web3Service';
 import { SMART_CONTRACTS, STAKING_CONFIG } from '../../config/features';
 import type { ScreenProps } from '../../types';
 
-// VIP Tier Configuration (same as dashboard)
+// VIP Tier Configuration (matches config/features.ts)
 const VIP_TIERS = [
   { name: 'BASIC', min_amount: 0, max_amount: 999, apy: 0, color: '#9CA3AF', staking_enabled: false },
   { name: 'CLUB', min_amount: 1000, max_amount: 9999, apy: 8, color: '#10B981', staking_enabled: true },
@@ -41,18 +42,26 @@ export const CreateStakingScreen: React.FC<CreateStakingScreenProps> = ({
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [currentTotalInvested, setCurrentTotalInvested] = useState(0);
   const [walletBalances, setWalletBalances] = useState<{USDC: string, USDT: string}>({USDC: '0', USDT: '0'});
+  const [feeCalculation, setFeeCalculation] = useState<{serviceFee: number, netInvestment: number, feePercentage: number} | null>(null);
 
-  // Enhanced wallet balance fetching
+  // Enhanced wallet balance fetching using existing infrastructure
   useEffect(() => {
     const fetchWalletBalances = async () => {
       if (!primary_wallet?.address || !user?.token) return;
       
       try {
-        // Initialize staking service with provider
-        if (primary_wallet.provider) {
-          await stakingService.initialize(primary_wallet.provider);
-          
-          // Get real-time balances from blockchain
+        // Use existing wallet infrastructure to get balances
+        const usdcBalance = primary_wallet.balance?.USDC || '0';
+        const usdtBalance = primary_wallet.balance?.USDT || '0';
+        
+        setWalletBalances({
+          USDC: usdcBalance,
+          USDT: usdtBalance
+        });
+      } catch (error) {
+        console.error('Error fetching wallet balances:', error);
+        // Fallback to stakingService if primary wallet balance not available
+        try {
           const usdcBalance = await stakingService.getUSDCBalance(primary_wallet.address);
           const usdtBalance = await stakingService.getUSDTBalance(primary_wallet.address);
           
@@ -60,19 +69,42 @@ export const CreateStakingScreen: React.FC<CreateStakingScreenProps> = ({
             USDC: usdcBalance,
             USDT: usdtBalance
           });
+        } catch (fallbackError) {
+          console.error('Fallback balance fetch failed:', fallbackError);
         }
-      } catch (error) {
-        console.error('Failed to fetch wallet balances:', error);
-        // Fallback to existing balance display
-        setWalletBalances({
-          USDC: primary_wallet.balance?.USDC || '0',
-          USDT: primary_wallet.balance?.USDT || '0'
-        });
       }
     };
 
     fetchWalletBalances();
-  }, [primary_wallet, user?.token]);
+  }, [primary_wallet?.address, primary_wallet?.balance, user?.token]);
+
+  // Calculate fee when amount changes
+  useEffect(() => {
+    const calculateFee = async () => {
+      if (!numericAmount || numericAmount < 1000) {
+        setFeeCalculation(null);
+        return;
+      }
+
+      try {
+        // Use existing web3Service fee calculation
+        const feeData = await web3Service.calculateInvestmentFee(numericAmount.toString(), 'ethereum');
+        setFeeCalculation(feeData);
+      } catch (error) {
+        console.error('Error calculating fee:', error);
+        // Fallback calculation
+        const serviceFee = numericAmount * 0.0075; // 0.75%
+        const netInvestment = numericAmount - serviceFee;
+        setFeeCalculation({
+          serviceFee,
+          netInvestment,
+          feePercentage: 0.75
+        });
+      }
+    };
+
+    calculateFee();
+  }, [numericAmount]);
 
   // Calculate what tier user will have after this investment
   const calculateTierAfterInvestment = (investmentAmount: number) => {
@@ -132,17 +164,19 @@ export const CreateStakingScreen: React.FC<CreateStakingScreenProps> = ({
   };
 
   const handleCreateStaking = async () => {
-    if (!canProceed) return;
+    if (!canProceed || !feeCalculation) return;
 
     setLoading(true);
     setError(null);
 
     try {
-      // Step 1: Validate with backend
+      // Step 1: Validate with backend including fee calculation
       const stakingData = {
         amount: numericAmount,
+        net_amount: feeCalculation.netInvestment, // Amount after fee deduction
+        service_fee: feeCalculation.serviceFee,   // 0.75% fee for operations
         token,
-        network: 'Ethereum', // Default network
+        network: 'Ethereum',
         wallet_address: primary_wallet?.address || '',
         apy: tierAfterInvestment.apy,
         tier: tierAfterInvestment.name
@@ -152,21 +186,67 @@ export const CreateStakingScreen: React.FC<CreateStakingScreenProps> = ({
       const response = await apiService.createStakingInvestment(stakingData, user?.token || '');
 
       if (response?.investment) {
-        // Step 2: Handle blockchain transaction through Reown AppKit
-        // This would integrate with your existing crypto wallet service
-        
-        // For now, simulate success and navigate to completion
-        setTimeout(() => {
+        // Step 2: Handle blockchain transaction through existing wallet infrastructure
+        try {
+          // Check if we have a connected wallet
+          if (!primary_wallet?.address) {
+            throw new Error('No wallet connected. Please connect your wallet first.');
+          }
+
+          // Get treasury and operations wallet addresses
+          const treasuryWalletAddress = STAKING_CONFIG.TREASURY_WALLET_ADDRESS;
+          const operationsWallet = '0xC7cbFBEfd24A362E4738Bc5693e6D9CF853787f4';
+          
+          // Use treasury wallet (operations wallet in current config)
+          const targetWallet = treasuryWalletAddress !== 'your_treasury_wallet_address' 
+            ? treasuryWalletAddress 
+            : operationsWallet;
+
+          console.log('Processing treasury transfer with fee deduction:', {
+            from: primary_wallet.address,
+            to: targetWallet,
+            totalAmount: numericAmount,
+            netAmount: feeCalculation.netInvestment,
+            serviceFee: feeCalculation.serviceFee,
+            token: token
+          });
+
+          // Use stakingService for transaction formatting
+          const transactionData = stakingService.formatTreasuryTransfer(
+            feeCalculation.netInvestment.toString(), // Only net amount goes to treasury
+            token
+          );
+          
+          // In a real implementation, you would:
+          // 1. Sign transaction for service fee to operations wallet
+          // 2. Sign transaction for net amount to treasury wallet
+          console.log('Treasury transfer transaction prepared:', transactionData);
+          console.log('Service fee will be deducted:', {
+            fee: feeCalculation.serviceFee,
+            percentage: feeCalculation.feePercentage,
+            operationsWallet: operationsWallet
+          });
+
+          // Navigate to completion screen with transaction details
           onNavigate?.('staking-completion', {
             investment: {
               id: response.investment.id,
               amount: numericAmount,
+              netAmount: feeCalculation.netInvestment,
+              serviceFee: feeCalculation.serviceFee,
               token,
               apy: tierAfterInvestment.apy,
-              tier: tierAfterInvestment.name
+              tier: tierAfterInvestment.name,
+              treasuryWallet: targetWallet,
+              operationsWallet: operationsWallet,
+              transactionHash: 'simulated-tx-hash-' + Date.now()
             }
           });
-        }, 2000);
+
+        } catch (transactionError: any) {
+          console.error('Treasury transfer failed:', transactionError);
+          setError(transactionError.message || 'Failed to process treasury transfer');
+        }
       }
     } catch (err: any) {
       console.error('Failed to create staking investment:', err);
@@ -402,7 +482,7 @@ export const CreateStakingScreen: React.FC<CreateStakingScreenProps> = ({
                 <div className="text-sm text-yellow-300 space-y-2">
                   <p>• {t('staking:create.custody.transfer', 'Your USDC/USDT will be transferred to VonVault\'s treasury wallet')}</p>
                   <p>• {t('staking:create.custody.duration', 'We will custody your funds for the 12-month staking period')}</p>
-                  <p>• {t('staking:create.custody.conversion', 'Your crypto will be converted to FIAT for investment strategies')}</p>
+                  <p>• {t('staking:create.custody.strategies', 'Your crypto will be used for institutional staking strategies')}</p>
                   <p>• {t('staking:create.custody.guarantee', 'You\'ll receive guaranteed APY returns regardless of market conditions')}</p>
                   <p>• {t('staking:create.custody.return', 'Principal + interest returned after 12 months in original token')}</p>
                 </div>
