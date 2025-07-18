@@ -1,0 +1,168 @@
+{
+  "dashboard": {
+    "title": "Tableau de Bord Staking",
+    "createStake": "Staker",
+    "tier": "Niveau",
+    "apy": "TAP",
+    "totalInvested": "Total Investi",
+    "progressToNext": "Progrès vers le Niveau Suivant",
+    "toGo": "à parcourir",
+    "totalStaked": "Total en Staking",
+    "interestEarned": "Intérêts Gagnés",
+    "monthlyIncome": "Revenus Mensuels",
+    "activeStakes": "Stakes Actifs",
+    "quickActions": "Actions Rapides",
+    "newStake": "Nouveau Stake",
+    "viewTiers": "Voir les Niveaux",
+    "daysRemaining": "Jours Restants",
+    "days": "jours",
+    "progress": "Progrès",
+    "claim": "Réclamer",
+    "startStaking": "Commencer le Staking Aujourd'hui",
+    "upgradeToStake": "Upgrader pour Commencer le Staking",
+    "earnUpTo": "Gagnez {apy}% TAP avec un staking verrouillé de 12 mois",
+    "investMinimum": "Investissez au moins $1,000 pour débloquer les fonctionnalités de staking",
+    "createFirstStake": "Créer le Premier Stake",
+    "viewInvestments": "Voir les Investissements"
+  },
+  "create": {
+    "title": "Créer un Investissement de Staking",
+    "noWallet": {
+      "title": "Portefeuille Requis",
+      "description": "Connectez un portefeuille crypto pour créer des investissements de staking"
+    },
+    "connectWallet": "Connecter le Portefeuille",
+    "amount": {
+      "title": "Montant d'Investissement",
+      "label": "Montant (USD)",
+      "placeholder": "1,000 - 250,000",
+      "validation": {
+        "minimum": "L'investissement minimum est de $1,000",
+        "maximum": "L'investissement maximum est de $250,000",
+        "valid": "Montant d'investissement valide"
+      }
+    },
+    "token": {
+      "title": "Token de Paiement"
+    },
+    "preview": {
+      "title": "Aperçu de l'Investissement",
+      "tierAfter": "Votre Niveau Après l'Investissement",
+      "monthlyInterest": "Intérêt Mensuel",
+      "lockPeriod": "Période de Verrouillage",
+      "twelveMonths": "12 mois",
+      "totalReturn": "Retour Total",
+      "totalAfter": "Total Après 12 Mois"
+    },
+    "custody": {
+      "title": "⚠️ Important: Transfert de Garde",
+      "transfer": "Votre USDC/USDT sera transféré vers le portefeuille de trésorerie de VonVault",
+      "duration": "Nous garderons vos fonds pendant la période de staking de 12 mois",
+      "conversion": "Votre crypto sera converti en FIAT pour les stratégies d'investissement",
+      "guarantee": "Vous recevrez des retours TAP garantis indépendamment des conditions du marché",
+      "return": "Principal + intérêts retournés après 12 mois dans le token original"
+    },
+    "terms": {
+      "prefix": "Je comprends et accepte les",
+      "custody": "termes de garde",
+      "and": "et",
+      "staking": "conditions de staking"
+    },
+    "button": {
+      "creating": "Création de l'Investissement...",
+      "create": "Créer l'Investissement de Staking"
+    },
+    "error": {
+      "failed": "Échec de la création de l'investissement de staking"
+    }
+  },
+  "completion": {
+    "title": "Investissement de Staking Créé!",
+    "subtitle": "Vos fonds génèrent maintenant des retours garantis",
+    "tier": "Niveau",
+    "summary": {
+      "title": "Résumé de l'Investissement",
+      "principal": "Montant Principal",
+      "apy": "TAP Annuel",
+      "monthly": "Intérêt Mensuel",
+      "lockPeriod": "12 Mois",
+      "until": "Jusqu'au",
+      "totalReturn": "Retour Total Après 12 Mois",
+      "profit": "profit"
+    },
+    "investmentId": "ID d'Investissement",
+    "copied": "Copié dans le presse-papiers!",
+    "nextSteps": {
+      "title": "📈 Que se passe-t-il ensuite?",
+      "treasury": "Vos fonds sont transférés en sécurité vers notre portefeuille de trésorerie",
+      "conversion": "La crypto est convertie en FIAT pour les stratégies d'investissement",
+      "interest": "Les intérêts s'accumulent mensuellement et sont visibles dans votre tableau de bord",
+      "maturity": "Après 12 mois, réclamez votre principal + intérêts"
+    },
+    "viewDashboard": "Voir le Tableau de Bord Staking",
+    "share": "Partager",
+    "createAnother": "Staker Plus",
+    "shareText": "Texte de partage copié dans le presse-papiers!"
+  },
+  "tiers": {
+    "title": "Système de Niveaux VIP",
+    "subtitle": "Des investissements plus élevés débloquent de meilleurs taux TAP",
+    "current": "Niveau Actuel",
+    "requirements": "Exigences",
+    "benefits": "Avantages",
+    "upgrade": "Upgrader",
+    "locked": "Verrouillé",
+    "unlocked": "Déverrouillé",
+    "investMore": "Investissez ${amount} de plus pour débloquer",
+    "tierNames": {
+      "BASIC": "Basique",
+      "CLUB": "Club",
+      "PREMIUM": "Premium",
+      "VIP": "VIP",
+      "ELITE": "Elite"
+    }
+  },
+  "history": {
+    "title": "Historique de Staking",
+    "subtitle": "Enregistrement complet de vos investissements de staking",
+    "filter": {
+      "all": "Tous",
+      "active": "Actifs",
+      "matured": "Maturés",
+      "claimed": "Réclamés"
+    },
+    "sort": {
+      "newest": "Plus Récents d'Abord",
+      "oldest": "Plus Anciens d'Abord",
+      "amount": "Montant le Plus Élevé"
+    },
+    "empty": {
+      "title": "Aucun Historique de Staking",
+      "description": "Vous n'avez encore créé aucun investissement de staking",
+      "action": "Créer Votre Premier Stake"
+    },
+    "details": {
+      "created": "Créé",
+      "matures": "Mature",
+      "status": "Statut",
+      "earned": "Gagné",
+      "remaining": "Restant"
+    },
+    "export": "Exporter l'Historique"
+  },
+  "analytics": {
+    "title": "Analyse de Staking",
+    "subtitle": "Métriques de performance détaillées et perspectives",
+    "metrics": {
+      "totalValue": "Valeur Totale du Portfolio",
+      "averageAPY": "TAP Moyen",
+      "monthlyIncome": "Revenus Mensuels",
+      "timeToMaturity": "Jours Moyens jusqu'à l'Échéance"
+    },
+    "charts": {
+      "portfolioGrowth": "Croissance du Portfolio au Fil du Temps",
+      "earningsBreakdown": "Répartition des Gains par Niveau",
+      "monthlyIncome": "Projection des Revenus Mensuels"
+    }
+  }
+}

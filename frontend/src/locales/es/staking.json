@@ -1,0 +1,168 @@
+{
+  "dashboard": {
+    "title": "Panel de Staking",
+    "createStake": "Stakear",
+    "tier": "Nivel",
+    "apy": "TAE",
+    "totalInvested": "Total Invertido",
+    "progressToNext": "Progreso al Siguiente Nivel",
+    "toGo": "por recorrer",
+    "totalStaked": "Total en Staking",
+    "interestEarned": "Intereses Ganados",
+    "monthlyIncome": "Ingresos Mensuales",
+    "activeStakes": "Stakes Activos",
+    "quickActions": "Acciones Rápidas",
+    "newStake": "Nuevo Stake",
+    "viewTiers": "Ver Niveles",
+    "daysRemaining": "Días Restantes",
+    "days": "días",
+    "progress": "Progreso",
+    "claim": "Reclamar",
+    "startStaking": "Comenzar Staking Hoy",
+    "upgradeToStake": "Actualizar para Comenzar Staking",
+    "earnUpTo": "Gana {apy}% TAE con staking bloqueado por 12 meses",
+    "investMinimum": "Invierte al menos $1,000 para desbloquear funciones de staking",
+    "createFirstStake": "Crear Primer Stake",
+    "viewInvestments": "Ver Inversiones"
+  },
+  "create": {
+    "title": "Crear Inversión de Staking",
+    "noWallet": {
+      "title": "Billetera Requerida",
+      "description": "Conecta una billetera cripto para crear inversiones de staking"
+    },
+    "connectWallet": "Conectar Billetera",
+    "amount": {
+      "title": "Cantidad de Inversión",
+      "label": "Cantidad (USD)",
+      "placeholder": "1,000 - 250,000",
+      "validation": {
+        "minimum": "La inversión mínima es $1,000",
+        "maximum": "La inversión máxima es $250,000",
+        "valid": "Cantidad de inversión válida"
+      }
+    },
+    "token": {
+      "title": "Token de Pago"
+    },
+    "preview": {
+      "title": "Vista Previa de Inversión",
+      "tierAfter": "Tu Nivel Después de la Inversión",
+      "monthlyInterest": "Interés Mensual",
+      "lockPeriod": "Período de Bloqueo",
+      "twelveMonths": "12 meses",
+      "totalReturn": "Retorno Total",
+      "totalAfter": "Total Después de 12 Meses"
+    },
+    "custody": {
+      "title": "⚠️ Importante: Transferencia de Custodia",
+      "transfer": "Tu USDC/USDT será transferido a la billetera de tesorería de VonVault",
+      "duration": "Custodiaremos tus fondos durante el período de staking de 12 meses",
+      "conversion": "Tu cripto será convertido a FIAT para estrategias de inversión",
+      "guarantee": "Recibirás retornos TAE garantizados independientemente de las condiciones del mercado",
+      "return": "Principal + intereses devueltos después de 12 meses en el token original"
+    },
+    "terms": {
+      "prefix": "Entiendo y acepto los",
+      "custody": "términos de custodia",
+      "and": "y",
+      "staking": "condiciones de staking"
+    },
+    "button": {
+      "creating": "Creando Inversión...",
+      "create": "Crear Inversión de Staking"
+    },
+    "error": {
+      "failed": "Error al crear la inversión de staking"
+    }
+  },
+  "completion": {
+    "title": "¡Inversión de Staking Creada!",
+    "subtitle": "Tus fondos ahora están generando retornos garantizados",
+    "tier": "Nivel",
+    "summary": {
+      "title": "Resumen de Inversión",
+      "principal": "Cantidad Principal",
+      "apy": "TAE Anual",
+      "monthly": "Interés Mensual",
+      "lockPeriod": "12 Meses",
+      "until": "Hasta",
+      "totalReturn": "Retorno Total Después de 12 Meses",
+      "profit": "ganancia"
+    },
+    "investmentId": "ID de Inversión",
+    "copied": "¡Copiado al portapapeles!",
+    "nextSteps": {
+      "title": "📈 ¿Qué sigue?",
+      "treasury": "Tus fondos son transferidos de forma segura a nuestra billetera de tesorería",
+      "conversion": "El cripto es convertido a FIAT para estrategias de inversión",
+      "interest": "Los intereses se acumulan mensualmente y son visibles en tu panel",
+      "maturity": "Después de 12 meses, reclama tu principal + intereses"
+    },
+    "viewDashboard": "Ver Panel de Staking",
+    "share": "Compartir",
+    "createAnother": "Stakear Más",
+    "shareText": "¡Texto compartido copiado al portapapeles!"
+  },
+  "tiers": {
+    "title": "Sistema de Niveles VIP",
+    "subtitle": "Inversiones más altas desbloquean mejores tasas TAE",
+    "current": "Nivel Actual",
+    "requirements": "Requisitos",
+    "benefits": "Beneficios",
+    "upgrade": "Actualizar",
+    "locked": "Bloqueado",
+    "unlocked": "Desbloqueado",
+    "investMore": "Invierte ${amount} más para desbloquear",
+    "tierNames": {
+      "BASIC": "Básico",
+      "CLUB": "Club",
+      "PREMIUM": "Premium",
+      "VIP": "VIP",
+      "ELITE": "Elite"
+    }
+  },
+  "history": {
+    "title": "Historial de Staking",
+    "subtitle": "Registro completo de tus inversiones de staking",
+    "filter": {
+      "all": "Todos",
+      "active": "Activos",
+      "matured": "Madurados",
+      "claimed": "Reclamados"
+    },
+    "sort": {
+      "newest": "Más Recientes Primero",
+      "oldest": "Más Antiguos Primero",
+      "amount": "Mayor Cantidad"
+    },
+    "empty": {
+      "title": "Sin Historial de Staking",
+      "description": "Aún no has creado ninguna inversión de staking",
+      "action": "Crear Tu Primer Stake"
+    },
+    "details": {
+      "created": "Creado",
+      "matures": "Madura",
+      "status": "Estado",
+      "earned": "Ganado",
+      "remaining": "Restante"
+    },
+    "export": "Exportar Historial"
+  },
+  "analytics": {
+    "title": "Análisis de Staking",
+    "subtitle": "Métricas de rendimiento detalladas y perspectivas",
+    "metrics": {
+      "totalValue": "Valor Total del Portfolio",
+      "averageAPY": "TAE Promedio",
+      "monthlyIncome": "Ingresos Mensuales",
+      "timeToMaturity": "Días Promedio hasta Vencimiento"
+    },
+    "charts": {
+      "portfolioGrowth": "Crecimiento del Portfolio a lo Largo del Tiempo",
+      "earningsBreakdown": "Desglose de Ganancias por Nivel",
+      "monthlyIncome": "Proyección de Ingresos Mensuales"
+    }
+  }
+}

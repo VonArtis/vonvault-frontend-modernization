@@ -1,0 +1,168 @@
+{
+  "dashboard": {
+    "title": "Staking Dashboard",
+    "createStake": "Staken",
+    "tier": "Stufe",
+    "apy": "APY",
+    "totalInvested": "Gesamt Investiert",
+    "progressToNext": "Fortschritt zur Nächsten Stufe",
+    "toGo": "noch zu gehen",
+    "totalStaked": "Gesamt Gestakt",
+    "interestEarned": "Verdiente Zinsen",
+    "monthlyIncome": "Monatliches Einkommen",
+    "activeStakes": "Aktive Stakes",
+    "quickActions": "Schnelle Aktionen",
+    "newStake": "Neuer Stake",
+    "viewTiers": "Stufen Anzeigen",
+    "daysRemaining": "Verbleibende Tage",
+    "days": "Tage",
+    "progress": "Fortschritt",
+    "claim": "Beanspruchen",
+    "startStaking": "Heute mit Staking Beginnen",
+    "upgradeToStake": "Upgrade zum Staking",
+    "earnUpTo": "Verdienen Sie {apy}% APY mit 12-monatiger Sperrung",
+    "investMinimum": "Investieren Sie mindestens $1,000 um Staking-Funktionen freizuschalten",
+    "createFirstStake": "Ersten Stake Erstellen",
+    "viewInvestments": "Investitionen Anzeigen"
+  },
+  "create": {
+    "title": "Staking-Investition Erstellen",
+    "noWallet": {
+      "title": "Wallet Erforderlich",
+      "description": "Verbinden Sie eine Krypto-Wallet um Staking-Investitionen zu erstellen"
+    },
+    "connectWallet": "Wallet Verbinden",
+    "amount": {
+      "title": "Investitionsbetrag",
+      "label": "Betrag (USD)",
+      "placeholder": "1,000 - 250,000",
+      "validation": {
+        "minimum": "Mindestinvestition beträgt $1,000",
+        "maximum": "Maximale Investition beträgt $250,000",
+        "valid": "Gültiger Investitionsbetrag"
+      }
+    },
+    "token": {
+      "title": "Zahlungs-Token"
+    },
+    "preview": {
+      "title": "Investitions-Vorschau",
+      "tierAfter": "Ihre Stufe Nach der Investition",
+      "monthlyInterest": "Monatliche Zinsen",
+      "lockPeriod": "Sperrfrist",
+      "twelveMonths": "12 Monate",
+      "totalReturn": "Gesamtrendite",
+      "totalAfter": "Gesamt Nach 12 Monaten"
+    },
+    "custody": {
+      "title": "⚠️ Wichtig: Verwahrungsübertragung",
+      "transfer": "Ihr USDC/USDT wird an VonVaults Treasury-Wallet übertragen",
+      "duration": "Wir verwahren Ihre Mittel für die 12-monatige Staking-Periode",
+      "conversion": "Ihr Krypto wird für Investitionsstrategien in FIAT umgewandelt",
+      "guarantee": "Sie erhalten garantierte APY-Renditen unabhängig von Marktbedingungen",
+      "return": "Kapital + Zinsen nach 12 Monaten im ursprünglichen Token zurückgegeben"
+    },
+    "terms": {
+      "prefix": "Ich verstehe und akzeptiere die",
+      "custody": "Verwahrungsbedingungen",
+      "and": "und",
+      "staking": "Staking-Bedingungen"
+    },
+    "button": {
+      "creating": "Investition Wird Erstellt...",
+      "create": "Staking-Investition Erstellen"
+    },
+    "error": {
+      "failed": "Fehler beim Erstellen der Staking-Investition"
+    }
+  },
+  "completion": {
+    "title": "Staking-Investition Erstellt!",
+    "subtitle": "Ihre Mittel generieren jetzt garantierte Renditen",
+    "tier": "Stufe",
+    "summary": {
+      "title": "Investitions-Zusammenfassung",
+      "principal": "Kapitalbetrag",
+      "apy": "Jährliche APY",
+      "monthly": "Monatliche Zinsen",
+      "lockPeriod": "12 Monate",
+      "until": "Bis",
+      "totalReturn": "Gesamtrendite Nach 12 Monaten",
+      "profit": "Gewinn"
+    },
+    "investmentId": "Investitions-ID",
+    "copied": "In die Zwischenablage kopiert!",
+    "nextSteps": {
+      "title": "📈 Was passiert als nächstes?",
+      "treasury": "Ihre Mittel werden sicher an unser Treasury-Wallet übertragen",
+      "conversion": "Krypto wird für Investitionsstrategien in FIAT umgewandelt",
+      "interest": "Zinsen sammeln sich monatlich an und sind in Ihrem Dashboard sichtbar",
+      "maturity": "Nach 12 Monaten beanspruchen Sie Ihr Kapital + Zinsen"
+    },
+    "viewDashboard": "Staking Dashboard Anzeigen",
+    "share": "Teilen",
+    "createAnother": "Mehr Staken",
+    "shareText": "Freigabe-Text in die Zwischenablage kopiert!"
+  },
+  "tiers": {
+    "title": "VIP-Stufensystem",
+    "subtitle": "Höhere Investitionen schalten bessere APY-Raten frei",
+    "current": "Aktuelle Stufe",
+    "requirements": "Anforderungen",
+    "benefits": "Vorteile",
+    "upgrade": "Upgrade",
+    "locked": "Gesperrt",
+    "unlocked": "Freigeschaltet",
+    "investMore": "Investieren Sie ${amount} mehr zum Freischalten",
+    "tierNames": {
+      "BASIC": "Basis",
+      "CLUB": "Club",
+      "PREMIUM": "Premium",
+      "VIP": "VIP",
+      "ELITE": "Elite"
+    }
+  },
+  "history": {
+    "title": "Staking-Verlauf",
+    "subtitle": "Vollständige Aufzeichnung Ihrer Staking-Investitionen",
+    "filter": {
+      "all": "Alle",
+      "active": "Aktiv",
+      "matured": "Fällig",
+      "claimed": "Beansprucht"
+    },
+    "sort": {
+      "newest": "Neueste Zuerst",
+      "oldest": "Älteste Zuerst",
+      "amount": "Höchster Betrag"
+    },
+    "empty": {
+      "title": "Kein Staking-Verlauf",
+      "description": "Sie haben noch keine Staking-Investitionen erstellt",
+      "action": "Ihren Ersten Stake Erstellen"
+    },
+    "details": {
+      "created": "Erstellt",
+      "matures": "Fällig",
+      "status": "Status",
+      "earned": "Verdient",
+      "remaining": "Verbleibend"
+    },
+    "export": "Verlauf Exportieren"
+  },
+  "analytics": {
+    "title": "Staking-Analyse",
+    "subtitle": "Detaillierte Leistungsmetriken und Einblicke",
+    "metrics": {
+      "totalValue": "Gesamtportfolio-Wert",
+      "averageAPY": "Durchschnittliche APY",
+      "monthlyIncome": "Monatliches Einkommen",
+      "timeToMaturity": "Durchschnittliche Tage bis zur Fälligkeit"
+    },
+    "charts": {
+      "portfolioGrowth": "Portfolio-Wachstum im Zeitverlauf",
+      "earningsBreakdown": "Gewinnaufschlüsselung nach Stufe",
+      "monthlyIncome": "Monatliche Einkommensprognose"
+    }
+  }
+}

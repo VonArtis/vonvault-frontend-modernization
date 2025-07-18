@@ -1,0 +1,168 @@
+{
+  "dashboard": {
+    "title": "Staking Dashboard",
+    "createStake": "Stake",
+    "tier": "Tier",
+    "apy": "APY",
+    "totalInvested": "Total Invested",
+    "progressToNext": "Progress to Next Tier",
+    "toGo": "to go",
+    "totalStaked": "Total Staked",
+    "interestEarned": "Interest Earned",
+    "monthlyIncome": "Monthly Income",
+    "activeStakes": "Active Stakes",
+    "quickActions": "Quick Actions",
+    "newStake": "New Stake",
+    "viewTiers": "View Tiers",
+    "daysRemaining": "Days Remaining",
+    "days": "days",
+    "progress": "Progress",
+    "claim": "Claim",
+    "startStaking": "Start Staking Today",
+    "upgradeToStake": "Upgrade to Start Staking",
+    "earnUpTo": "Earn {apy}% APY with 12-month locked staking",
+    "investMinimum": "Invest at least $1,000 to unlock staking features",
+    "createFirstStake": "Create First Stake",
+    "viewInvestments": "View Investments"
+  },
+  "create": {
+    "title": "Create Staking Investment",
+    "noWallet": {
+      "title": "Wallet Required",
+      "description": "Connect a crypto wallet to create staking investments"
+    },
+    "connectWallet": "Connect Wallet",
+    "amount": {
+      "title": "Investment Amount",
+      "label": "Amount (USD)",
+      "placeholder": "1,000 - 250,000",
+      "validation": {
+        "minimum": "Minimum investment is $1,000",
+        "maximum": "Maximum investment is $250,000",
+        "valid": "Valid investment amount"
+      }
+    },
+    "token": {
+      "title": "Payment Token"
+    },
+    "preview": {
+      "title": "Investment Preview",
+      "tierAfter": "Your Tier After Investment",
+      "monthlyInterest": "Monthly Interest",
+      "lockPeriod": "Lock Period",
+      "twelveMonths": "12 months",
+      "totalReturn": "Total Return",
+      "totalAfter": "Total After 12 Months"
+    },
+    "custody": {
+      "title": "⚠️ Important: Custody Transfer",
+      "transfer": "Your USDC/USDT will be transferred to VonVault's treasury wallet",
+      "duration": "We will custody your funds for the 12-month staking period",
+      "conversion": "Your crypto will be converted to FIAT for investment strategies",
+      "guarantee": "You'll receive guaranteed APY returns regardless of market conditions",
+      "return": "Principal + interest returned after 12 months in original token"
+    },
+    "terms": {
+      "prefix": "I understand and accept the",
+      "custody": "custody terms",
+      "and": "and",
+      "staking": "staking conditions"
+    },
+    "button": {
+      "creating": "Creating Investment...",
+      "create": "Create Staking Investment"
+    },
+    "error": {
+      "failed": "Failed to create staking investment"
+    }
+  },
+  "completion": {
+    "title": "Staking Investment Created!",
+    "subtitle": "Your funds are now earning guaranteed returns",
+    "tier": "Tier",
+    "summary": {
+      "title": "Investment Summary",
+      "principal": "Principal Amount",
+      "apy": "Annual APY",
+      "monthly": "Monthly Interest",
+      "lockPeriod": "12 Months",
+      "until": "Until",
+      "totalReturn": "Total Return After 12 Months",
+      "profit": "profit"
+    },
+    "investmentId": "Investment ID",
+    "copied": "Copied to clipboard!",
+    "nextSteps": {
+      "title": "📈 What happens next?",
+      "treasury": "Your funds are securely transferred to our treasury wallet",
+      "conversion": "Crypto is converted to FIAT for investment strategies",
+      "interest": "Interest accrues monthly and is visible in your dashboard",
+      "maturity": "After 12 months, claim your principal + interest"
+    },
+    "viewDashboard": "View Staking Dashboard",
+    "share": "Share",
+    "createAnother": "Stake More",
+    "shareText": "Share text copied to clipboard!"
+  },
+  "tiers": {
+    "title": "VIP Tier System",
+    "subtitle": "Higher investments unlock better APY rates",
+    "current": "Current Tier",
+    "requirements": "Requirements",
+    "benefits": "Benefits",
+    "upgrade": "Upgrade",
+    "locked": "Locked",
+    "unlocked": "Unlocked",
+    "investMore": "Invest ${amount} more to unlock",
+    "tierNames": {
+      "BASIC": "Basic",
+      "CLUB": "Club",
+      "PREMIUM": "Premium",
+      "VIP": "VIP",
+      "ELITE": "Elite"
+    }
+  },
+  "history": {
+    "title": "Staking History",
+    "subtitle": "Complete record of your staking investments",
+    "filter": {
+      "all": "All",
+      "active": "Active",
+      "matured": "Matured",
+      "claimed": "Claimed"
+    },
+    "sort": {
+      "newest": "Newest First",
+      "oldest": "Oldest First",
+      "amount": "Highest Amount"
+    },
+    "empty": {
+      "title": "No Staking History",
+      "description": "You haven't created any staking investments yet",
+      "action": "Create Your First Stake"
+    },
+    "details": {
+      "created": "Created",
+      "matures": "Matures",
+      "status": "Status",
+      "earned": "Earned",
+      "remaining": "Remaining"
+    },
+    "export": "Export History"
+  },
+  "analytics": {
+    "title": "Staking Analytics",
+    "subtitle": "Detailed performance metrics and insights",
+    "metrics": {
+      "totalValue": "Total Portfolio Value",
+      "averageAPY": "Average APY",
+      "monthlyIncome": "Monthly Income",
+      "timeToMaturity": "Avg. Days to Maturity"
+    },
+    "charts": {
+      "portfolioGrowth": "Portfolio Growth Over Time",
+      "earningsBreakdown": "Earnings Breakdown by Tier",
+      "monthlyIncome": "Monthly Income Projection"
+    }
+  }
+}
