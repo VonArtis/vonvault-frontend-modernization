@@ -1,0 +1,168 @@
+{
+  "dashboard": {
+    "title": "스테이킹 대시보드",
+    "createStake": "스테이크",
+    "tier": "티어",
+    "apy": "연이율",
+    "totalInvested": "총 투자액",
+    "progressToNext": "다음 티어 진행률",
+    "toGo": "남음",
+    "totalStaked": "총 스테이킹",
+    "interestEarned": "획득 이자",
+    "monthlyIncome": "월 수입",
+    "activeStakes": "활성 스테이크",
+    "quickActions": "빠른 작업",
+    "newStake": "새 스테이크",
+    "viewTiers": "티어 보기",
+    "daysRemaining": "남은 일수",
+    "days": "일",
+    "progress": "진행률",
+    "claim": "청구",
+    "startStaking": "오늘 스테이킹 시작",
+    "upgradeToStake": "스테이킹 시작으로 업그레이드",
+    "earnUpTo": "12개월 잠금 스테이킹으로 {apy}% 연이율 획득",
+    "investMinimum": "스테이킹 기능을 잠금 해제하려면 최소 $1,000 투자",
+    "createFirstStake": "첫 스테이크 생성",
+    "viewInvestments": "투자 보기"
+  },
+  "create": {
+    "title": "스테이킹 투자 생성",
+    "noWallet": {
+      "title": "지갑 필요",
+      "description": "스테이킹 투자를 생성하려면 암호화폐 지갑을 연결하세요"
+    },
+    "connectWallet": "지갑 연결",
+    "amount": {
+      "title": "투자 금액",
+      "label": "금액 (USD)",
+      "placeholder": "1,000 - 250,000",
+      "validation": {
+        "minimum": "최소 투자액은 $1,000입니다",
+        "maximum": "최대 투자액은 $250,000입니다",
+        "valid": "유효한 투자 금액"
+      }
+    },
+    "token": {
+      "title": "결제 토큰"
+    },
+    "preview": {
+      "title": "투자 미리보기",
+      "tierAfter": "투자 후 귀하의 티어",
+      "monthlyInterest": "월 이자",
+      "lockPeriod": "잠금 기간",
+      "twelveMonths": "12개월",
+      "totalReturn": "총 수익",
+      "totalAfter": "12개월 후 총액"
+    },
+    "custody": {
+      "title": "⚠️ 중요: 보관 이전",
+      "transfer": "귀하의 USDC/USDT는 VonVault의 자금 지갑으로 이전됩니다",
+      "duration": "12개월 스테이킹 기간 동안 귀하의 자금을 보관합니다",
+      "conversion": "귀하의 암호화폐는 투자 전략을 위해 법정화폐로 변환됩니다",
+      "guarantee": "시장 상황에 관계없이 보장된 연이율 수익을 받게 됩니다",
+      "return": "12개월 후 원래 토큰으로 원금 + 이자가 반환됩니다"
+    },
+    "terms": {
+      "prefix": "저는 이해하고 동의합니다",
+      "custody": "보관 조건",
+      "and": "및",
+      "staking": "스테이킹 조건"
+    },
+    "button": {
+      "creating": "투자 생성 중...",
+      "create": "스테이킹 투자 생성"
+    },
+    "error": {
+      "failed": "스테이킹 투자 생성 실패"
+    }
+  },
+  "completion": {
+    "title": "스테이킹 투자가 생성되었습니다!",
+    "subtitle": "귀하의 자금이 이제 보장된 수익을 창출하고 있습니다",
+    "tier": "티어",
+    "summary": {
+      "title": "투자 요약",
+      "principal": "원금 금액",
+      "apy": "연간 연이율",
+      "monthly": "월 이자",
+      "lockPeriod": "12개월",
+      "until": "까지",
+      "totalReturn": "12개월 후 총 수익",
+      "profit": "수익"
+    },
+    "investmentId": "투자 ID",
+    "copied": "클립보드에 복사되었습니다!",
+    "nextSteps": {
+      "title": "📈 다음에 무엇이 일어날까요?",
+      "treasury": "귀하의 자금이 안전하게 저희 자금 지갑으로 이전됩니다",
+      "conversion": "암호화폐가 투자 전략을 위해 법정화폐로 변환됩니다",
+      "interest": "이자는 매월 발생하며 대시보드에서 확인할 수 있습니다",
+      "maturity": "12개월 후, 원금 + 이자를 청구하세요"
+    },
+    "viewDashboard": "스테이킹 대시보드 보기",
+    "share": "공유",
+    "createAnother": "더 스테이크",
+    "shareText": "공유 텍스트가 클립보드에 복사되었습니다!"
+  },
+  "tiers": {
+    "title": "VIP 티어 시스템",
+    "subtitle": "더 높은 투자로 더 나은 연이율 잠금 해제",
+    "current": "현재 티어",
+    "requirements": "요구사항",
+    "benefits": "혜택",
+    "upgrade": "업그레이드",
+    "locked": "잠김",
+    "unlocked": "잠금 해제",
+    "investMore": "잠금 해제하려면 ${amount} 더 투자하세요",
+    "tierNames": {
+      "BASIC": "기본",
+      "CLUB": "클럽",
+      "PREMIUM": "프리미엄",
+      "VIP": "VIP",
+      "ELITE": "엘리트"
+    }
+  },
+  "history": {
+    "title": "스테이킹 기록",
+    "subtitle": "스테이킹 투자의 완전한 기록",
+    "filter": {
+      "all": "모두",
+      "active": "활성",
+      "matured": "만료",
+      "claimed": "청구됨"
+    },
+    "sort": {
+      "newest": "최신 순",
+      "oldest": "오래된 순",
+      "amount": "가장 큰 금액"
+    },
+    "empty": {
+      "title": "스테이킹 기록 없음",
+      "description": "아직 스테이킹 투자를 생성하지 않았습니다",
+      "action": "첫 스테이크 생성"
+    },
+    "details": {
+      "created": "생성일",
+      "matures": "만료일",
+      "status": "상태",
+      "earned": "획득",
+      "remaining": "남은"
+    },
+    "export": "기록 내보내기"
+  },
+  "analytics": {
+    "title": "스테이킹 분석",
+    "subtitle": "자세한 성과 지표 및 인사이트",
+    "metrics": {
+      "totalValue": "총 포트폴리오 가치",
+      "averageAPY": "평균 연이율",
+      "monthlyIncome": "월 수입",
+      "timeToMaturity": "평균 만료일"
+    },
+    "charts": {
+      "portfolioGrowth": "시간에 따른 포트폴리오 성장",
+      "earningsBreakdown": "티어별 수익 분석",
+      "monthlyIncome": "월 수입 예측"
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "dashboard": {
+    "title": "ステーキングダッシュボード",
+    "createStake": "ステーク",
+    "tier": "ティア",
+    "apy": "年利",
+    "totalInvested": "総投資額",
+    "progressToNext": "次のティアへの進捗",
+    "toGo": "あと",
+    "totalStaked": "総ステーク額",
+    "interestEarned": "獲得利息",
+    "monthlyIncome": "月収",
+    "activeStakes": "アクティブステーク",
+    "quickActions": "クイックアクション",
+    "newStake": "新しいステーク",
+    "viewTiers": "ティアを見る",
+    "daysRemaining": "残り日数",
+    "days": "日",
+    "progress": "進捗",
+    "claim": "請求",
+    "startStaking": "今日からステーキング開始",
+    "upgradeToStake": "ステーキング開始へアップグレード",
+    "earnUpTo": "12ヶ月ロックステーキングで{apy}%年利を獲得",
+    "investMinimum": "ステーキング機能を解除するには最低$1,000投資してください",
+    "createFirstStake": "最初のステークを作成",
+    "viewInvestments": "投資を見る"
+  },
+  "create": {
+    "title": "ステーキング投資を作成",
+    "noWallet": {
+      "title": "ウォレットが必要",
+      "description": "ステーキング投資を作成するには暗号ウォレットを接続してください"
+    },
+    "connectWallet": "ウォレットを接続",
+    "amount": {
+      "title": "投資金額",
+      "label": "金額 (USD)",
+      "placeholder": "1,000 - 250,000",
+      "validation": {
+        "minimum": "最低投資額は$1,000です",
+        "maximum": "最高投資額は$250,000です",
+        "valid": "有効な投資金額"
+      }
+    },
+    "token": {
+      "title": "支払いトークン"
+    },
+    "preview": {
+      "title": "投資プレビュー",
+      "tierAfter": "投資後のあなたのティア",
+      "monthlyInterest": "月利息",
+      "lockPeriod": "ロック期間",
+      "twelveMonths": "12ヶ月",
+      "totalReturn": "総リターン",
+      "totalAfter": "12ヶ月後の総額"
+    },
+    "custody": {
+      "title": "⚠️ 重要：カストディ転送",
+      "transfer": "あなたのUSDC/USDTはVonVaultの資金庫ウォレットに転送されます",
+      "duration": "12ヶ月のステーキング期間中、あなたの資金を管理します",
+      "conversion": "あなたの暗号資産は投資戦略のためにFIATに変換されます",
+      "guarantee": "市場状況に関係なく、保証された年利リターンを受け取ります",
+      "return": "12ヶ月後に元のトークンで元本+利息が返還されます"
+    },
+    "terms": {
+      "prefix": "私は理解し、同意します",
+      "custody": "カストディ条項",
+      "and": "および",
+      "staking": "ステーキング条件"
+    },
+    "button": {
+      "creating": "投資を作成中...",
+      "create": "ステーキング投資を作成"
+    },
+    "error": {
+      "failed": "ステーキング投資の作成に失敗しました"
+    }
+  },
+  "completion": {
+    "title": "ステーキング投資が作成されました！",
+    "subtitle": "あなたの資金は現在保証されたリターンを生み出しています",
+    "tier": "ティア",
+    "summary": {
+      "title": "投資サマリー",
+      "principal": "元本金額",
+      "apy": "年利",
+      "monthly": "月利息",
+      "lockPeriod": "12ヶ月",
+      "until": "まで",
+      "totalReturn": "12ヶ月後の総リターン",
+      "profit": "利益"
+    },
+    "investmentId": "投資ID",
+    "copied": "クリップボードにコピーされました！",
+    "nextSteps": {
+      "title": "📈 次に何が起こりますか？",
+      "treasury": "あなたの資金は安全に私たちの資金庫ウォレットに転送されます",
+      "conversion": "暗号資産は投資戦略のためにFIATに変換されます",
+      "interest": "利息は毎月発生し、ダッシュボードで確認できます",
+      "maturity": "12ヶ月後、元本+利息を請求してください"
+    },
+    "viewDashboard": "ステーキングダッシュボードを見る",
+    "share": "共有",
+    "createAnother": "もっとステーク",
+    "shareText": "共有テキストがクリップボードにコピーされました！"
+  },
+  "tiers": {
+    "title": "VIPティアシステム",
+    "subtitle": "より高い投資でより良い年利率を解除",
+    "current": "現在のティア",
+    "requirements": "要件",
+    "benefits": "利点",
+    "upgrade": "アップグレード",
+    "locked": "ロック",
+    "unlocked": "アンロック",
+    "investMore": "解除するには${amount}追加投資してください",
+    "tierNames": {
+      "BASIC": "ベーシック",
+      "CLUB": "クラブ",
+      "PREMIUM": "プレミアム",
+      "VIP": "VIP",
+      "ELITE": "エリート"
+    }
+  },
+  "history": {
+    "title": "ステーキング履歴",
+    "subtitle": "ステーキング投資の完全な記録",
+    "filter": {
+      "all": "すべて",
+      "active": "アクティブ",
+      "matured": "満期",
+      "claimed": "請求済み"
+    },
+    "sort": {
+      "newest": "最新順",
+      "oldest": "古い順",
+      "amount": "最高金額"
+    },
+    "empty": {
+      "title": "ステーキング履歴なし",
+      "description": "まだステーキング投資を作成していません",
+      "action": "最初のステークを作成"
+    },
+    "details": {
+      "created": "作成日",
+      "matures": "満期日",
+      "status": "ステータス",
+      "earned": "獲得",
+      "remaining": "残り"
+    },
+    "export": "履歴をエクスポート"
+  },
+  "analytics": {
+    "title": "ステーキング分析",
+    "subtitle": "詳細なパフォーマンスメトリクスとインサイト",
+    "metrics": {
+      "totalValue": "総ポートフォリオ価値",
+      "averageAPY": "平均年利",
+      "monthlyIncome": "月収",
+      "timeToMaturity": "平均満期日数"
+    },
+    "charts": {
+      "portfolioGrowth": "時間経過によるポートフォリオ成長",
+      "earningsBreakdown": "ティア別収益内訳",
+      "monthlyIncome": "月収予測"
+    }
+  }
+}

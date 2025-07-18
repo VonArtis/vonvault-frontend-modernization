@@ -1,0 +1,168 @@
+{
+  "dashboard": {
+    "title": "质押仪表板",
+    "createStake": "质押",
+    "tier": "等级",
+    "apy": "年化收益率",
+    "totalInvested": "总投资",
+    "progressToNext": "下一等级进度",
+    "toGo": "还需",
+    "totalStaked": "总质押",
+    "interestEarned": "赚取利息",
+    "monthlyIncome": "月收入",
+    "activeStakes": "活跃质押",
+    "quickActions": "快速操作",
+    "newStake": "新质押",
+    "viewTiers": "查看等级",
+    "daysRemaining": "剩余天数",
+    "days": "天",
+    "progress": "进度",
+    "claim": "领取",
+    "startStaking": "今天开始质押",
+    "upgradeToStake": "升级开始质押",
+    "earnUpTo": "12个月锁定质押可获得{apy}%年化收益率",
+    "investMinimum": "至少投资$1,000解锁质押功能",
+    "createFirstStake": "创建首个质押",
+    "viewInvestments": "查看投资"
+  },
+  "create": {
+    "title": "创建质押投资",
+    "noWallet": {
+      "title": "需要钱包",
+      "description": "连接加密钱包以创建质押投资"
+    },
+    "connectWallet": "连接钱包",
+    "amount": {
+      "title": "投资金额",
+      "label": "金额 (USD)",
+      "placeholder": "1,000 - 250,000",
+      "validation": {
+        "minimum": "最低投资为$1,000",
+        "maximum": "最高投资为$250,000",
+        "valid": "有效投资金额"
+      }
+    },
+    "token": {
+      "title": "支付代币"
+    },
+    "preview": {
+      "title": "投资预览",
+      "tierAfter": "投资后您的等级",
+      "monthlyInterest": "月利息",
+      "lockPeriod": "锁定期",
+      "twelveMonths": "12个月",
+      "totalReturn": "总回报",
+      "totalAfter": "12个月后总额"
+    },
+    "custody": {
+      "title": "⚠️ 重要：托管转移",
+      "transfer": "您的USDC/USDT将转移到VonVault的资金池钱包",
+      "duration": "我们将在12个月质押期间托管您的资金",
+      "conversion": "您的加密货币将转换为法币用于投资策略",
+      "guarantee": "无论市场条件如何，您都将获得保证的年化收益率回报",
+      "return": "12个月后以原始代币形式返还本金+利息"
+    },
+    "terms": {
+      "prefix": "我理解并接受",
+      "custody": "托管条款",
+      "and": "和",
+      "staking": "质押条件"
+    },
+    "button": {
+      "creating": "创建投资中...",
+      "create": "创建质押投资"
+    },
+    "error": {
+      "failed": "创建质押投资失败"
+    }
+  },
+  "completion": {
+    "title": "质押投资已创建！",
+    "subtitle": "您的资金现在正在获得保证回报",
+    "tier": "等级",
+    "summary": {
+      "title": "投资摘要",
+      "principal": "本金金额",
+      "apy": "年化收益率",
+      "monthly": "月利息",
+      "lockPeriod": "12个月",
+      "until": "直到",
+      "totalReturn": "12个月后总回报",
+      "profit": "利润"
+    },
+    "investmentId": "投资ID",
+    "copied": "已复制到剪贴板！",
+    "nextSteps": {
+      "title": "📈 接下来会发生什么？",
+      "treasury": "您的资金已安全转移到我们的资金池钱包",
+      "conversion": "加密货币已转换为法币用于投资策略",
+      "interest": "利息每月累积，在您的仪表板中可见",
+      "maturity": "12个月后，领取您的本金+利息"
+    },
+    "viewDashboard": "查看质押仪表板",
+    "share": "分享",
+    "createAnother": "质押更多",
+    "shareText": "分享文本已复制到剪贴板！"
+  },
+  "tiers": {
+    "title": "VIP等级系统",
+    "subtitle": "更高的投资解锁更好的年化收益率",
+    "current": "当前等级",
+    "requirements": "要求",
+    "benefits": "好处",
+    "upgrade": "升级",
+    "locked": "锁定",
+    "unlocked": "解锁",
+    "investMore": "再投资${amount}以解锁",
+    "tierNames": {
+      "BASIC": "基础",
+      "CLUB": "俱乐部",
+      "PREMIUM": "高级",
+      "VIP": "VIP",
+      "ELITE": "精英"
+    }
+  },
+  "history": {
+    "title": "质押历史",
+    "subtitle": "您质押投资的完整记录",
+    "filter": {
+      "all": "全部",
+      "active": "活跃",
+      "matured": "到期",
+      "claimed": "已领取"
+    },
+    "sort": {
+      "newest": "最新优先",
+      "oldest": "最旧优先",
+      "amount": "最高金额"
+    },
+    "empty": {
+      "title": "无质押历史",
+      "description": "您还没有创建任何质押投资",
+      "action": "创建您的第一个质押"
+    },
+    "details": {
+      "created": "创建时间",
+      "matures": "到期时间",
+      "status": "状态",
+      "earned": "已赚取",
+      "remaining": "剩余"
+    },
+    "export": "导出历史"
+  },
+  "analytics": {
+    "title": "质押分析",
+    "subtitle": "详细的绩效指标和洞察",
+    "metrics": {
+      "totalValue": "总投资组合价值",
+      "averageAPY": "平均年化收益率",
+      "monthlyIncome": "月收入",
+      "timeToMaturity": "平均到期天数"
+    },
+    "charts": {
+      "portfolioGrowth": "投资组合随时间增长",
+      "earningsBreakdown": "按等级分解收益",
+      "monthlyIncome": "月收入预测"
+    }
+  }
+}
