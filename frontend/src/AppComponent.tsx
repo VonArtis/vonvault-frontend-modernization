@@ -31,6 +31,7 @@ import OnboardingPortfolioDetectedScreen from './components/screens/OnboardingPo
 import SecurityHubScreen from './components/screens/SecurityOnboardingScreen';
 import StakingDashboardScreen from './components/screens/StakingDashboardScreen.V28';
 import ProfileScreen from './components/screens/ProfileScreen.V42';
+import ProfileScreenAndSecurityHub from './components/screens/ProfileScreenAndSecurityHub.V19';
 import { AdminPlansScreen } from './components/screens/AdminPlansScreen';
 import { AdminDashboardScreen } from './components/screens/AdminDashboardScreen';
 import { AdminStakingScreen } from './components/screens/AdminStakingScreen';
