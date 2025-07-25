@@ -20,24 +20,13 @@ const polygon = {
   rpcUrl: 'https://polygon-rpc.com'
 }
 
-const arbitrum = {
-  chainId: 42161,
-  name: 'Arbitrum One',
-  currency: 'ETH',
-  explorerUrl: 'https://arbiscan.io',
-  rpcUrl: 'https://arb1.arbitrum.io/rpc'
+const bsc = {
+  chainId: 56,
+  name: 'BNB Smart Chain',
+  currency: 'BNB',
+  explorerUrl: 'https://bscscan.com',
+  rpcUrl: 'https://bsc-dataseed.binance.org/'
 }
-
-const optimism = {
-  chainId: 10,
-  name: 'Optimism',
-  currency: 'ETH',
-  explorerUrl: 'https://optimistic.etherscan.io',
-  rpcUrl: 'https://mainnet.optimism.io'
-}
-
-const base = {
-  chainId: 8453,
   name: 'Base',
   currency: 'ETH',
   explorerUrl: 'https://basescan.org',
