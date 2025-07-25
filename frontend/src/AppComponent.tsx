@@ -42,6 +42,7 @@ import { PrivacyPolicyScreen } from './components/screens/PrivacyPolicyScreen';
 import { TermsOfServiceScreen } from './components/screens/TermsOfServiceScreen';
 import UiCatalogScreen from './components/screens/UiCatalogScreen';
 import FAQScreen from './components/screens/FAQScreen';
+import SMS2FAVerificationScreen from './components/screens/SMS2FAVerificationScreen';
 
 import './App.css';
 
