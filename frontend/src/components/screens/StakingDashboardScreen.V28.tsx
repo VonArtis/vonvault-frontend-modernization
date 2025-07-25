@@ -275,4 +275,4 @@ const StakingDashboardScreen: React.FC<StakingDashboardScreenProps> = ({ onNavig
   );
 };
 
-export default DashboardWithSwapWidget;
+export default StakingDashboardScreen;
