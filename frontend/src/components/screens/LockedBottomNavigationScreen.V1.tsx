@@ -68,10 +68,12 @@ const BottomTabs = ({ onNavigate, currentScreen, securityComplete = false }) => 
       case 'staking-dashboard':
         return [
           'staking-dashboard', 
-          'create-staking', 
+          'staking-flow-convert',
           'staking-completion',
           'staking-tiers',
-          'staking-history',
+          'staking-history', 
+          'staking-analytics',
+          'create-staking', 
           'investments', 
           'make-investment', 
           'investment-details', 
