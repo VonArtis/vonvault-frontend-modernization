@@ -160,13 +160,29 @@ const AppRouter: React.FC = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           
-          {/* Single route that handles all staking screens with proper navigation flow */}
           <Route 
-            path="/staking/*" 
-            element={renderCurrentScreen()} 
+            path="/convert" 
+            element={
+              <StakingFlowConvertScreen 
+                onNavigate={handleNavigate}
+              />
+            } 
           />
-          
-          {/* Legacy routes for direct access during development */}
+          <Route 
+            path="/create" 
+            element={
+              <CreateStakingScreen 
+                onBack={() => handleNavigate('staking-flow-convert')}
+                onNavigate={handleNavigate}
+              />
+            } 
+          />
+          <Route 
+            path="/completion" 
+            element={
+              <StakingCompletionScreen />
+            } 
+          />
           <Route 
             path="/dashboard" 
             element={
