@@ -13,6 +13,7 @@ interface SecurityOnboardingHubProps {
 
 const SecurityOnboardingHub: React.FC<SecurityOnboardingHubProps> = ({ 
   onNavigate, 
+  onSecurityComplete,
   userType = 'web3',
   initialProgress = {} 
 }) => {
