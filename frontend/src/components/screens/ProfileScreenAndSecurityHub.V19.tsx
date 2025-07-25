@@ -249,7 +249,10 @@ const ProfileScreen = ({ onNavigate }) => {
         {/* User Profile Card */}
         <div className="bg-gray-900 rounded-xl p-6 border border-gray-800">
           <div className="flex items-center space-x-4">
-            {createVonVaultAvatar(userData.membershipTier)}
+            <VonVaultTierLogo 
+              tier={userData.membershipTier as 'BASIC' | 'CLUB' | 'PREMIUM' | 'VIP' | 'ELITE'}
+              size="large"
+            />
             <div className="flex-1">
               {isEditMode ? (
                 <div className="space-y-3">
