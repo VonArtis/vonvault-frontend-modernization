@@ -372,6 +372,7 @@ const CreateStakingScreen: React.FC<CreateStakingScreenProps> = ({ onBack, onNav
                   <p className="text-amber-400 font-semibold text-sm mb-1">💡 How Your Payment Works</p>
                   <p className="text-xs text-gray-300">
                     ${parseFloat(amount).toLocaleString()} gets staked in treasury wallet, ${platformFee} fee goes to operations wallet.
+                    All swap fees from conversions also route to the same operations wallet.
                   </p>
                 </div>
                 
