@@ -233,14 +233,41 @@ const DashboardWithSwapWidget: React.FC<StakingDashboardScreenProps> = ({ onNavi
             <div className="space-y-4">
               {/* Convert All Option */}
               <div className="bg-gradient-to-r from-orange-600/20 to-green-600/20 border border-orange-500/30 rounded-xl p-4">
-                <div className="flex items-center justify-between mb-3">
-                  <div>
-                    <p className="text-white font-semibold">Convert All to USDC</p>
-                    <p className="text-sm text-gray-400">One-click conversion</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-lg font-bold text-green-400">${(totalNonStakeable * 0.996).toFixed(0)}</p>
-                    <p className="text-xs text-gray-400">After {swapFees[userTier]} fee</p>
+                <div className="mb-4">
+                  <p className="text-white font-semibold mb-2">Convert All to USDC</p>
+                  
+                  {/* Complete Fee Transparency */}
+                  <div className="space-y-1 text-sm">
+                    <div className="flex justify-between text-white font-medium">
+                      <span>You Pay:</span>
+                      <span>${totalNonStakeable.toFixed(2)}</span>
+                    </div>
+                    
+                    <div className="border-t border-gray-600 pt-2 space-y-1">
+                      <div className="flex justify-between">
+                        <span className="text-gray-400">VonVault Fee ({swapFees[userTier]}):</span>
+                        <span className="text-orange-400">-${calculateSwapFee(totalNonStakeable.toString()).vonVaultFee}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-400">Platform Fee (0.85%):</span>
+                        <span className="text-orange-400">-${calculateSwapFee(totalNonStakeable.toString()).platformFee}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-400">Network Gas:</span>
+                        <span className="text-orange-400">~${calculateSwapFee(totalNonStakeable.toString()).networkGasFee}</span>
+                      </div>
+                    </div>
+                    
+                    <div className="border-t border-gray-600 pt-2">
+                      <div className="flex justify-between font-semibold">
+                        <span className="text-white">You Receive:</span>
+                        <span className="text-green-400">~${calculateSwapFee(totalNonStakeable.toString()).receivedAmount} USDC</span>
+                      </div>
+                      <div className="flex justify-between text-sm mt-1">
+                        <span className="text-red-400 font-medium">Total Fees:</span>
+                        <span className="text-red-400 font-medium">${calculateSwapFee(totalNonStakeable.toString()).totalFees}</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <button className="w-full bg-gradient-to-r from-orange-600 to-green-600 text-white py-3 rounded-lg font-semibold hover:from-orange-700 hover:to-green-700 transition-all">
