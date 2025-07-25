@@ -14,7 +14,7 @@ const StakingFlowWithConvert = () => {
   const [showConversion, setShowConversion] = useState(false);
 
   // Mock wallet balances
-  const walletBalances = [
+  const walletBalances: WalletAsset[] = [
     { symbol: 'ETH', balance: '2.5847', usdValue: '4,250.32', icon: '⟠', canStake: false },
     { symbol: 'BTC', balance: '0.1234', usdValue: '5,123.45', icon: '₿', canStake: false },
     { symbol: 'USDC', balance: '1,250.00', usdValue: '1,250.00', icon: '💵', canStake: true },
