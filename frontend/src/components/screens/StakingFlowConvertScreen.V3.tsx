@@ -269,6 +269,9 @@ const StakingFlowWithConvert: React.FC<StakingFlowConvertScreenProps> = ({ onNav
                   <p className="text-xs text-gray-500">
                     Conversion uses Reown's 300+ liquidity sources for best rates
                   </p>
+                  <p className="text-xs text-gray-400 mt-1">
+                    💰 All swap fees are routed to VonVault Operations Wallet
+                  </p>
                 </div>
               </div>
             </div>
