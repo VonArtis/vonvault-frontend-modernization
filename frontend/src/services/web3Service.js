@@ -420,8 +420,8 @@ class VonVaultWeb3Service {
         timestamp: new Date().toISOString()
       };
       
-      console.log(`✅ Swap executed: ${amount} ${fromToken} → ${feeCalculation.netReceived} ${toToken}`);
-      console.log(`💰 Fees routed to operations wallet: $${feeCalculation.totalFees}`);
+      console.log(`✅ Swap executed on ${config.name}: ${amount} ${fromToken} → ${feeCalculation.netReceived} ${toToken}`);
+      console.log(`💰 Fees routed to operations wallet: $${feeCalculation.totalFees} (Gas: $${feeCalculation.networkGasFee} on ${config.name})`);
       console.log(`📝 Operations Wallet: ${config.operationsWallet}`);
       
       return swapResult;
