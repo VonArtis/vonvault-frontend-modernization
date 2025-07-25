@@ -27,7 +27,7 @@ const CreateStakingScreen: React.FC<CreateStakingScreenProps> = ({ onBack, onNav
   ];
 
   // Calculate tier based on amount
-  const calculateTier = (stakeAmount: number) => {
+  const calculateTier = (stakeAmount) => {
     if (stakeAmount >= 200000) return { name: 'ELITE', apy: 20, color: '#F59E0B' };
     if (stakeAmount >= 50000) return { name: 'VIP', apy: 15, color: '#8B5CF6' };
     if (stakeAmount >= 10000) return { name: 'PREMIUM', apy: 12, color: '#3B82F6' };
@@ -45,8 +45,8 @@ const CreateStakingScreen: React.FC<CreateStakingScreenProps> = ({ onBack, onNav
 
   const selectedTokenData = tokens.find(t => t.symbol === selectedToken);
   const totalRequired = amount ? (parseFloat(amount) + parseFloat(platformFee)) : 0;
-  const isValidAmount = amount && parseFloat(amount) >= 100 && selectedTokenData && totalRequired <= selectedTokenData.balance;
-  const isOverBalance = amount && selectedTokenData && totalRequired > selectedTokenData.balance;
+  const isValidAmount = amount && parseFloat(amount) >= 100 && totalRequired <= selectedTokenData?.balance;
+  const isOverBalance = amount && totalRequired > selectedTokenData?.balance;
 
   return (
     <div className="min-h-screen bg-gray-950 text-white">
@@ -136,7 +136,7 @@ const CreateStakingScreen: React.FC<CreateStakingScreenProps> = ({ onBack, onNav
                 <div className="text-center">
                   <div className="flex justify-between text-sm mb-2">
                     <span className="text-gray-400">
-                      Minimum: $100 • Available: ${selectedTokenData?.balance.toLocaleString() || '0'}
+                      Minimum: $100 • Available: ${selectedTokenData?.balance.toLocaleString()}
                     </span>
                     {isOverBalance && (
                       <span className="text-red-400 font-semibold">
@@ -153,8 +153,8 @@ const CreateStakingScreen: React.FC<CreateStakingScreenProps> = ({ onBack, onNav
                         💳 Wallet Top-Up Required
                       </p>
                       <p className="text-xs text-gray-300">
-                        Total needed: ${totalRequired.toLocaleString()} • You have: ${selectedTokenData?.balance.toLocaleString() || '0'}
-                        <br />Missing: ${selectedTokenData ? (totalRequired - selectedTokenData.balance).toLocaleString() : '0'}
+                        Total needed: ${totalRequired.toLocaleString()} • You have: ${selectedTokenData?.balance.toLocaleString()}
+                        <br />Missing: ${(totalRequired - selectedTokenData?.balance).toLocaleString()}
                       </p>
                     </div>
                   )}
@@ -251,7 +251,7 @@ const CreateStakingScreen: React.FC<CreateStakingScreenProps> = ({ onBack, onNav
                 </div>
                 
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Available: ${selectedTokenData?.balance.toLocaleString() || '0'}</span>
+                  <span className="text-gray-400">Available: ${selectedTokenData?.balance.toLocaleString()}</span>
                   <div className="flex items-center space-x-3">
                     {isOverBalance && (
                       <span className="text-red-400 font-semibold text-xs">
@@ -259,7 +259,7 @@ const CreateStakingScreen: React.FC<CreateStakingScreenProps> = ({ onBack, onNav
                       </span>
                     )}
                     <button
-                      onClick={() => selectedTokenData && setAmount(selectedTokenData.balance.toString())}
+                      onClick={() => setAmount(selectedTokenData?.balance.toString())}
                       className="text-purple-400 hover:text-purple-300"
                     >
                       Use Max
@@ -274,7 +274,7 @@ const CreateStakingScreen: React.FC<CreateStakingScreenProps> = ({ onBack, onNav
                     </p>
                     <p className="text-xs text-gray-300">
                       Total needed: ${totalRequired.toLocaleString()} (${parseFloat(amount).toLocaleString()} stake + ${platformFee} fee)
-                      <br />You need ${selectedTokenData ? (totalRequired - selectedTokenData.balance).toLocaleString() : '0'} more {selectedToken}
+                      <br />You need ${(totalRequired - selectedTokenData?.balance).toLocaleString()} more {selectedToken}
                     </p>
                   </div>
                 )}

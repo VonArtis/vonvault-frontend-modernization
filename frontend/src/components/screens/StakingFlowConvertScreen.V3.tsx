@@ -1,20 +1,12 @@
 import React, { useState } from 'react';
 
-interface WalletAsset {
-  symbol: string;
-  balance: string;
-  usdValue: string;
-  icon: string;
-  canStake: boolean;
-}
-
-const StakingFlowConvertScreen = () => {
-  const [selectedAsset, setSelectedAsset] = useState<WalletAsset | null>(null);
+const StakingFlowWithConvert = () => {
+  const [selectedAsset, setSelectedAsset] = useState(null);
   const [convertAmount, setConvertAmount] = useState('');
   const [showConversion, setShowConversion] = useState(false);
 
   // Mock wallet balances
-  const walletBalances: WalletAsset[] = [
+  const walletBalances = [
     { symbol: 'ETH', balance: '2.5847', usdValue: '4,250.32', icon: '⟠', canStake: false },
     { symbol: 'BTC', balance: '0.1234', usdValue: '5,123.45', icon: '₿', canStake: false },
     { symbol: 'USDC', balance: '1,250.00', usdValue: '1,250.00', icon: '💵', canStake: true },
@@ -29,17 +21,17 @@ const StakingFlowConvertScreen = () => {
     'ELITE': '0.25%'
   };
 
-  const handleConvertAndStake = (asset: WalletAsset) => {
+  const handleConvertAndStake = (asset) => {
     setSelectedAsset(asset);
     setShowConversion(true);
   };
 
-  const calculateSwapFee = (amount: string) => {
+  const calculateSwapFee = (amount) => {
     const feeRates = { 'CLUB': 0.008, 'PREMIUM': 0.006, 'VIP': 0.004, 'ELITE': 0.0025 };
     return (parseFloat(amount) * feeRates[userTier]).toFixed(2);
   };
 
-  const calculateReceived = (amount: string) => {
+  const calculateReceived = (amount) => {
     const fee = calculateSwapFee(amount);
     return (parseFloat(amount) - parseFloat(fee)).toFixed(2);
   };
@@ -250,4 +242,4 @@ const StakingFlowConvertScreen = () => {
   );
 };
 
-export default StakingFlowConvertScreen;
+export default StakingFlowWithConvert;
