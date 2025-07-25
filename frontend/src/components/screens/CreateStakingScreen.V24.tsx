@@ -428,7 +428,7 @@ const CreateStakingScreen: React.FC<CreateStakingScreenProps> = ({ onBack, onNav
             Preview
           </button>
           <button 
-            onClick={() => {/* Handle stake creation */}}
+            onClick={() => window.location.href = '/completion'}
             className="bg-purple-600 text-white py-4 px-6 rounded-xl font-semibold hover:bg-purple-700 transition-all flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={!isValidAmount}
           >
