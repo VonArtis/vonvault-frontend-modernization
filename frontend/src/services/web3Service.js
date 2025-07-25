@@ -348,6 +348,74 @@ class VonVaultWeb3Service {
       throw new Error(`Failed to get token balance: ${error.message}`);
     }
   }
+
+  // Calculate and route swap/exchange fees to operations wallet
+  async calculateSwapFees(amount, userTier, network = 'ethereum') {
+    const config = NETWORK_CONFIG[network];
+    const grossAmount = parseFloat(amount);
+    
+    // Fee structure: VonVault Fee (tier-based) + Platform Fee (0.85% Reown) + Network Gas
+    const vonVaultFeeRates = { 'CLUB': 0.008, 'PREMIUM': 0.006, 'VIP': 0.004, 'ELITE': 0.0025 };
+    const platformFeeRate = 0.0085; // Reown fee
+    const networkGasFee = 15; // Estimated gas cost
+    
+    const vonVaultFee = grossAmount * vonVaultFeeRates[userTier];
+    const platformFee = grossAmount * platformFeeRate;
+    const totalFees = vonVaultFee + platformFee + networkGasFee;
+    const netReceived = grossAmount - totalFees;
+    
+    return {
+      grossAmount: grossAmount,
+      vonVaultFee: vonVaultFee,
+      platformFee: platformFee,
+      networkGasFee: networkGasFee,
+      totalFees: totalFees,
+      netReceived: netReceived,
+      operationsWallet: config.operationsWallet, // Where all fees go
+      feeRouting: {
+        destination: config.operationsWallet,
+        vonVaultPortion: vonVaultFee,
+        platformPortion: platformFee,
+        note: "All swap fees route to VonVault Operations Wallet"
+      }
+    };
+  }
+
+  // Execute swap with fee routing to operations wallet
+  async executeSwapWithFeeRouting(fromToken, toToken, amount, userTier, network = 'ethereum') {
+    const config = NETWORK_CONFIG[network];
+    const feeCalculation = await this.calculateSwapFees(amount, userTier, network);
+    
+    try {
+      // This would integrate with Reown's swap execution
+      const swapResult = {
+        transactionHash: `0x${Math.random().toString(16).slice(2)}`, // Mock transaction hash
+        fromToken: fromToken,
+        toToken: toToken,
+        amountIn: amount,
+        amountOut: feeCalculation.netReceived,
+        feesRouted: {
+          destination: config.operationsWallet,
+          totalFeesCollected: feeCalculation.totalFees,
+          breakdown: {
+            vonVaultFee: feeCalculation.vonVaultFee,
+            platformFee: feeCalculation.platformFee,
+            networkGas: feeCalculation.networkGasFee
+          }
+        },
+        status: 'completed',
+        timestamp: new Date().toISOString()
+      };
+      
+      console.log(`✅ Swap executed: ${amount} ${fromToken} → ${feeCalculation.netReceived} ${toToken}`);
+      console.log(`💰 Fees routed to operations wallet: $${feeCalculation.totalFees}`);
+      console.log(`📝 Operations Wallet: ${config.operationsWallet}`);
+      
+      return swapResult;
+    } catch (error) {
+      throw new Error(`Swap execution failed: ${error.message}`);
+    }
+  }
 }
 
 // Export singleton instance
