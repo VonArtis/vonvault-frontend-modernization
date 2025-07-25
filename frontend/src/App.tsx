@@ -233,6 +233,26 @@ const AppRouter: React.FC = () => {
               />
             } 
           />
+          
+          {/* FAQ Screen */}
+          <Route 
+            path="/faq" 
+            element={
+              <FAQScreen 
+                onNavigate={handleNavigate}
+              />
+            } 
+          />
+          
+          {/* SMS 2FA Verification for returning users */}
+          <Route 
+            path="/sms-verification" 
+            element={
+              <SMS2FAVerificationScreen 
+                onNavigate={handleNavigate}
+              />
+            } 
+          />
           <Route 
             path="/dashboard" 
             element={
