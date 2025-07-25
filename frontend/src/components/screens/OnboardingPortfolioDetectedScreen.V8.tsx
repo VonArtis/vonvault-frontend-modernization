@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 
-const OnboardingConvertFlow = () => {
+interface OnboardingPortfolioDetectedScreenProps {
+  onNavigate?: (screen: string) => void;
+  onContinue?: () => void;
+}
+
+const OnboardingConvertFlow: React.FC<OnboardingPortfolioDetectedScreenProps> = ({ 
+  onNavigate, 
+  onContinue 
+}) => {
   const [currentStep, setCurrentStep] = useState('detection'); // detection, convert, staking
   const [selectedAssets, setSelectedAssets] = useState([]);
   const [convertAmounts, setConvertAmounts] = useState({});
