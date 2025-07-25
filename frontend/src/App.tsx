@@ -114,6 +114,8 @@ const AppRouter: React.FC = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          
+          {/* PHASE 1: Core Staking Flow */}
           <Route 
             path="/dashboard" 
             element={
@@ -141,6 +143,29 @@ const AppRouter: React.FC = () => {
             path="/completion" 
             element={
               <StakingCompletionScreen />
+            } 
+          />
+
+          {/* PHASE 2: Supporting Staking Features */}
+          <Route 
+            path="/history" 
+            element={
+              <StakingHistoryScreen />
+            } 
+          />
+          <Route 
+            path="/analytics" 
+            element={
+              <StakingAnalyticsScreen 
+                onBack={() => handleNavigate('dashboard')}
+                onNavigate={handleNavigate}
+              />
+            } 
+          />
+          <Route 
+            path="/tiers" 
+            element={
+              <StakingTiersScreen />
             } 
           />
         </Routes>
