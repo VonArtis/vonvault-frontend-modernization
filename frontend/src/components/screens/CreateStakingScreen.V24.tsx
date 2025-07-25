@@ -274,7 +274,7 @@ const CreateStakingScreen: React.FC<CreateStakingScreenProps> = ({ onBack, onNav
                     </p>
                     <p className="text-xs text-gray-300">
                       Total needed: ${totalRequired.toLocaleString()} (${parseFloat(amount).toLocaleString()} stake + ${platformFee} fee)
-                      <br />You need ${(totalRequired - selectedTokenData?.balance).toLocaleString()} more {selectedToken}
+                      <br />You need ${selectedTokenData ? (totalRequired - selectedTokenData.balance).toLocaleString() : '0'} more {selectedToken}
                     </p>
                   </div>
                 )}
