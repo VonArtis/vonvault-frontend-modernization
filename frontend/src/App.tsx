@@ -51,7 +51,7 @@ const Home: React.FC = () => {
         <p className="text-gray-300 mb-8">PHASE 1 & 2: Complete Staking Integration</p>
         
         <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
-          {/* PHASE 1: Core Staking Flow */}
+          {/* PHASE 1: Core Staking Flow - Proper Connected Navigation */}
           <a
             href="/dashboard"
             className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-xl transition-all text-center"
@@ -59,39 +59,27 @@ const Home: React.FC = () => {
             📊 Dashboard
           </a>
           <a
-            href="/convert"
+            href="/staking"
             className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-xl transition-all text-center"
           >
-            💱 Convert Assets
-          </a>
-          <a
-            href="/create"
-            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl transition-all text-center"
-          >
-            ➕ Create Stake
-          </a>
-          <a
-            href="/completion"
-            className="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-xl transition-all text-center"
-          >
-            ✅ Completion
+            🚀 Start Staking Flow
           </a>
           
-          {/* PHASE 2: Supporting Features */}
+          {/* PHASE 2: Supporting Features - Temporary direct access for testing */}
           <a
-            href="/history"
+            href="/dashboard"
             className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-xl transition-all text-center"
           >
             📜 History
           </a>
           <a
-            href="/analytics"
+            href="/dashboard"
             className="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-6 rounded-xl transition-all text-center"
           >
             📈 Analytics
           </a>
           <a
-            href="/tiers"
+            href="/dashboard"
             className="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-xl transition-all text-center col-span-2"
           >
             🏆 Staking Tiers
