@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 
-const StakingFlowWithConvert = () => {
+interface StakingFlowConvertScreenProps {
+  onNavigate?: (screen: string) => void;
+}
+
+const StakingFlowWithConvert: React.FC<StakingFlowConvertScreenProps> = ({ onNavigate }) => {
   const [selectedAsset, setSelectedAsset] = useState(null);
   const [convertAmount, setConvertAmount] = useState('');
   const [showConversion, setShowConversion] = useState(false);
