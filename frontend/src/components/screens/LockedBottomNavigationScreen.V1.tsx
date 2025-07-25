@@ -103,6 +103,7 @@ const BottomTabs = ({ onNavigate, currentScreen, securityComplete = false }) => 
       case 'profile':
         return [
           'profile', 
+          'profile-enhanced',
           'edit-profile',
           'membership-status',
           'verification', 
