@@ -34,7 +34,7 @@ const StakingFlowWithConvert = () => {
     setShowConversion(true);
   };
 
-  const calculateSwapFee = (amount) => {
+  const calculateSwapFee = (amount: string) => {
     const feeRates = { 'CLUB': 0.008, 'PREMIUM': 0.006, 'VIP': 0.004, 'ELITE': 0.0025 };
     return (parseFloat(amount) * feeRates[userTier]).toFixed(2);
   };
