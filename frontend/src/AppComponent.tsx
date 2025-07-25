@@ -371,6 +371,14 @@ const AppRouter: React.FC = () => {
             }}
           />
         );
+      case 'sms-2fa-verification':
+        return (
+          <SMS2FAVerificationScreen 
+            onBack={() => setScreen('login')}
+            onSuccess={() => setScreen('dashboard')}
+            onNavigate={navigateToScreen}
+          />
+        );
       case '2fa-setup':
         return (
           <SMS2FASetupScreen 
