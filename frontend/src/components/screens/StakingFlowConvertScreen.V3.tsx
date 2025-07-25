@@ -205,6 +205,7 @@ const StakingFlowWithConvert: React.FC<StakingFlowConvertScreenProps> = ({ onNav
               <div className="space-y-3">
                 <button 
                   disabled={!convertAmount}
+                  onClick={() => window.location.href = '/create'}
                   className="w-full bg-gradient-to-r from-green-600 to-purple-600 text-white py-4 rounded-lg font-semibold hover:from-green-700 hover:to-purple-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Convert & Start Staking
