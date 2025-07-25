@@ -4,6 +4,8 @@ interface StakingDashboardScreenProps {
   onNavigate?: (screen: string) => void;
 }
 
+type TierType = 'CLUB' | 'PREMIUM' | 'VIP' | 'ELITE';
+
 const DashboardWithSwapWidget: React.FC<StakingDashboardScreenProps> = ({ onNavigate }) => {
   const [showSwapWidget, setShowSwapWidget] = useState(false);
   const [quickSwapAmount, setQuickSwapAmount] = useState('');
