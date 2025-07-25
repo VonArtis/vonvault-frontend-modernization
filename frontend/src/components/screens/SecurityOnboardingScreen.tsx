@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 interface SecurityOnboardingHubProps {
   onNavigate?: (screen: string) => void;
+  onSecurityComplete?: () => void; // New callback for security completion
   userType?: 'web2' | 'web3';
   initialProgress?: {
     walletConnected?: boolean;
