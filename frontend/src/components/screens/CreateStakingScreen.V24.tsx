@@ -259,7 +259,7 @@ const CreateStakingScreen: React.FC<CreateStakingScreenProps> = ({ onBack, onNav
                       </span>
                     )}
                     <button
-                      onClick={() => setAmount(selectedTokenData?.balance.toString())}
+                      onClick={() => selectedTokenData && setAmount(selectedTokenData.balance.toString())}
                       className="text-purple-400 hover:text-purple-300"
                     >
                       Use Max
