@@ -17,6 +17,8 @@ import StakingTiersScreen from "./components/screens/StakingTiersScreen.V6";
 
 // Import enhanced profile screen
 import ProfileScreenAndSecurityHub from "./components/screens/ProfileScreenAndSecurityHub.V19";
+import FAQScreen from "./components/screens/FAQScreen";
+import SMS2FAVerificationScreen from "./components/screens/SMS2FAVerificationScreen";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
