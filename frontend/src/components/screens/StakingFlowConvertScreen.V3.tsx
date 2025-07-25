@@ -35,7 +35,14 @@ const StakingFlowWithConvert: React.FC<StakingFlowConvertScreenProps> = ({ onNav
     const usdAmount = parseFloat(amount || '0');
     const vonVaultFeeRates = { 'CLUB': 0.008, 'PREMIUM': 0.006, 'VIP': 0.004, 'ELITE': 0.0025 };
     const platformFeeRate = 0.0085; // Reown fee
-    const networkGasFee = 15; // Estimated gas cost
+    
+    // Network-specific gas fees to match web3Service
+    const networkGasFees = {
+      'ethereum': 15,  // Higher gas on Ethereum
+      'polygon': 2,    // Lower gas on Polygon  
+      'bsc': 1         // Lowest gas on BNB Smart Chain
+    };
+    const networkGasFee = networkGasFees['ethereum']; // Default to Ethereum, but could be dynamic
     
     const vonVaultFee = usdAmount * vonVaultFeeRates[userTier];
     const platformFee = usdAmount * platformFeeRate;
