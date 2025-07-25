@@ -440,6 +440,10 @@ const AppRouter: React.FC = () => {
         return (
           <SecurityHubScreen 
             onNavigate={navigateToScreen}
+            onSecurityComplete={() => setSecurityProgress({
+              completedLayers: 6,
+              isComplete: true
+            })}
             userType={userJourney.userType}
             initialProgress={userJourney.verificationProgress}
           />
