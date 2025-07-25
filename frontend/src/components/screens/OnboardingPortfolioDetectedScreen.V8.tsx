@@ -499,7 +499,13 @@ const OnboardingConvertFlow: React.FC<OnboardingPortfolioDetectedScreenProps> = 
           </div>
         </div>
 
-        <button className="w-full bg-gradient-to-r from-green-600 to-purple-600 text-white py-4 rounded-xl font-semibold hover:from-green-700 hover:to-purple-700 transition-all">
+        <button 
+          onClick={() => {
+            onContinue?.();
+            onNavigate?.('staking-dashboard');
+          }}
+          className="w-full bg-gradient-to-r from-green-600 to-purple-600 text-white py-4 rounded-xl font-semibold hover:from-green-700 hover:to-purple-700 transition-all"
+        >
           Start Earning 15% APY →
         </button>
       </div>
