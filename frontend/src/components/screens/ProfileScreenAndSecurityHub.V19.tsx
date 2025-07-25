@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { VonVaultTierLogo } from '../ui/VonVaultTierLogo';
 
 const ProfileScreen = ({ onNavigate }) => {
   // Mock user data with verification status
