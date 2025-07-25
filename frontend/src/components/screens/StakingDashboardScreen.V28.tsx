@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { VonVaultTierLogo } from '../ui/VonVaultTierLogo';
 
 interface StakingDashboardScreenProps {
   onNavigate?: (screen: string) => void;
