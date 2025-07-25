@@ -192,11 +192,18 @@ const StakingTiersScreen = () => {
                   )}
 
                   <div className="flex items-center justify-between mb-4">
-                    <div>
-                      <h4 className="text-2xl font-bold text-white mb-1">{tier.name}</h4>
-                      <p className="text-sm text-gray-300">
-                        ${tier.min_amount.toLocaleString()} - ${tier.max_amount?.toLocaleString() || '∞'}
-                      </p>
+                    <div className="flex items-center">
+                      <VonVaultTierLogo 
+                        tier={tier.name as 'BASIC' | 'CLUB' | 'PREMIUM' | 'VIP' | 'ELITE'}
+                        size="small"
+                        className="mr-3"
+                      />
+                      <div>
+                        <h4 className="text-2xl font-bold text-white mb-1">{tier.name}</h4>
+                        <p className="text-sm text-gray-300">
+                          ${tier.min_amount.toLocaleString()} - ${tier.max_amount?.toLocaleString() || '∞'}
+                        </p>
+                      </div>
                     </div>
                     <div className="text-right">
                       <p className="text-4xl font-bold text-white">{tier.apy}%</p>
