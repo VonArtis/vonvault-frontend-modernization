@@ -15,6 +15,9 @@ import StakingHistoryScreen from "./components/screens/StakingHistoryScreen.V17"
 import StakingAnalyticsScreen from "./components/screens/StakingAnalyticsScreen.V24";
 import StakingTiersScreen from "./components/screens/StakingTiersScreen.V6";
 
+// Import enhanced profile screen
+import ProfileScreenAndSecurityHub from "./components/screens/ProfileScreenAndSecurityHub.V19";
+
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
