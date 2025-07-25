@@ -27,6 +27,7 @@ import StakingHistoryScreen from './components/screens/StakingHistoryScreen.V17'
 import StakingTiersScreen from './components/screens/StakingTiersScreen.V6';
 import StakingFlowConvertScreen from './components/screens/StakingFlowConvertScreen.V3';
 import StakingCompletionScreen from './components/screens/StakingCompletionScreen.V3';
+import OnboardingPortfolioDetectedScreen from './components/screens/OnboardingPortfolioDetectedScreen.V8';
 import SecurityHubScreen from './components/screens/SecurityOnboardingScreen';
 import StakingDashboardScreen from './components/screens/StakingDashboardScreen.V28';
 import ProfileScreen from './components/screens/ProfileScreen.V42';
