@@ -167,7 +167,7 @@ const DashboardWithSwapWidget: React.FC<StakingDashboardScreenProps> = ({ onNavi
             Stake More
           </button>
           <button 
-            onClick={() => onNavigate && onNavigate('staking-flow-convert')}
+            onClick={() => onNavigate && onNavigate('convert')}
             className="bg-gray-800 text-gray-300 py-4 px-6 rounded-xl font-semibold hover:bg-gray-700 transition-all border border-gray-700 flex items-center justify-center"
           >
             <span className="mr-2">💱</span>
