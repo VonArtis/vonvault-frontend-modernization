@@ -48,9 +48,10 @@ const Home: React.FC = () => {
           </svg>
         </div>
         <h1 className="text-3xl font-bold text-white mb-4">VonVault Staking Platform</h1>
-        <p className="text-gray-300 mb-8">PHASE 1: Core Staking Flow Integration</p>
+        <p className="text-gray-300 mb-8">PHASE 1 & 2: Complete Staking Integration</p>
         
-        <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
+        <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
+          {/* PHASE 1: Core Staking Flow */}
           <a
             href="/dashboard"
             className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-xl transition-all text-center"
@@ -74,6 +75,26 @@ const Home: React.FC = () => {
             className="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-xl transition-all text-center"
           >
             ✅ Completion
+          </a>
+          
+          {/* PHASE 2: Supporting Features */}
+          <a
+            href="/history"
+            className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-xl transition-all text-center"
+          >
+            📜 History
+          </a>
+          <a
+            href="/analytics"
+            className="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-6 rounded-xl transition-all text-center"
+          >
+            📈 Analytics
+          </a>
+          <a
+            href="/tiers"
+            className="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-xl transition-all text-center col-span-2"
+          >
+            🏆 Staking Tiers
           </a>
         </div>
       </header>
