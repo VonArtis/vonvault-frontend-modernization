@@ -218,6 +218,16 @@ const AppRouter: React.FC = () => {
               <StakingTiersScreen />
             } 
           />
+          
+          {/* Enhanced Profile Screen */}
+          <Route 
+            path="/profile-enhanced" 
+            element={
+              <ProfileScreenAndSecurityHub 
+                onNavigate={handleNavigate}
+              />
+            } 
+          />
           <Route 
             path="/dashboard" 
             element={
