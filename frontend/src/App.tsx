@@ -4,11 +4,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import { ScreenType } from "./types";
 
-// Import the 4 core staking screens
+// Import the 4 core staking screens (PHASE 1)
 import StakingDashboardScreen from "./components/screens/StakingDashboardScreen.V28";
 import StakingFlowConvertScreen from "./components/screens/StakingFlowConvertScreen.V3";
 import CreateStakingScreen from "./components/screens/CreateStakingScreen.V24";
 import StakingCompletionScreen from "./components/screens/StakingCompletionScreen.V3";
+
+// Import the 3 supporting staking screens (PHASE 2)  
+import StakingHistoryScreen from "./components/screens/StakingHistoryScreen.V17";
+import StakingAnalyticsScreen from "./components/screens/StakingAnalyticsScreen.V24";
+import StakingTiersScreen from "./components/screens/StakingTiersScreen.V6";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
