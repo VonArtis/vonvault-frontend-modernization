@@ -136,7 +136,7 @@ const CreateStakingScreen: React.FC<CreateStakingScreenProps> = ({ onBack, onNav
                 <div className="text-center">
                   <div className="flex justify-between text-sm mb-2">
                     <span className="text-gray-400">
-                      Minimum: $100 • Available: ${selectedTokenData?.balance.toLocaleString()}
+                      Minimum: $100 • Available: ${selectedTokenData?.balance.toLocaleString() || '0'}
                     </span>
                     {isOverBalance && (
                       <span className="text-red-400 font-semibold">
