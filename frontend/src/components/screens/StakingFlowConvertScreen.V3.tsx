@@ -39,7 +39,7 @@ const StakingFlowWithConvert = () => {
     return (parseFloat(amount) * feeRates[userTier]).toFixed(2);
   };
 
-  const calculateReceived = (amount) => {
+  const calculateReceived = (amount: string) => {
     const fee = calculateSwapFee(amount);
     return (parseFloat(amount) - parseFloat(fee)).toFixed(2);
   };
