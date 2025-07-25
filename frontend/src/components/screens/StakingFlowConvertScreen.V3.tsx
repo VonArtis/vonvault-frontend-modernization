@@ -29,7 +29,7 @@ const StakingFlowWithConvert = () => {
     'ELITE': '0.25%'
   };
 
-  const handleConvertAndStake = (asset) => {
+  const handleConvertAndStake = (asset: WalletAsset) => {
     setSelectedAsset(asset);
     setShowConversion(true);
   };
