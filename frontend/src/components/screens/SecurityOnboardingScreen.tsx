@@ -310,6 +310,13 @@ const SecurityOnboardingHub: React.FC<SecurityOnboardingHubProps> = ({
 
   const isSetupComplete = completedLayers >= requiredLayers;
 
+  // Notify parent when security setup is complete
+  useEffect(() => {
+    if (isSetupComplete && onSecurityComplete) {
+      onSecurityComplete();
+    }
+  }, [isSetupComplete, onSecurityComplete]);
+
   return (
     <div className="min-h-screen bg-gray-950 text-white">
       {/* Header */}
