@@ -408,10 +408,10 @@ const SecurityOnboardingHub: React.FC<SecurityOnboardingHubProps> = ({
             <div className="bg-green-900/30 border border-green-500/30 rounded-lg p-3 text-center">
               <p className="text-green-300 font-medium mb-2">🏆 Security Setup Complete!</p>
               <button
-                onClick={() => onNavigate?.('staking-dashboard')}
+                onClick={() => onNavigate?.('portfolio-detected')}
                 className="bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors"
               >
-                Enter VonVault Platform
+                Analyze Portfolio & Enter Platform
               </button>
             </div>
           )}
