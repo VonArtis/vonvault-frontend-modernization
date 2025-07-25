@@ -27,7 +27,7 @@ const CreateStakingScreen: React.FC<CreateStakingScreenProps> = ({ onBack, onNav
   ];
 
   // Calculate tier based on amount
-  const calculateTier = (stakeAmount) => {
+  const calculateTier = (stakeAmount: number) => {
     if (stakeAmount >= 200000) return { name: 'ELITE', apy: 20, color: '#F59E0B' };
     if (stakeAmount >= 50000) return { name: 'VIP', apy: 15, color: '#8B5CF6' };
     if (stakeAmount >= 10000) return { name: 'PREMIUM', apy: 12, color: '#3B82F6' };
