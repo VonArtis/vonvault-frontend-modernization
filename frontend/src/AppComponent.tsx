@@ -500,6 +500,13 @@ const AppRouter: React.FC = () => {
             initialProgress={userJourney.verificationProgress}
           />
         );
+      case 'portfolio-detected':
+        return (
+          <OnboardingPortfolioDetectedScreen 
+            onNavigate={navigateToScreen}
+            onContinue={() => setScreen('staking-dashboard')}
+          />
+        );
       case 'staking-dashboard':
         return (
           <StakingDashboardScreen 
