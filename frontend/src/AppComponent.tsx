@@ -505,6 +505,55 @@ const AppRouter: React.FC = () => {
             onNavigate={handleNavigateCallback} 
           />
         );
+      case 'staking-flow-convert':
+        return (
+          <MobileLayoutWithTabs 
+            onNavigate={handleNavigation} 
+            currentScreen="staking-flow-convert"
+            showTabs={true}
+            securityComplete={securityProgress.isComplete}
+          >
+            <StakingFlowConvertScreen 
+              onNavigate={navigateToScreen} 
+            />
+          </MobileLayoutWithTabs>
+        );
+      case 'staking-completion':
+        return (
+          <MobileLayoutWithTabs 
+            onNavigate={handleNavigation} 
+            currentScreen="staking-completion"
+            showTabs={true}
+            securityComplete={securityProgress.isComplete}
+          >
+            <StakingCompletionScreen />
+          </MobileLayoutWithTabs>
+        );
+      case 'staking-history':
+        return (
+          <MobileLayoutWithTabs 
+            onNavigate={handleNavigation} 
+            currentScreen="staking-history"
+            showTabs={true}
+            securityComplete={securityProgress.isComplete}
+          >
+            <StakingHistoryScreen />
+          </MobileLayoutWithTabs>
+        );
+      case 'staking-analytics':
+        return (
+          <MobileLayoutWithTabs 
+            onNavigate={handleNavigation} 
+            currentScreen="staking-analytics"
+            showTabs={true}
+            securityComplete={securityProgress.isComplete}
+          >
+            <StakingAnalyticsScreen 
+              onBack={() => setScreen('dashboard')}
+              onNavigate={navigateToScreen}
+            />
+          </MobileLayoutWithTabs>
+        );
       case 'profile-settings':
         return (
           <BiometricSetupScreen 
