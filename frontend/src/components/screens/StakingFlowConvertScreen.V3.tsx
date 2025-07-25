@@ -8,7 +8,7 @@ interface WalletAsset {
   canStake: boolean;
 }
 
-const StakingFlowWithConvert = () => {
+const StakingFlowConvertScreen = () => {
   const [selectedAsset, setSelectedAsset] = useState<WalletAsset | null>(null);
   const [convertAmount, setConvertAmount] = useState('');
   const [showConversion, setShowConversion] = useState(false);
