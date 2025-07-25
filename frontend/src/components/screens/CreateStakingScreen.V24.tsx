@@ -45,8 +45,8 @@ const CreateStakingScreen: React.FC<CreateStakingScreenProps> = ({ onBack, onNav
 
   const selectedTokenData = tokens.find(t => t.symbol === selectedToken);
   const totalRequired = amount ? (parseFloat(amount) + parseFloat(platformFee)) : 0;
-  const isValidAmount = amount && parseFloat(amount) >= 100 && totalRequired <= selectedTokenData?.balance;
-  const isOverBalance = amount && totalRequired > selectedTokenData?.balance;
+  const isValidAmount = amount && parseFloat(amount) >= 100 && selectedTokenData && totalRequired <= selectedTokenData.balance;
+  const isOverBalance = amount && selectedTokenData && totalRequired > selectedTokenData.balance;
 
   return (
     <div className="min-h-screen bg-gray-950 text-white">
