@@ -352,12 +352,23 @@ class VonVaultWeb3Service {
   // Calculate and route swap/exchange fees to operations wallet
   async calculateSwapFees(amount, userTier, network = 'ethereum') {
     const config = NETWORK_CONFIG[network];
+    if (!config) {
+      throw new Error(`Unsupported network: ${network}. Supported networks: ethereum, polygon, bsc`);
+    }
+    
     const grossAmount = parseFloat(amount);
     
     // Fee structure: VonVault Fee (tier-based) + Platform Fee (0.85% Reown) + Network Gas
     const vonVaultFeeRates = { 'CLUB': 0.008, 'PREMIUM': 0.006, 'VIP': 0.004, 'ELITE': 0.0025 };
     const platformFeeRate = 0.0085; // Reown fee
-    const networkGasFee = 15; // Estimated gas cost
+    
+    // Network-specific gas fees
+    const networkGasFees = {
+      'ethereum': 15,  // Higher gas on Ethereum
+      'polygon': 2,    // Lower gas on Polygon
+      'bsc': 1         // Lowest gas on BNB Smart Chain
+    };
+    const networkGasFee = networkGasFees[network] || 15;
     
     const vonVaultFee = grossAmount * vonVaultFeeRates[userTier];
     const platformFee = grossAmount * platformFeeRate;
@@ -371,11 +382,13 @@ class VonVaultWeb3Service {
       networkGasFee: networkGasFee,
       totalFees: totalFees,
       netReceived: netReceived,
+      network: network,
       operationsWallet: config.operationsWallet, // Where all fees go
       feeRouting: {
         destination: config.operationsWallet,
         vonVaultPortion: vonVaultFee,
         platformPortion: platformFee,
+        networkName: config.name,
         note: "All swap fees route to VonVault Operations Wallet"
       }
     };
