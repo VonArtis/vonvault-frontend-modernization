@@ -700,6 +700,20 @@ const AppRouter: React.FC = () => {
             />
           </MobileLayoutWithTabs>
         );
+      case 'faq':
+        return (
+          <MobileLayoutWithTabs 
+            onNavigate={handleNavigation} 
+            currentScreen="faq"
+            showTabs={true}
+            securityComplete={securityProgress.isComplete}
+          >
+            <FAQScreen 
+              onBack={() => setScreen('dashboard')}
+              onNavigate={navigateToScreen}
+            />
+          </MobileLayoutWithTabs>
+        );
       case 'ui-catalog':
         return (
           <UiCatalogScreen 
