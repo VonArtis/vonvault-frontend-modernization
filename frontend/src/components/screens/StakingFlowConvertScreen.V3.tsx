@@ -250,4 +250,4 @@ const StakingFlowConvertScreen = () => {
   );
 };
 
-export default StakingFlowWithConvert;
+export default StakingFlowConvertScreen;
