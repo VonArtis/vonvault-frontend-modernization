@@ -205,7 +205,7 @@ const StakingFlowWithConvert: React.FC<StakingFlowConvertScreenProps> = ({ onNav
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-400">VIP Fee ({swapFees[userTier]})</span>
-                      <span className="text-orange-400">-${calculateSwapFee(convertAmount)}</span>
+                      <span className="text-orange-400">-${calculateSwapFee(convertAmount).vonVaultFee}</span>
                     </div>
                     <hr className="border-gray-700" />
                     <div className="flex justify-between font-semibold">
