@@ -34,8 +34,23 @@ const WalletManagementWithSwap: React.FC<WalletManagementScreenProps> = ({ onBac
   };
 
   const calculateSwapFee = (amount) => {
-    const feeRates = { 'CLUB': 0.008, 'PREMIUM': 0.006, 'VIP': 0.004, 'ELITE': 0.0025 };
-    return (parseFloat(amount || 0) * feeRates[userTier]).toFixed(4);
+    const usdAmount = parseFloat(amount || '0');
+    const vonVaultFeeRates = { 'CLUB': 0.008, 'PREMIUM': 0.006, 'VIP': 0.004, 'ELITE': 0.0025 };
+    const platformFeeRate = 0.0085; // Reown fee
+    const networkGasFee = 15; // Estimated gas cost
+    
+    const vonVaultFee = usdAmount * vonVaultFeeRates[userTier];
+    const platformFee = usdAmount * platformFeeRate;
+    const totalFees = vonVaultFee + platformFee + networkGasFee;
+    const receivedAmount = usdAmount - totalFees;
+    
+    return {
+      vonVaultFee: vonVaultFee.toFixed(2),
+      platformFee: platformFee.toFixed(2),
+      networkGasFee: networkGasFee.toFixed(2),
+      totalFees: totalFees.toFixed(2),
+      receivedAmount: receivedAmount.toFixed(2)
+    };
   };
 
   const getSwapSuggestions = (asset) => {
