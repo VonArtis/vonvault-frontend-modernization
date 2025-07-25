@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { VonVaultTierLogo } from '../ui/VonVaultTierLogo';
 
 const StakingTiersScreen = () => {
   const [showSimpleMode, setShowSimpleMode] = useState(true);
