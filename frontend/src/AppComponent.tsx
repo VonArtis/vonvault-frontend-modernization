@@ -683,6 +683,22 @@ const AppRouter: React.FC = () => {
             />
           </MobileLayoutWithTabs>
         );
+      case 'profile-enhanced':
+        return (
+          <MobileLayoutWithTabs 
+            onNavigate={handleNavigation} 
+            currentScreen="profile-enhanced"
+            showTabs={true}
+            securityComplete={securityProgress.isComplete}
+          >
+            <ProfileScreenAndSecurityHub 
+              onBack={() => setScreen('dashboard')}
+              onNavigate={navigateToScreen}
+              userType={userJourney.userType}
+              securityProgress={securityProgress}
+            />
+          </MobileLayoutWithTabs>
+        );
       case 'ui-catalog':
         return (
           <UiCatalogScreen 
