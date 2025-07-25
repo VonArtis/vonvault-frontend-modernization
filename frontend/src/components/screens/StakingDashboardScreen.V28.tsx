@@ -29,12 +29,12 @@ const DashboardWithSwapWidget: React.FC<StakingDashboardScreenProps> = ({ onNavi
     sum + parseFloat(asset.usdValue.replace(',', '')), 0
   );
 
-  const userTier = userData.currentTier;
-  const swapFees = { 'CLUB': '0.8%', 'PREMIUM': '0.6%', 'VIP': '0.4%', 'ELITE': '0.25%' };
+  const userTier: TierType = userData.currentTier;
+  const swapFees: Record<TierType, string> = { 'CLUB': '0.8%', 'PREMIUM': '0.6%', 'VIP': '0.4%', 'ELITE': '0.25%' };
 
-  const calculateSwapFee = (amount) => {
-    const feeRates = { 'CLUB': 0.008, 'PREMIUM': 0.006, 'VIP': 0.004, 'ELITE': 0.0025 };
-    return (parseFloat(amount || 0) * feeRates[userTier]).toFixed(2);
+  const calculateSwapFee = (amount: string) => {
+    const feeRates: Record<TierType, number> = { 'CLUB': 0.008, 'PREMIUM': 0.006, 'VIP': 0.004, 'ELITE': 0.0025 };
+    return (parseFloat(amount || '0') * feeRates[userTier]).toFixed(2);
   };
 
   return (
