@@ -199,18 +199,36 @@ const StakingFlowWithConvert: React.FC<StakingFlowConvertScreenProps> = ({ onNav
                     <span className="text-purple-300 font-bold">{swapFees[userTier]} fee</span>
                   </div>
                   <div className="space-y-1 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">Conversion Amount</span>
-                      <span className="text-white">${convertAmount}</span>
+                    {/* Complete Fee Transparency */}
+                    <div className="flex justify-between text-white font-medium">
+                      <span>You Pay:</span>
+                      <span>{convertAmount && selectedAsset ? `${(parseFloat(convertAmount) / parseFloat(selectedAsset.usdValue.replace(',', ''))).toFixed(4)} ${selectedAsset.symbol} ($${convertAmount})` : '$0'}</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">VIP Fee ({swapFees[userTier]})</span>
-                      <span className="text-orange-400">-${calculateSwapFee(convertAmount).vonVaultFee}</span>
+                    
+                    <div className="border-t border-gray-600 pt-2 space-y-1">
+                      <div className="flex justify-between">
+                        <span className="text-gray-400">VonVault Fee ({swapFees[userTier]}):</span>
+                        <span className="text-orange-400">-${convertAmount ? calculateSwapFee(convertAmount).vonVaultFee : '0.00'}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-400">Platform Fee (0.85%):</span>
+                        <span className="text-orange-400">-${convertAmount ? calculateSwapFee(convertAmount).platformFee : '0.00'}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-400">Network Gas:</span>
+                        <span className="text-orange-400">~${convertAmount ? calculateSwapFee(convertAmount).networkGasFee : '0.00'}</span>
+                      </div>
                     </div>
-                    <hr className="border-gray-700" />
-                    <div className="flex justify-between font-semibold">
-                      <span className="text-white">You Receive</span>
-                      <span className="text-green-400">${calculateReceived(convertAmount)} USDC</span>
+                    
+                    <div className="border-t border-gray-600 pt-2">
+                      <div className="flex justify-between font-semibold">
+                        <span className="text-white">You Receive:</span>
+                        <span className="text-green-400">~${convertAmount ? calculateReceived(convertAmount) : '0.00'} USDC</span>
+                      </div>
+                      <div className="flex justify-between text-sm mt-1">
+                        <span className="text-red-400 font-medium">Total Fees:</span>
+                        <span className="text-red-400 font-medium">${convertAmount ? calculateSwapFee(convertAmount).totalFees : '0.00'}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
