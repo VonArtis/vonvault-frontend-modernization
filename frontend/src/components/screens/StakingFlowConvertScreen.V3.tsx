@@ -239,7 +239,27 @@ const StakingFlowWithConvert: React.FC<StakingFlowConvertScreenProps> = ({ onNav
               <div className="space-y-3">
                 <button 
                   disabled={!convertAmount}
-                  onClick={() => window.location.href = '/create'}
+                  onClick={async () => {
+                    if (convertAmount && selectedAsset) {
+                      try {
+                        // Execute swap with fee routing to operations wallet
+                        const swapResult = await web3Service.executeSwapWithFeeRouting(
+                          selectedAsset.symbol,
+                          'USDC',
+                          convertAmount,
+                          userTier
+                        );
+                        
+                        console.log('✅ Swap completed with fee routing:', swapResult);
+                        
+                        // Redirect to create staking screen
+                        window.location.href = '/create';
+                      } catch (error) {
+                        console.error('❌ Swap execution failed:', error);
+                        alert('Swap failed: ' + error.message);
+                      }
+                    }
+                  }}
                   className="w-full bg-gradient-to-r from-green-600 to-purple-600 text-white py-4 rounded-lg font-semibold hover:from-green-700 hover:to-purple-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Convert & Start Staking
