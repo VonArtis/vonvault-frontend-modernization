@@ -109,63 +109,82 @@ const AppRouter: React.FC = () => {
     setCurrentScreen(screen as ScreenType);
   };
 
+  const renderCurrentScreen = () => {
+    switch (currentScreen) {
+      case 'staking-dashboard':
+      case 'dashboard':
+        return (
+          <StakingDashboardScreen 
+            onNavigate={handleNavigate} 
+          />
+        );
+      
+      case 'staking-flow-convert':
+        return (
+          <StakingFlowConvertScreen 
+            onNavigate={handleNavigate}
+          />
+        );
+      
+      case 'create-staking':
+        return (
+          <CreateStakingScreen 
+            onBack={() => handleNavigate('staking-flow-convert')}
+            onNavigate={handleNavigate}
+          />
+        );
+      
+      case 'staking-completion':
+        return (
+          <StakingCompletionScreen />
+        );
+      
+      case 'staking-history':
+        return (
+          <StakingHistoryScreen />
+        );
+      
+      case 'staking-analytics':
+        return (
+          <StakingAnalyticsScreen 
+            onBack={() => handleNavigate('dashboard')}
+            onNavigate={handleNavigate}
+          />
+        );
+      
+      case 'staking-tiers':
+        return (
+          <StakingTiersScreen />
+        );
+      
+      default:
+        return (
+          <StakingDashboardScreen 
+            onNavigate={handleNavigate} 
+          />
+        );
+    }
+  };
+
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           
-          {/* PHASE 1: Core Staking Flow */}
+          {/* Single route that handles all staking screens with proper navigation flow */}
+          <Route 
+            path="/staking/*" 
+            element={renderCurrentScreen()} 
+          />
+          
+          {/* Legacy routes for direct access during development */}
           <Route 
             path="/dashboard" 
             element={
               <StakingDashboardScreen 
                 onNavigate={handleNavigate} 
               />
-            } 
-          />
-          <Route 
-            path="/convert" 
-            element={
-              <StakingFlowConvertScreen />
-            } 
-          />
-          <Route 
-            path="/create" 
-            element={
-              <CreateStakingScreen 
-                onBack={() => handleNavigate('staking-flow-convert')}
-                onNavigate={handleNavigate}
-              />
-            } 
-          />
-          <Route 
-            path="/completion" 
-            element={
-              <StakingCompletionScreen />
-            } 
-          />
-
-          {/* PHASE 2: Supporting Staking Features */}
-          <Route 
-            path="/history" 
-            element={
-              <StakingHistoryScreen />
-            } 
-          />
-          <Route 
-            path="/analytics" 
-            element={
-              <StakingAnalyticsScreen 
-                onBack={() => handleNavigate('dashboard')}
-                onNavigate={handleNavigate}
-              />
-            } 
-          />
-          <Route 
-            path="/tiers" 
-            element={
-              <StakingTiersScreen />
             } 
           />
         </Routes>
