@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 
+interface WalletAsset {
+  symbol: string;
+  balance: string;
+  usdValue: string;
+  icon: string;
+  canStake: boolean;
+}
+
 const StakingFlowWithConvert = () => {
-  const [selectedAsset, setSelectedAsset] = useState(null);
+  const [selectedAsset, setSelectedAsset] = useState<WalletAsset | null>(null);
   const [convertAmount, setConvertAmount] = useState('');
   const [showConversion, setShowConversion] = useState(false);
 
