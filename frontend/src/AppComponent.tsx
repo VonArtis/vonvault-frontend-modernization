@@ -554,6 +554,17 @@ const AppRouter: React.FC = () => {
             />
           </MobileLayoutWithTabs>
         );
+      case 'staking-tiers':
+        return (
+          <MobileLayoutWithTabs 
+            onNavigate={handleNavigation} 
+            currentScreen="staking-tiers"
+            showTabs={true}
+            securityComplete={securityProgress.isComplete}
+          >
+            <StakingTiersScreen />
+          </MobileLayoutWithTabs>
+        );
       case 'profile-settings':
         return (
           <BiometricSetupScreen 
