@@ -13,7 +13,7 @@ const DashboardWithSwapWidget: React.FC<StakingDashboardScreenProps> = ({ onNavi
   const userData = {
     totalStaked: 75500,
     totalAccrued: 8240,
-    currentTier: 'VIP',
+    currentTier: 'VIP' as TierType,
     currentApy: 15,
     monthlyIncome: 945,
     activeStakes: 2
