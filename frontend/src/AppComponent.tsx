@@ -800,7 +800,7 @@ const AppRouter: React.FC = () => {
   };
 
   // Screens that should show bottom tabs (main app screens)
-  const tabScreens = ['dashboard', 'investments', 'crypto', 'profile', 'profile-enhanced', 'staking-dashboard', 'staking-flow-convert', 'staking-completion', 'staking-history', 'staking-analytics', 'staking-tiers', 'admin-dashboard', 'admin-users', 'admin-investments', 'admin-crypto', 'admin-plans'];
+  const tabScreens = ['dashboard', 'investments', 'crypto', 'profile', 'profile-enhanced', 'faq', 'staking-dashboard', 'staking-flow-convert', 'staking-completion', 'staking-history', 'staking-analytics', 'staking-tiers', 'admin-dashboard', 'admin-users', 'admin-investments', 'admin-crypto', 'admin-plans'];
   const showTabs = tabScreens.includes(screen);
 
   // Handle bottom tab navigation
