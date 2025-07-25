@@ -51,8 +51,8 @@ const StakingFlowWithConvert: React.FC<StakingFlowConvertScreenProps> = ({ onNav
   };
 
   const calculateReceived = (amount) => {
-    const fee = calculateSwapFee(amount);
-    return (parseFloat(amount) - parseFloat(fee)).toFixed(2);
+    const feeData = calculateSwapFee(amount);
+    return feeData.receivedAmount;
   };
 
   return (
