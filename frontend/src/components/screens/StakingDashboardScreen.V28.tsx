@@ -57,9 +57,11 @@ const DashboardWithSwapWidget: React.FC<StakingDashboardScreenProps> = ({ onNavi
         <div className="bg-gradient-to-br from-purple-600/20 via-purple-800/10 to-gray-900 rounded-xl p-6 border border-purple-500/30">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              <div className="bg-purple-500/20 rounded-full p-3 mr-4">
-                <span className="text-xl">🔒</span>
-              </div>
+              <VonVaultTierLogo 
+                tier={userData.currentTier}
+                size="medium"
+                className="mr-4"
+              />
               <div>
                 <h3 className="text-2xl font-bold text-white">{userData.currentTier} Tier</h3>
                 <p className="text-purple-300">Premium Member</p>
