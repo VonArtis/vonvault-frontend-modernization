@@ -153,8 +153,8 @@ const CreateStakingScreen: React.FC<CreateStakingScreenProps> = ({ onBack, onNav
                         💳 Wallet Top-Up Required
                       </p>
                       <p className="text-xs text-gray-300">
-                        Total needed: ${totalRequired.toLocaleString()} • You have: ${selectedTokenData?.balance.toLocaleString()}
-                        <br />Missing: ${(totalRequired - selectedTokenData?.balance).toLocaleString()}
+                        Total needed: ${totalRequired.toLocaleString()} • You have: ${selectedTokenData?.balance.toLocaleString() || '0'}
+                        <br />Missing: ${selectedTokenData ? (totalRequired - selectedTokenData.balance).toLocaleString() : '0'}
                       </p>
                     </div>
                   )}
