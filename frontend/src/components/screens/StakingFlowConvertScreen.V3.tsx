@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { web3Service } from '../../services/web3Service';
 
 interface StakingFlowConvertScreenProps {
   onNavigate?: (screen: string) => void;
