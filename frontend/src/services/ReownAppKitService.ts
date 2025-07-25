@@ -43,13 +43,11 @@ const metadata = {
   icons: ['https://vonartis.app/favicon.ico']
 }
 
-// Supported chains for VonVault
+// Supported chains for VonVault (Original 3-chain setup)
 const chains = [
-  mainnet,
-  arbitrum,
-  polygon,
-  optimism,
-  base
+  mainnet,   // Ethereum
+  polygon,   // Polygon
+  bsc        // BNB Smart Chain
 ]
 
 // Create Ethers adapter
